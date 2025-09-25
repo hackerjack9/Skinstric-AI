@@ -12,7 +12,9 @@ justify-content: space-between;
 }
 
 .nav-wrap {
-  display: flex;
+display: flex;
+padding: 12px 0px;
+margin: 0px 0px 12px;
 }
 
 .nav-link {
@@ -38,22 +40,25 @@ justify-content: space-between;
   padding: 8px 16px;
 }
 
-/* Home */
+/* Header */
 
 .header-title {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: #1A1B1C;
+  font-size: 100px;
+  transition: 0.3s ease-in-out;
+}
+
+.header-subtitle {
   color: #1A1B1C;
   font-size: 100px;
 }
 
-.header-subtitle {
- display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #1A1B1C;
-  font-size: 100px;
+.hover-trigger:hover ~ .header-title {
+  transform: translateX(-24%); /* Moves the element 30px to the left */
 }
 
 .main-heading {
@@ -62,9 +67,64 @@ justify-content: space-between;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transform: translateX(50%);
+}
+
+/* Left side of screen */
+.discover-button {
+  position: absolute;
+  padding: 4px 12px;
+  color: #1A1B1C;
+  white-space: nowrap;
+  top: 50%;
+  left: 25%;
 }
 
 .discover-button:hover {
 scale: 1.5;
+}
+
+.left-section {
+position: fixed;
+top: 0;
+left: 0;
+}
+
+.left-rectangle {
+  position: relative;
+}
+
+.left-triangle {
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.discover-arrow {
+  border: none;
+}
+
+/* right side of screen */
+
+.test-button {
+  position: absolute;
+  padding: 4px 12px;
+  color: #1A1B1C;
+  white-space: nowrap;
+ 
+}
+
+.right-section {
+position: fixed;
+right: 0;
+top: 0;
+}
+
+.right-rectangle {
+  position: relative;
+}
+
+.right-triangle {
+  position: fixed;
+  top: 0;
+  right: 0;
 }
