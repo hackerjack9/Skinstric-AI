@@ -1,20 +1,24 @@
 /* Default styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Roboto:wght@700&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Roboto", sans-serif;
 }
 
 /* Navigation Bar on Home Page */
 .nav-bar {
 display: flex;
 justify-content: space-between;
+padding: 12px 0px;
+margin: 0px 0px 12px;
 }
 
 .nav-wrap {
 display: flex;
-padding: 12px 0px;
-margin: 0px 0px 12px;
 }
 
 .nav-link {
@@ -40,91 +44,36 @@ margin: 0px 0px 12px;
   padding: 8px 16px;
 }
 
-/* Header */
+/* Home */
 
-.header-title {
+.container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  border: 2px solid red;
+  width: 100%;
+  max-width: 1800px;
+  height: 100vh;
+}
+
+.left-button, .right-button {
+  padding: 10px 0px 10px 48px;
   color: #1A1B1C;
-  font-size: 100px;
-  transition: 0.3s ease-in-out;
-}
-
-.header-subtitle {
-  color: #1A1B1C;
-  font-size: 100px;
-}
-
-.hover-trigger:hover ~ .header-title {
-  transform: translateX(-24%); /* Moves the element 30px to the left */
-}
-
-.main-heading {
-  display: flex;
-  height: 80vh;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Left side of screen */
-.discover-button {
-  position: absolute;
-  padding: 4px 12px;
-  color: #1A1B1C;
+  background-color: white;
   white-space: nowrap;
-  top: 50%;
-  left: 25%;
-}
-
-.discover-button:hover {
-scale: 1.5;
-}
-
-.left-section {
-position: fixed;
-top: 0;
-left: 0;
-}
-
-.left-rectangle {
-  position: relative;
-}
-
-.left-triangle {
-  position: fixed;
-  left: 0;
-  top: 0;
-}
-
-.discover-arrow {
   border: none;
 }
 
-/* right side of screen */
-
-.test-button {
-  position: absolute;
-  padding: 4px 12px;
-  color: #1A1B1C;
-  white-space: nowrap;
- 
+.left-button {
+margin-left: 100px;
 }
 
-.right-section {
-position: fixed;
-right: 0;
-top: 0;
+.right-button {
+margin-right: 150px;
 }
 
-.right-rectangle {
-  position: relative;
-}
 
-.right-triangle {
-  position: fixed;
-  top: 0;
-  right: 0;
-}
+/* @media { */
+  /* 1024 or smaller buttons left and right disappear */
+/* } */
+
+
