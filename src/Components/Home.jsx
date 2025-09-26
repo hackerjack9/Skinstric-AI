@@ -7,7 +7,7 @@ function Home() {
   return (
 
     <div className="body">
-      <div className="button-container">
+      <div className="hovereffect-container">
         <button id="button-left">
           <span>DISCOVER A.I.</span>
           <div className="minibox-left">
@@ -18,13 +18,19 @@ function Home() {
           <h1 className="center-title">Sophisticated</h1>
           <span className="center-subtitle">Skincare</span>
         </div>
-        <button className="button-right">
+        <button id="button-right">
           <span>TAKE TEST</span>
           <div className="minibox-right">
             <span className="minibox-arrow-right">▶</span>
           </div>
         </button>
-      </div>
+         <div className="triangle-right">
+          <img className="triangle-right" src={RightTriangle} alt="" />
+        </div>
+        <div className="triangle-left">
+          <img className="triangle-left" src={LeftTriangle} alt="" />
+        </div>
+    </div>
       <div className="container-text-left">
         <p className="text-left">
           SKINSTRIC DEVELOPED AND A.I. THAT CREATES A
@@ -35,14 +41,6 @@ function Home() {
           <br />
           WHAT YOUR SKIN NEEDS.
         </p>
-      </div>
-      <div className="triangle-container">
-        <div className="triangle-left">
-          <img className="triangle-left" src={LeftTriangle} alt="" />
-        </div>
-        <div className="triangle-right">
-          <img className="triangle-right" src={RightTriangle} alt="" />
-        </div>
       </div>
     </div>
   );

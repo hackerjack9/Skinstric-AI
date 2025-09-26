@@ -62,18 +62,44 @@ body {
   padding: 4px 8px;
 }
 
-/* Home of buttons */
+/* Hover Effects */
 
-.button-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1800px;
-  height: 90vh;
+/*Hover and move left */
+#button-right:hover ~ .center-text {
+    transform: translateX(-200px);
 }
 
-#button-left, .button-right {
+#button-right:hover ~ #button-left {
+  opacity: 0;
+}
+
+#button-right:hover ~ .triangle-left {
+    opacity: 0;
+}
+
+#button-left:hover .minibox-left {
+    background-color: black;
+}
+#button-right:hover .minibox-right {
+    background-color: black;
+}
+
+/* Hover and move right */
+#button-left:hover ~ .center-text {
+    transform: translateX(200px);
+}
+
+#button-left:hover ~ #button-right {
+  opacity: 0;
+}
+
+#button-left:hover ~ .triangle-right {
+    opacity: 0;
+}
+
+
+
+#button-left, #button-right {
   display: flex;
   align-items: center;
   color: #1A1B1C;
@@ -84,6 +110,7 @@ body {
   border: none;
   z-index: 2;
   margin-bottom: 20px;
+ 
 }
 
 #button-left {
@@ -92,7 +119,7 @@ body {
   padding: 8px;
 }
 
-.button-right {
+#button-right {
   margin-right: 106px;
   padding: 8px;
 }
@@ -151,23 +178,27 @@ margin-left: 16px;
   font-weight: 500;
 }
 
-/* Home of the shapes */
-
-.triangle-container {
+.hovereffect-container {
   display: flex;
-  position: absolute;
+  position: relative;
+  align-items: center;
   justify-content: space-between;
-  top: 114px;
   width: 100%;
-  height: 100%;
+  max-width: 1800px;
+  height: 90vh;
 }
 
 .triangle-left {
   width: 320px;
+  position: fixed;
+  top: 125px;
 }
 
 .triangle-right {
   width: 320px;
+  position: absolute;
+  top: 40px;
+  right: 0;
 }
 
 .container-text-left {
@@ -175,12 +206,6 @@ margin-left: 16px;
   bottom:74px;
   left: 24px;
   font-size: 14px;
-}
-
-/* Hover Effects */
-
-.button-left:hover {
-    
 }
 
 /* @media { */
