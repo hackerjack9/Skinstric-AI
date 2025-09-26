@@ -9,11 +9,11 @@ function Home() {
     <div className='button-container'>
       <button className='button-left'>
         <span>DISCOVER A.I.</span>
-<div className='minibox-left'></div>
+<div className='minibox-left'><span className='minibox-arrow-left'>▶</span></div>
       </button>
       <button className='button-right'>
         <span>TAKE TEST</span>
-<div className='minibox-right'></div>
+<div className='minibox-right'><span className='minibox-arrow-right'>▶</span></div>
       </button>
     </div>
     <div className='triangle-container'>

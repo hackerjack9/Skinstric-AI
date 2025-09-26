@@ -78,6 +78,9 @@
 }
 
 .minibox-left {
+  display: flex;
+  position: relative;
+  align-items: center;
 height: 30px;
 width: 30px;
 transform: rotate(45deg);
@@ -86,11 +89,28 @@ margin-right: 20px;
 }
 
 .minibox-right {
+  display: flex;
+  position: relative;
+  align-items: center;
 height: 30px;
 width: 30px;
 transform: rotate(45deg);
 border: 1px solid black;
 margin-left: 20px;
+}
+
+.minibox-arrow-right {
+  position: absolute;
+  transform: rotate(-45deg);
+  margin-left: 8px;
+  margin-bottom: 5px;
+
+}
+
+.minibox-arrow-left {
+  position: absolute;
+  transform: rotate(15deg);
+  margin-left: 8px;
 }
 
 /* Home of the shapes */
