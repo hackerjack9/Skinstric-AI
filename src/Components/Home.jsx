@@ -11,14 +11,21 @@ function Home() {
         <span>DISCOVER A.I.</span>
 <div className='minibox-left'><span className='minibox-arrow-left'>▶</span></div>
       </button>
+
+<div className='center-text'>
+<h1 className='center-title'>Sophisticated</h1>
+<span className='center-subtitle'>Skincare</span>
+</div>
+
+
       <button className='button-right'>
         <span>TAKE TEST</span>
 <div className='minibox-right'><span className='minibox-arrow-right'>▶</span></div>
       </button>
     </div>
     <div className='triangle-container'>
-      <div className='triangle-left'><img src={LeftTriangle} alt="" /></div>
-      <div className='triangle-right'><img src={RightTriangle} alt="" /></div>
+      <div className='triangle-left'><img className='triangle-left' src={LeftTriangle} alt="" /></div>
+      <div className='triangle-right'><img className='triangle-right' src={RightTriangle} alt="" /></div>
     </div>
     </div>
   
