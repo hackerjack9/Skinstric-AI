@@ -1,8 +1,6 @@
 import React from "react";
 import LeftTriangle from "../assets/Shapes/Rectangle 2779.png";
 import RightTriangle from "../assets/Shapes/Rectangle 2778.svg";
-import HoverEffect from "../Components/HoverEffect.jsx";
-
 
 
 function Home() {
@@ -20,7 +18,6 @@ function Home() {
           <h1 className="center-title">Sophisticated</h1>
           <span className="center-subtitle">Skincare</span>
         </div>
-        <HoverEffect />
         <button className="button-right">
           <span>TAKE TEST</span>
           <div className="minibox-right">

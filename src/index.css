@@ -177,33 +177,11 @@ margin-left: 16px;
   font-size: 14px;
 }
 
-
-
 /* Hover Effects */
 
-.center-text {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: all 0.6s ease;
-  z-index: 2;
+.button-left:hover {
+    
 }
-
-.center-text.move-right {
-  left: calc(100% - 200px);
-  transform: translateX(0);
-}
-
-.button-right {
-  transition: opacity 0.6s ease;
-}
-
-.button-right.hidden {
-  opacity: 0;
-}
-
-
-
 
 /* @media { */
   /* 1024 or smaller buttons left and right disappear */
