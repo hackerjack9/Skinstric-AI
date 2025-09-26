@@ -23,6 +23,19 @@ function Home() {
 <div className='minibox-right'><span className='minibox-arrow-right'>▶</span></div>
       </button>
     </div>
+
+
+<div className='container-text-left'>
+  <p className='text-left'>
+    SKINSTRIC DEVELOPED AND A.I. THAT CREATES A
+  <br />
+  HIGHLY-PERSONALIZED ROUTINE TAILORED TO
+  <br />
+  WHAT YOUR SKIN NEEDS.
+  </p>
+</div>
+
+
     <div className='triangle-container'>
       <div className='triangle-left'><img className='triangle-left' src={LeftTriangle} alt="" /></div>
       <div className='triangle-right'><img className='triangle-right' src={RightTriangle} alt="" /></div>
