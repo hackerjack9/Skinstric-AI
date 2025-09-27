@@ -1,24 +1,37 @@
-import React from "react";
+import React, {useState} from "react";
 import LeftTriangle from "../assets/Shapes/Rectangle 2779.png";
 import RightTriangle from "../assets/Shapes/Rectangle 2778.svg";
 
 
 function Home() {
+  const [hovered, setHovered] = useState(null);
   return (
-
     <div className="body">
       <div className="hovereffect-container">
-        <button id="button-left">
+        <button
+        id="button-left"
+        onMouseEnter={() => setHovered('left')}
+        onMouseLeave={() => setHovered(null)}
+        style={{ opacity: hovered === 'right' ? 0 : 1 }}
+      >
           <span>DISCOVER A.I.</span>
           <div className="minibox-left">
             <span className="minibox-arrow-left">▶</span>
           </div>
         </button>
-        <div className="center-text">
+  {/* Center text that moves */}
+        <div
+          className={`center-text ${hovered === "right" ? "move-left" : ""}`}
+        >
           <h1 className="center-title">Sophisticated</h1>
           <span className="center-subtitle">Skincare</span>
         </div>
-        <button id="button-right">
+        <button
+        id="button-right"
+        onMouseEnter={() => setHovered('right')}
+        onMouseLeave={() => setHovered(null)}
+        style={{ opacity: hovered === 'left' ? 0 : 1 }}
+      >
           <span>TAKE TEST</span>
           <div className="minibox-right">
             <span className="minibox-arrow-right">▶</span>
@@ -47,3 +60,14 @@ function Home() {
 }
 
 export default Home;
+
+
+// const [isHovered, setIsHovered] = useState(false);
+
+// const handleMouseEnter = () => {
+//   setIsHovered(true);
+// };
+// const handleMouseLeave = () => {
+//   setIsHovered(false);
+// };
+// style={{ {transform: translate x(-200px)}: hovered === ? 0 : 1 }}

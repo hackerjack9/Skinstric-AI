@@ -30,6 +30,7 @@ body {
   font-size: 10px;
   margin: 4px 4px 6px 16px;
   padding: 8px 16px;
+  text-decoration: none;
 }
 
 .nav-text {
@@ -65,9 +66,6 @@ body {
 /* Hover Effects */
 
 /*Hover and move left */
-#button-right:hover ~ .center-text {
-    transform: translateX(-200px);
-}
 
 #button-right:hover ~ #button-left {
   opacity: 0;
@@ -77,11 +75,17 @@ body {
     opacity: 0;
 }
 
-#button-left:hover .minibox-left {
-    background-color: black;
-}
+
 #button-right:hover .minibox-right {
-    background-color: black;
+    border-width: 20px;
+}
+
+.center-text {
+  transition: transform 0.4s ease; /* smooth movement */
+}
+
+.center-text.move-left {
+  transform: translateX(-200px);
 }
 
 /* Hover and move right */
@@ -97,6 +101,12 @@ body {
     opacity: 0;
 }
 
+#button-left:hover .minibox-left {
+   border-width: 20px;
+}
+
+
+/* Home Page */
 
 
 #button-left, #button-right {
@@ -191,19 +201,19 @@ margin-left: 16px;
 .triangle-left {
   width: 320px;
   position: fixed;
-  top: 125px;
+  top: 114px;
 }
 
 .triangle-right {
   width: 320px;
   position: absolute;
-  top: 40px;
+  top: 30px;
   right: 0;
 }
 
 .container-text-left {
   position: fixed;
-  bottom:74px;
+  bottom:60px;
   left: 24px;
   font-size: 14px;
 }
