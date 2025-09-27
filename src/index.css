@@ -218,6 +218,43 @@ margin-left: 16px;
   font-size: 14px;
 }
 
-/* @media { */
-  /* 1024 or smaller buttons left and right disappear */
-/* } */
+
+/* ================================================== */
+
+/* R E S P O N S I V E */
+
+/* ================================================== */
+
+/* Extra small devices (phones) */
+@media (max-width: 500px) {
+  
+}
+
+/* Small devices (tablets) */
+@media (max-width: 640px) {
+ 
+}
+
+/* Large devices (desktops) */
+@media (max-width: 1024px) {
+  .center-text {
+    font-size: 60px;
+  }
+   .containter-text-left {
+      font-size: 16px;
+      color: #1A1B1C83;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+.button-left, .button-right {
+  display: none;
+}
+}
+
+/* Extra large devices (large desktops) */
+@media (min-width: 1025px) {
+ 
+}
+
+
