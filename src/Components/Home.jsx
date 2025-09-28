@@ -72,12 +72,3 @@ function Home() {
 
 export default Home;
 
-// const [isHovered, setIsHovered] = useState(false);
-
-// const handleMouseEnter = () => {
-//   setIsHovered(true);
-// };
-// const handleMouseLeave = () => {
-//   setIsHovered(false);
-// };
-// style={{ {transform: translate x(-200px)}: hovered === ? 0 : 1 }}

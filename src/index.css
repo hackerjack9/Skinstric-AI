@@ -287,13 +287,12 @@ body {
   left: 48px;
 }
 .button-back-text {
-display: flex;
-justify-content: center;
-margin: 0px, 0px, 0px, 24px;
-font-weight: 600;
-
+  display: flex;
+  justify-content: center;
+  margin: 0px, 0px, 0px, 24px;
+  font-weight: 600;
 }
- .minibox-back {
+.minibox-back {
   display: flex;
   position: relative;
   align-items: center;
@@ -301,44 +300,66 @@ font-weight: 600;
   width: 40px;
   transform: rotate(45deg);
   border: 1px solid black;
-   margin-right: 28px;
- }
+  margin-right: 28px;
+}
 .minibox-arrow-back {
-position: absolute;
- margin-left: 14px;
-transform: rotate(15deg);
+  position: absolute;
+  margin-left: 14px;
+  transform: rotate(15deg);
 }
 
 .intro-container {
-display: flex;
-position: relative;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-text-align: center;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 100px;
 }
 
 .intro-container-text {
-font-size: small;
-font-weight: 400;
-color: grey;
+  font-size: 16px;
+  font-weight: 400;
+  color: #9ca3af;
+  margin-bottom: 4px;
 }
 
+/* Style the form */
 .form-1 {
-position: relative;
-z-index: 10;
-}
-
-.form-underline {
+  position: relative;
+  z-index: 10;
+ 
 
 }
 
 .form-input {
+  font-size: 48px;
+  width: 440px;
+  border: transparent;
+  z-index:10;
+  outline: none;
+  text-align: center;
+  background-color: transparent;
+  border-bottom: 1px solid grey;
+}
+
+#button-submit {
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
 
 }
-       
 
-
+/* Style the placeholder text */
+input::placeholder {
+  font-size: 54px; 
+  color: gray; 
+}
 
 /* Keyframes for the rotation animation */
 @keyframes rotate {

@@ -1,9 +1,8 @@
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./Components/Nav.jsx";
 import Home from "./Components/Home.jsx";
 import Intro from "./Components/Intro.jsx";
-
 
 
 function App() {
