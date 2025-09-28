@@ -1,6 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
  function Intro() {
+
+const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate("/");
+  }
 
   return (
     <div className="intro-title"> 
@@ -17,7 +23,7 @@ import React from 'react'
         <p className='intro-container-text'>CLICK TO TYPE</p>
         <form className='form-1'>
             <div className='form-underline'></div>
-            <input className='form-input' type="text" placeholder='Introduce Yourself' autofocus name='name' autoComplete='off' />
+            <input className='form-input' type="text" placeholder='Introduce Yourself' name='name' autoComplete='off' />
         <button type='Submit'>Submit</button>
         </form>
     </div>
@@ -26,7 +32,7 @@ import React from 'react'
 
 
     <button id='button-back'>
-        <span className="button-back-text">BACK</span>
+        <span className="button-back-text" onClick={handleNavigate}>BACK</span>
           <div className="minibox-back">
             <span className="minibox-arrow-back">▶</span>
           </div>

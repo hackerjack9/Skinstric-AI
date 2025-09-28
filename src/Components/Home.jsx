@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import LeftTriangle from "../assets/Shapes/Rectangle 2779.png";
 import RightTriangle from "../assets/Shapes/Rectangle 2778.svg";
-import Intro from "./Intro.jsx"
+import {useNavigate} from "react-router-dom";
 
 function Home() {
   const [hovered, setHovered] = useState(null);
+  
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate("/intro");
+  }
 
   return (
     <div className="body">
@@ -33,8 +38,8 @@ function Home() {
             <br />
             what your skin needs.
           </div>
-          <button id="button-exp">
-            <span className="button-text-exp">ENTER EXPERIENCE</span>
+          <button id="button-exp" onClick={handleNavigate}>
+            <span className="button-text-exp" >ENTER EXPERIENCE</span>
             <div className="minibox-exp">
               <span className="minibox-arrow-exp">▶</span>
             </div>
@@ -43,12 +48,13 @@ function Home() {
         <div className="diamond-box"></div>
         <button
           id="button-right"
-          onChange={<Intro></Intro>}
+          onClick={handleNavigate}
           onMouseEnter={() => setHovered("right")}
           onMouseLeave={() => setHovered(null)}
           style={{ opacity: hovered === "left" ? 0 : 1 }}
         >
-          <span className="button-left-text">TAKE TEST</span>
+          <span className="button-left-text" >TAKE TEST</span>
+        
           <div className="minibox-right">
             <span className="minibox-arrow-right">▶</span>
           </div>

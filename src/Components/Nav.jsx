@@ -1,10 +1,13 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 function Nav () {
     return ( 
   <div className="nav-bar">
     <div className="nav-wrap">
-    <h1 className="nav-link"><a className="link" href="link">SKINSTRIC</a></h1>
+    <h1 className="nav-link">
+      <Link className="link" to="/">SKINSTRIC</Link>
+      </h1>
    <img className="nav-bracket-left"  src="https://skinstric-wandag.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FRectangle%202711.b2b3b291.png&w=16&q=75" alt="" />
     <p className="nav-text">INTRO</p>
    <img className="nav-bracket-right" src="https://skinstric-wandag.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FRectangle%202711.b2b3b291.png&w=16&q=75" alt="" />
