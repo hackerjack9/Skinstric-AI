@@ -230,35 +230,33 @@ body {
 
 /* Intro rotating square page */
 
-.intro-container {
+.intro-title {
   display: flex;
   position: relative;
   justify-content: center;
   align-items: center;
   text-align: center;
   height: 90vh;
-  border: 2px solid red;
 }
 
-.intro-title {
-  position: relative;
+.intro-title-text {
+  position: absolute;
+  top: 8px;
+  left: 36px;
   font-size: 12px;
   font-weight: 600;
-  z-index: 2;
-  border: 2px solid red;
 }
 
 .rotating-square-1,
 .rotating-square-2,
 .rotating-square-3 {
-  position: relative;
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 550px;
   height: 550px;
   border: 2px dotted #a0a4ab;
-  z-index: -1;
 
   margin: 50px auto; /* Center the div */
   animation: rotate 85s linear infinite;
@@ -272,6 +270,74 @@ body {
   width: 450px;
   height: 450px;
 }
+
+#button-back {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  position: absolute;
+  align-items: center;
+  color: #1a1b1c;
+  background-color: white;
+  white-space: nowrap;
+  font-size: 14px;
+  border: none;
+  bottom: 4px;
+  left: 48px;
+}
+.button-back-text {
+display: flex;
+justify-content: center;
+margin: 0px, 0px, 0px, 24px;
+font-weight: 600;
+
+}
+ .minibox-back {
+  display: flex;
+  position: relative;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  transform: rotate(45deg);
+  border: 1px solid black;
+   margin-right: 28px;
+ }
+.minibox-arrow-back {
+position: absolute;
+ margin-left: 14px;
+transform: rotate(15deg);
+}
+
+.intro-container {
+display: flex;
+position: relative;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+}
+
+.intro-container-text {
+font-size: small;
+font-weight: 400;
+color: grey;
+}
+
+.form-1 {
+position: relative;
+z-index: 10;
+}
+
+.form-underline {
+
+}
+
+.form-input {
+
+}
+       
+
+
 
 /* Keyframes for the rotation animation */
 @keyframes rotate {
