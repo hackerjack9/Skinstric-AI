@@ -33,6 +33,10 @@ body {
   text-decoration: none;
 }
 
+.link {
+  text-decoration: none;
+}
+
 .nav-text {
   color: #1a1b1c83;
   font-size: 10px;
@@ -215,12 +219,13 @@ body {
   bottom: 60px;
   left: 24px;
   font-size: 14px;
+  text-transform: uppercase;
 }
 
 #button-exp,
 .button-text-exp,
 .minibox-exp {
-  display: hidden;
+  display: none;
 }
 
 /* ================================================== */
@@ -229,89 +234,58 @@ body {
 
 /* ================================================== */
 
-/* Extra small devices (phones) */
-@media (max-width: 500px) {
-}
-
 /* Small devices (tablets) */
 @media (max-width: 640px) {
+  .hovereffect-container {
+  justify-content: center;
 }
 
-/* Large devices (desktops) */
-@media (max-width: 1024px) {
+.center-text {
+    position: relative;
+    Top: -10px;
+  }
+
   .center-title,
   .center-subtitle {
-    position: absolute;
-    font-size: 58px;
-    opacity: 1;
-    margin-left: 150px;
-    z-index: 1;
-  }
-
-  .center-text {
-    position: absolute;
-    left: 312px;
-  }
-
-  .center-subtitle {
-    margin-top: -80px;
-  }
-
-  .center-title {
-    margin-top: -200px;
-  }
-
-  .text-left,
-  .text-left-align {
-    font-size: 14px;
-    color: #1a1b1c83;
-    text-align: center;
-    font-weight: 600;
-  }
-
-  .text-left {
-    margin-right: 26px;
-    margin-top: 20px;
+    font-size: 30px;
   }
 
   .container-text-left {
-    position: absolute;
-    top: 124px;
-    width: 350px;
+    position: relative;
+    bottom: -16px;
+    left: -1px;
+    text-transform: none;
+    font-size: 10px;
+    line-height: 26px;
+    z-index: 1;
   }
 
   .diamond-box {
     position: absolute;
     display: flex;
-    width: 360px;
-    height: 360px;
+    width: 300px;
+    height: 300px;
     border: 2px dotted #a0a4ab;
     outline: 2px dotted #a0a4ab;
     outline-offset: 30px;
     transform: rotate(45deg);
-    margin-left: 150px;
-   
+    z-index: -1;
   }
-
-  /* #button-exp:hover { */
-  /* transform: scale(1.10); */
-  /* transition-duration: .3s; */
 
   #button-exp {
     display: flex;
+    position: relative;
     align-items: center;
     color: #1a1b1c;
     background-color: white;
     white-space: nowrap;
-    height: 40px;
     font-size: 14px;
     border: none;
-    margin-top: 230px;
-    margin-left: 30px;
+    bottom: -50px;
   }
 
   .button-text-exp {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
   }
 
@@ -323,7 +297,6 @@ body {
     width: 24px;
     transform: rotate(45deg);
     border: 1px solid black;
-    margin-left: 16px;
   }
 
   .minibox-arrow-exp {
@@ -334,10 +307,112 @@ body {
     margin-bottom: 4px;
   }
 
+
+#button-exp:hover .minibox-exp {
+  border-width: 20px;
+}
+
   .minibox-left,
   .minibox-right,
   .minibox-arrow-left,
   .minibox-arrow-right,
+  #button-left,
+  #button-right,
+  .button-left-text,
+  .button-right-text,
+  .triangle-right,
+  .triangle-left {
+    display: none;
+  }
+
+}
+
+
+/* Large devices (desktops) */
+@media (max-width: 1024px) {
+
+ .hovereffect-container {
+  justify-content: center;
+}
+
+.center-text {
+    position: relative;
+    Top: -10px;
+  }
+
+  .center-title,
+  .center-subtitle {
+    font-size: 58px;
+  }
+
+  .container-text-left {
+    position: relative;
+    bottom: -16px;
+    left: -1px;
+    text-transform: none;
+    font-size: 16px;
+    line-height: 26px;
+    z-index: 1;
+  }
+
+  .diamond-box {
+    position: absolute;
+    display: flex;
+    width: 360px;
+    height: 360px;
+    border: 2px dotted #a0a4ab;
+    outline: 2px dotted #a0a4ab;
+    outline-offset: 30px;
+    transform: rotate(45deg);
+    z-index: -1;
+  }
+
+  #button-exp {
+    display: flex;
+    position: relative;
+    align-items: center;
+    color: #1a1b1c;
+    background-color: white;
+    white-space: nowrap;
+    font-size: 14px;
+    border: none;
+    bottom: -50px;
+  }
+
+  .button-text-exp {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .minibox-exp {
+    display: flex;
+    position: relative;
+    align-items: center;
+    height: 24px;
+    width: 24px;
+    transform: rotate(45deg);
+    border: 1px solid black;
+  }
+
+  .minibox-arrow-exp {
+    position: absolute;
+    margin-left: 8px;
+    font-size: 12px;
+    transform: rotate(-45deg);
+    margin-bottom: 4px;
+  }
+
+
+#button-exp:hover .minibox-exp {
+  border-width: 20px;
+}
+
+  .minibox-left,
+  .minibox-right,
+  .minibox-arrow-left,
+  .minibox-arrow-right,
+  #button-left,
+  #button-right,
   .button-left-text,
   .button-right-text,
   .triangle-right,
@@ -345,30 +420,3 @@ body {
     display: none;
   }
 }
-
-/* Extra large devices (large desktops) */
-@media (min-width: 1025px) {
-}
-
-/* .center-text, .container-text-left {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid red;
-} */
-
-/* .center-text {
-  border: 2px solid blue;
-  margin-bottom: 150px; 
-} */
-
-/* .text-left {
-  margin-top: 215px;
-  margin-right: 50px;
-}
-
-.text-left-align {
-  margin-bottom: 20px;
-} */

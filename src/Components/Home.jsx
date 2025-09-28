@@ -4,6 +4,7 @@ import RightTriangle from "../assets/Shapes/Rectangle 2778.svg";
 
 function Home() {
   const [hovered, setHovered] = useState(null);
+
   return (
     <div className="body">
       <div className="hovereffect-container">
@@ -19,30 +20,26 @@ function Home() {
           </div>
         </button>
         {/* Center text that moves */}
-        <div className={`center-text ${hovered === "right" ? "move-left" : ""}`}
+        <div
+          className={`center-text ${hovered === "right" ? "move-left" : ""}`}
         >
           <h1 className="center-title">Sophisticated</h1>
           <span className="center-subtitle">skincare</span>
-          <div className="diamond-box"></div>
           <div className="container-text-left">
-            <p className="text-left">
-              SKINSTRIC DEVELOPED AND A.I. THAT CREATES A
-              <br />
-              <span className="text-left-align">
-                HIGHLY-PERSONALIZED ROUTINE TAILORED TO
-              </span>
-              <br />
-              WHAT YOUR SKIN NEEDS.
-            </p>
+            Skinstric developed an A.I. that creates a 
+            <br />
+            highly-personalized routine tailored to
+            <br />
+            what your skin needs.
           </div>
-       
-        <button id="button-exp">
+          <button id="button-exp">
             <span className="button-text-exp">ENTER EXPERIENCE</span>
             <div className="minibox-exp">
-            <span className="minibox-arrow-exp">▶</span>
-          </div>
+              <span className="minibox-arrow-exp">▶</span>
+            </div>
           </button>
-           </div>
+        </div>
+        <div className="diamond-box"></div>
         <button
           id="button-right"
           onMouseEnter={() => setHovered("right")}
