@@ -228,6 +228,61 @@ body {
   display: none;
 }
 
+/* Intro rotating square page */
+
+.intro-container {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 90vh;
+  border: 2px solid red;
+}
+
+.intro-title {
+  position: relative;
+  font-size: 12px;
+  font-weight: 600;
+  z-index: 2;
+  border: 2px solid red;
+}
+
+.rotating-square-1,
+.rotating-square-2,
+.rotating-square-3 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 550px;
+  height: 550px;
+  border: 2px dotted #a0a4ab;
+  z-index: -1;
+
+  margin: 50px auto; /* Center the div */
+  animation: rotate 85s linear infinite;
+}
+
+.rotating-square-2 {
+  width: 500px;
+  height: 500px;
+}
+.rotating-square-3 {
+  width: 450px;
+  height: 450px;
+}
+
+/* Keyframes for the rotation animation */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg); /* Start at 0 degrees */
+  }
+  to {
+    transform: rotate(360deg); /* End at 360 degrees */
+  }
+}
+
 /* ================================================== */
 
 /* R E S P O N S I V E */
@@ -237,12 +292,12 @@ body {
 /* Small devices (tablets) */
 @media (max-width: 640px) {
   .hovereffect-container {
-  justify-content: center;
-}
+    justify-content: center;
+  }
 
-.center-text {
+  .center-text {
     position: relative;
-    Top: -10px;
+    top: -10px;
   }
 
   .center-title,
@@ -307,10 +362,9 @@ body {
     margin-bottom: 4px;
   }
 
-
-#button-exp:hover .minibox-exp {
-  border-width: 20px;
-}
+  #button-exp:hover .minibox-exp {
+    border-width: 20px;
+  }
 
   .minibox-left,
   .minibox-right,
@@ -324,20 +378,17 @@ body {
   .triangle-left {
     display: none;
   }
-
 }
-
 
 /* Large devices (desktops) */
 @media (max-width: 1024px) {
+  .hovereffect-container {
+    justify-content: center;
+  }
 
- .hovereffect-container {
-  justify-content: center;
-}
-
-.center-text {
+  .center-text {
     position: relative;
-    Top: -10px;
+    top: -10px;
   }
 
   .center-title,
@@ -402,10 +453,9 @@ body {
     margin-bottom: 4px;
   }
 
-
-#button-exp:hover .minibox-exp {
-  border-width: 20px;
-}
+  #button-exp:hover .minibox-exp {
+    border-width: 20px;
+  }
 
   .minibox-left,
   .minibox-right,

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import LeftTriangle from "../assets/Shapes/Rectangle 2779.png";
 import RightTriangle from "../assets/Shapes/Rectangle 2778.svg";
+import Intro from "./Intro.jsx"
 
 function Home() {
   const [hovered, setHovered] = useState(null);
@@ -42,6 +43,7 @@ function Home() {
         <div className="diamond-box"></div>
         <button
           id="button-right"
+          onChange={<Intro></Intro>}
           onMouseEnter={() => setHovered("right")}
           onMouseLeave={() => setHovered(null)}
           style={{ opacity: hovered === "left" ? 0 : 1 }}
