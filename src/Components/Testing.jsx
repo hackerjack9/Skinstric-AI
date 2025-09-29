@@ -7,6 +7,9 @@ function Testing() {
   const handleNavigate = () => {
     navigate("/");
   };
+  const goToResult = () => {
+    navigate("/result"); 
+  };
 
   const [phase, setPhase] = useState(1); // start at phase 1
   const [inputValue, setInputValue] = useState("");
@@ -91,7 +94,7 @@ function Testing() {
       {phase === 3 && !loading && (
       <button
        id="button-proceed"
-       onClick={() => alert("Proceeding to the next page...")}
+       onClick={goToResult}
          >
         <span className="button-proceed-text">PROCEED</span>
         <div className="minibox-proceed">
