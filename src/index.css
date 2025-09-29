@@ -229,9 +229,9 @@ body {
   display: none;
 }
 
-/* Intro rotating square page */
+/* Testing rotating square page */
 
-.intro-title {
+.testing-title {
   display: flex;
   position: relative;
   justify-content: center;
@@ -240,7 +240,7 @@ body {
   height: 90vh;
 }
 
-.intro-title-text {
+.testing-title-text {
   position: absolute;
   top: 8px;
   left: 36px;
@@ -308,7 +308,47 @@ body {
   transform: rotate(15deg);
 }
 
-.intro-container {
+#button-proceed {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  position: absolute;
+  align-items: center;
+  color: #1a1b1c;
+  background-color: white;
+  white-space: nowrap;
+  font-size: 14px;
+  border: none;
+  bottom: 4px;
+  right: 48px;
+}
+.button-proceed-text {
+  display: flex;
+  justify-content: center;
+  margin: 0px, 0px, 0px, 24px;
+  font-weight: 600;
+}
+.minibox-proceed {
+  display: flex;
+  position: relative;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  transform: rotate(45deg);
+  border: 1px solid black;
+  margin-right: 28px;
+}
+.minibox-arrow-proceed {
+  position: absolute;
+  margin-left: 14px;
+  transform: rotate(15deg);
+}
+
+
+
+
+
+.testing-container {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -319,7 +359,7 @@ body {
   margin-bottom: 100px;
 }
 
-.intro-container-text {
+.testing-container-text {
   font-size: 16px;
   font-weight: 400;
   color: #9ca3af;
@@ -330,11 +370,9 @@ body {
 .form-1 {
   position: relative;
   z-index: 10;
- 
-
 }
 
-.form-input {
+.form-input-1 {
   font-size: 48px;
   width: 440px;
   border: transparent;
@@ -344,6 +382,82 @@ body {
   background-color: transparent;
   border-bottom: 1px solid grey;
 }
+
+.form-input-2 {
+  font-size: 48px;
+  width: 440px;
+  border: transparent;
+  z-index:10;
+  outline: none;
+  text-align: center;
+  background-color: transparent;
+  border-bottom: 1px solid grey;
+}
+
+.skeleton-loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  margin-top: 20px;
+}
+
+.skeleton-input {
+  width: 300px;
+  height: 40px;
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.loading-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color:#1a1b1c83;
+  border-radius: 50%;
+  animation: bounce 1.2s infinite ease-in-out;
+}
+
+
+/* Apply delay to each dot */
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+
+
 
 #button-submit {
   white-space: nowrap;
