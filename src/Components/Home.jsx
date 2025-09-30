@@ -53,7 +53,7 @@ function Home() {
           onMouseLeave={() => setHovered(null)}
           style={{ opacity: hovered === "left" ? 0 : 1 }}
         >
-          <span className="button-left-text" >TAKE TEST</span>
+          <span className="button-right-text" >TAKE TEST</span>
         
           <div className="minibox-right">
             <span className="minibox-arrow-right">▶</span>

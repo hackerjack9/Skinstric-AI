@@ -1,4 +1,4 @@
-/* Default styles */
+/* ------------Default styles--------------*/
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Lekton:ital,wght@0,400;0,700;1,400&family=Roboto:wght@700&display=swap");
 
 * {
@@ -13,7 +13,7 @@ body {
   overflow: hidden;
 }
 
-/* Navigation Bar on Home Page */
+/* ---------------Nav Bar -----------------*/
 .nav-bar {
   display: flex;
   width: 100%;
@@ -81,9 +81,67 @@ body {
   padding: 0px 10px 0px 10px;
 }
 
-/* Hover Effects */
+/* ------------------Home Page------------------ */
 
-/*Hover and move left */
+#button-left,
+#button-right {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  color: #1a1b1c;
+  background-color: white;
+  white-space: nowrap;
+  height: 40px;
+  width: 145px;
+  font-size: 14px;
+  border: none;
+  z-index: 2;
+  padding: 4px 12px;
+  bottom: 30px;
+}
+
+#button-left {
+  flex-direction: row-reverse;
+  left: 100px;
+}
+
+#button-right {
+  right: 100px;
+}
+
+.minibox-left,
+.minibox-right {
+  display: flex;
+  position: relative;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  transform: rotate(45deg);
+  border: 1px solid black;
+}
+
+.minibox-arrow-left,
+.minibox-arrow-right {
+  position: absolute;
+  margin-left: 10px;
+}
+
+.minibox-arrow-left {
+  transform: rotate(15deg);
+
+}
+
+.minibox-arrow-right {
+  transform: rotate(-45deg);
+  margin-bottom: 4px;
+}
+
+/* ----------Hover Effects----------------- */
+
+/* Home Page */
+/* Hover and move left */
 
 #button-right:hover ~ #button-left {
   opacity: 0;
@@ -91,10 +149,6 @@ body {
 
 #button-right:hover ~ .triangle-left {
   opacity: 0;
-}
-
-#button-right:hover .minibox-right {
-  border-width: 20px;
 }
 
 .center-text {
@@ -105,6 +159,11 @@ body {
   transform: translateX(-200px);
 }
 
+#button-right:hover .minibox-right {
+transform: scale(1.5)
+}
+
+/* Home Page */
 /* Hover and move right */
 #button-left:hover ~ .center-text {
   transform: translateX(200px);
@@ -119,79 +178,28 @@ body {
 }
 
 #button-left:hover .minibox-left {
-  border-width: 20px;
+  transform: scale(1.5);
 }
 
-/* Home Page */
-
-#button-left,
-#button-right {
-  display: flex;
-  align-items: center;
-  color: #1a1b1c;
-  background-color: white;
-  white-space: nowrap;
-  height: 40px;
-  font-size: 14px;
-  border: none;
-  z-index: 2;
-  margin-bottom: 20px;
-}
-
-#button-left {
-  flex-direction: row-reverse;
-  margin-left: 84px;
-  padding: 8px;
-}
-
-#button-right {
-  margin-right: 106px;
-  padding: 8px;
-}
-
-.minibox-left,
-.minibox-right {
+.hovereffect-container {
   display: flex;
   position: relative;
   align-items: center;
-  height: 30px;
-  width: 30px;
-  transform: rotate(45deg);
-  border: 1px solid black;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1800px;
+  height: 90vh;
 }
-
-.minibox-left {
-  margin-right: 16px;
-}
-
-.minibox-right {
-  margin-left: 16px;
-}
-
-.minibox-arrow-left,
-.minibox-arrow-right {
-  position: absolute;
-  margin-left: 10px;
-}
-
-.minibox-arrow-left {
-  transform: rotate(15deg);
-}
-
-.minibox-arrow-right {
-  transform: rotate(-45deg);
-  margin-bottom: 4px;
-}
-
-/* Title of the page */
 
 .center-text {
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   margin-bottom: 32px;
+  left: 150px;
 }
 
 .center-title {
@@ -203,16 +211,6 @@ body {
 .center-subtitle {
   font-size: 92px;
   font-weight: 500;
-}
-
-.hovereffect-container {
-  display: flex;
-  position: relative;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1800px;
-  height: 90vh;
 }
 
 .triangle-left {
@@ -240,49 +238,6 @@ body {
 .button-text-exp,
 .minibox-exp {
   display: none;
-}
-
-/* Testing rotating square page */
-
-.testing-title {
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 90vh;
-}
-
-.testing-title-text {
-  position: absolute;
-  top: 8px;
-  left: 36px;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.rotating-square-1,
-.rotating-square-2,
-.rotating-square-3 {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 550px;
-  height: 550px;
-  border: 2px dotted #a0a4ab;
-
-  margin: 50px auto; /* Center the div */
-  animation: rotate 85s linear infinite;
-}
-
-.rotating-square-2 {
-  width: 500px;
-  height: 500px;
-}
-.rotating-square-3 {
-  width: 450px;
-  height: 450px;
 }
 
 #button-back {
@@ -358,6 +313,8 @@ body {
   transform: rotate(15deg);
 }
 
+/* ----------Testing Page--------- */
+
 .testing-container {
   display: flex;
   position: relative;
@@ -374,6 +331,49 @@ body {
   font-weight: 400;
   color: #9ca3af;
   margin-bottom: 4px;
+}
+
+/* rotating square */
+
+.testing-title {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 90vh;
+}
+
+.testing-title-text {
+  position: absolute;
+  top: 8px;
+  left: 36px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.rotating-square-1,
+.rotating-square-2,
+.rotating-square-3 {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 550px;
+  height: 550px;
+  border: 2px dotted #a0a4ab;
+
+  margin: 50px auto; /* Center the div */
+  animation: rotate 85s linear infinite;
+}
+
+.rotating-square-2 {
+  width: 500px;
+  height: 500px;
+}
+.rotating-square-3 {
+  width: 450px;
+  height: 450px;
 }
 
 /* Style the form */
