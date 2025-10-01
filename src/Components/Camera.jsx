@@ -1,49 +1,31 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import cameraIconLens from "../assets/Shapes/camera-icon-lens.webp";
+import React, { useEffect} from 'react';
+ import { useNavigate } from "react-router-dom";
+import cameraIcon from "../assets/Shapes/camera-icon-lens.webp"; 
+
 
 function Camera() {
-  const navigate = useNavigate();
-  const goToResults = () => {
-    navigate("/result");
-  };
+ const navigate = useNavigate();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigate("/camera/capture");
+    }, 3000);
+
+    return () => clearTimeout(timer); // cleanup timer
+  }, [navigate]);
+
 
   return (
-    <div className="camera-body">
-      Camera
-      <div className="camera-container">
-        <div className="video-scontainer">
-          <video autoplay playsInline src="" className="video"></video>
-          <div className="take-picture-container">
-            <div className="take-picture-text">TAKE PICTURE</div>
-            <div className="camera-icon-container">
-              <img
-                className="camera-icon-lens"
-                src={cameraIconLens}
-                alt="camera icon"
-              />
-            </div>
-          </div>
-          <div className="camera-centertext-container">
-            <p className="camera-centertext-title">
-              TO GET BETTER RESULTS MAKE SURE TO HAVE
-            </p>
-            <div className="camera-centertext-subtitle">
-              <p>◇ NEUTRAL EXPRESSION</p>
-              <p>◇ FRONTAL POSE</p>
-              <p>◇ ADEQUATE LIGHTING</p>
-            </div>
-          </div>
-        </div>
-        <button id="button-back-camera" onClick={goToResults}>
-          <span className="button-back-text">BACK</span>
-          <div className="minibox-back-camera">
-            <span className="minibox-arrow-camera">▶</span>
-          </div>
-        </button>
-      </div>
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <img 
+        src={cameraIcon} 
+        alt="Camera Setup" 
+        style={{ width: "80px", marginBottom: "20px" }} 
+      />
+      <h2>Setting up your camera...</h2>
     </div>
   );
 }
 
-export default Camera;
+
+export default Camera

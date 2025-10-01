@@ -715,6 +715,7 @@ input::placeholder {
   width: 100%;
   height: 100vh;
   border: 2px solid red;
+  text-align: center;
 }
 
 .camera-container {
@@ -820,6 +821,12 @@ input::placeholder {
   left: 30px;
   width: 110px;
   height: 50px;
+  z-index: 50;
+  transition: transform 3s ease-in-out;
+}
+
+#button-back-camera:hover .minibox-back-camera {
+  transform: scale(1.1) rotate(45deg)
 }
 
 .minibox-back-camera {

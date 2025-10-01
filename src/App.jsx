@@ -1,9 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Camera from "./Components/Camera.jsx";
 import Nav from "./Components/Nav.jsx";
 import Home from "./Components/Home.jsx";
 import Testing from "./Components/Testing.jsx";
 import Result from "./Components/Result.jsx";
+import Camera from "./Components/Camera.jsx";
+import Capture from "./Components/Capture.jsx";
 
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
         <Route path="/testing" element={<Testing />} />
         <Route path="/result" element={<Result />} />
         <Route path="/camera" element={<Camera />} />
+        <Route path="/camera/capture" element={<Capture />} />
+
       </Routes>
     </Router>
   );

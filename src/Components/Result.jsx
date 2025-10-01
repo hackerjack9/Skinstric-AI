@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import camIcon from "../assets/Shapes/camera-icon.webp";
 import gallIcon from "../assets/Shapes/gallery-icon.webp";
@@ -7,11 +7,28 @@ import scanLine2 from "../assets/Shapes/gallery-icon-line.webp";
 
 function Result() {
   const navigate = useNavigate();
+  const fileInputRef = useRef(null); 
+
   const goToTesting = () => {
     navigate("/testing");
   };
+
   const goToCamera = () => {
     navigate("/camera");
+  };
+
+  // Function to handle the image click of gallery icon
+  const handleImageClick = () => {
+    // Trigger the click event on the hidden file input
+    fileInputRef.current.click();
+  };
+
+  // Function to handle file selection
+  const handleFileChange = (event) => {
+    const selectedFile = event.target.files[0];
+    if (selectedFile) {
+      console.log("Selected file:", selectedFile.name);
+    }
   };
 
   return (
@@ -49,7 +66,24 @@ function Result() {
           ACCESS GALLERY
         </p>
         <img className="scanLine2" src={scanLine2} alt="scan line" />
-        <img className="icon-img-2" src={gallIcon} alt="gallery icon image" />
+
+        <div>
+          <img
+            className="icon-img-2"
+            src={gallIcon}
+            alt="Click to upload"
+            style={{ cursor: "pointer" }}
+            onClick={handleImageClick} 
+          />
+
+          <input
+            type="file"
+            ref={fileInputRef}
+            style={{ display: "none" }}
+            onChange={handleFileChange}
+          />
+        </div>
+
         <div className="rotating-square-7">
           <div className="rotating-square-8">
             <div className="rotating-square-9"></div>
@@ -66,4 +100,5 @@ function Result() {
     </div>
   );
 }
+
 export default Result;
