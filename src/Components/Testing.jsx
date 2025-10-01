@@ -2,18 +2,17 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Testing() {
-
   const navigate = useNavigate();
   const handleNavigate = () => {
     navigate("/");
   };
   const goToResult = () => {
-    navigate("/result"); 
+    navigate("/result");
   };
 
   const [phase, setPhase] = useState(1); // start at phase 1
   const [inputValue, setInputValue] = useState("");
-  const [loading, setLoading] =useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -23,7 +22,7 @@ function Testing() {
         setPhase(2); // move to phase two
         setInputValue(""); // clear input
       } else if (phase === 2) {
-      // Show loading skeleton for 3s before phase 3
+        // Show loading skeleton for 3s before phase 3
         setLoading(true);
         setTimeout(() => {
           setLoading(false);
@@ -53,7 +52,6 @@ function Testing() {
             onKeyDown={handleKeyDown}
           />
         )}
-
         {phase === 2 && (
           <input
             className="form-input-2"
@@ -64,46 +62,41 @@ function Testing() {
             onKeyDown={handleKeyDown}
           />
         )}
-
-       
         {loading && (
           <div className="skeleton-loader">
             <div className="skeleton-input">Processing Submisson!</div>
-          <div className="loading-dots">
-          <span className="dot"></span>
-           <span className="dot"></span>
-            <span className="dot"></span>
-  </div>
+            <div className="loading-dots">
+              <span className="dot"></span>
+              <span className="dot"></span>
+              <span className="dot"></span>
+            </div>
           </div>
         )}
-
         {phase === 3 && !loading && (
-          <p>Thank you! <br /><br />Proceed to the next step.</p>
+          <p>
+            Thank you! <br />
+            <br />
+            Proceed to the next step.
+          </p>
         )}
-  
-      <button 
-      id="button-back" 
-      onClick={handleNavigate}
-      >
-        <span className="button-back-text">BACK</span>
-        <div className="minibox-back">
-          <span className="minibox-arrow-back">▶</span>
-        </div>
-      </button>
-       {/* Proceed Button (only shows after all phases are done) */}
-      {phase === 3 && !loading && (
-      <button
-       id="button-proceed"
-       onClick={goToResult}
-         >
-        <span className="button-proceed-text">PROCEED</span>
-        <div className="minibox-proceed">
-          <span className="minibox-arrow-proceed">▶</span>
-        </div>
-      </button>
-      )} </div>
+        <button id="button-back" onClick={handleNavigate}>
+          <span className="button-back-text">BACK</span>
+          <div className="minibox-back">
+            <span className="minibox-arrow-back">▶</span>
+          </div>
+        </button>
+        {/* Proceed Button (only shows after all phases are done) */}
+        {phase === 3 && !loading && (
+          <button id="button-proceed" onClick={goToResult}>
+            <span className="button-proceed-text">PROCEED</span>
+            <div className="minibox-proceed">
+              <span className="minibox-arrow-proceed">▶</span>
+            </div>
+          </button>
+        )}{" "}
       </div>
-    );
+    </div>
+  );
 }
 
 export default Testing;

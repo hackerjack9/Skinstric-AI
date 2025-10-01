@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import LeftTriangle from "../assets/Shapes/Rectangle 2779.png";
 import RightTriangle from "../assets/Shapes/Rectangle 2778.svg";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const [hovered, setHovered] = useState(null);
-  
+
   const navigate = useNavigate();
   const handleNavigate = () => {
     navigate("/testing");
-  }
+  };
 
   return (
     <div className="body">
@@ -31,9 +31,9 @@ function Home() {
         >
           <h1 className="center-title">Sophisticated</h1>
           <span className="center-subtitle">skincare</span>
-          
+
           <button id="button-exp" onClick={handleNavigate}>
-            <span className="button-text-exp" >ENTER EXPERIENCE</span>
+            <span className="button-text-exp">ENTER EXPERIENCE</span>
             <div className="minibox-exp">
               <span className="minibox-arrow-exp">▶</span>
             </div>
@@ -47,8 +47,8 @@ function Home() {
           onMouseLeave={() => setHovered(null)}
           style={{ opacity: hovered === "left" ? 0 : 1 }}
         >
-          <span className="button-right-text" >TAKE TEST</span>
-        
+          <span className="button-right-text">TAKE TEST</span>
+
           <div className="minibox-right">
             <span className="minibox-arrow-right">▶</span>
           </div>
@@ -59,17 +59,16 @@ function Home() {
         <div className="triangle-left">
           <img className="triangle-left" src={LeftTriangle} alt="" />
         </div>
-         <div className="container-text-left">
-            Skinstric developed an A.I. that creates a 
-            <br />
-            highly-personalized routine tailored to
-            <br />
-            what your skin needs.
-          </div>
+        <div className="container-text-left">
+          Skinstric developed an A.I. that creates a
+          <br />
+          highly-personalized routine tailored to
+          <br />
+          what your skin needs.
+        </div>
       </div>
     </div>
   );
 }
 
 export default Home;
-

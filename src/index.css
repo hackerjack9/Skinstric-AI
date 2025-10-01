@@ -748,8 +748,8 @@ input::placeholder {
 
 .take-picture-container {
   position: absolute;
-  top:50%;
-  right: 8px;
+  top: 40%;
+  right: 30px;
   transform: translateY(50%);
   z-index: 20;
   display: flex;
@@ -762,21 +762,80 @@ input::placeholder {
   font-weight: 700;
   color: #fcfcfc;
   line-height: 14px;
+  margin: 0px 12px 0px 0px;
 }
 
 .camera-icon-container {
-  transition: transform 0.3s ease-in-out
+  transition: transform 0.3s ease-in-out;
 }
 .camera-icon-container:hover {
-  transform: scale(1.1)
+  transform: scale(1.1);
 }
 
 .camera-icon-lens {
   width: 60px;
   height: 60px;
   cursor: pointer;
+}
 
+.camera-centertext-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 30;
+  text-align: center;
+  z-index: 20;
+  top: 70%;
+}
 
+.camera-centertext-title {
+  color: #fcfcfc;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.camera-centertext-subtitle {
+  font-size: 14px;
+  display: flex;
+  position: absolute;
+  left: 540px;
+  justify-content: space-between;
+  align-items: center;
+  color: #fcfcfc;
+  width: 500px;
+}
+
+#button-back-camera {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  position: absolute;
+  align-items: center;
+  color: #fcfcfc;
+  background-color: transparent;
+  white-space: nowrap;
+  font-size: 14px;
+  border: none;
+  bottom: 50px;
+  left: 30px;
+  width: 110px;
+  height: 50px;
+}
+
+.minibox-back-camera {
+  display: flex;
+  position: relative;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  transform: rotate(45deg);
+  border: 1px solid #fcfcfc;
+}
+
+.minibox-arrow-camera {
+  transform: rotate(15deg);
+  position: absolute;
+  margin-left: 14px;
 }
 /* ================================================== */
 
