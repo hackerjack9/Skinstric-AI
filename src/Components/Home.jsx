@@ -31,13 +31,7 @@ function Home() {
         >
           <h1 className="center-title">Sophisticated</h1>
           <span className="center-subtitle">skincare</span>
-          <div className="container-text-left">
-            Skinstric developed an A.I. that creates a 
-            <br />
-            highly-personalized routine tailored to
-            <br />
-            what your skin needs.
-          </div>
+          
           <button id="button-exp" onClick={handleNavigate}>
             <span className="button-text-exp" >ENTER EXPERIENCE</span>
             <div className="minibox-exp">
@@ -65,6 +59,13 @@ function Home() {
         <div className="triangle-left">
           <img className="triangle-left" src={LeftTriangle} alt="" />
         </div>
+         <div className="container-text-left">
+            Skinstric developed an A.I. that creates a 
+            <br />
+            highly-personalized routine tailored to
+            <br />
+            what your skin needs.
+          </div>
       </div>
     </div>
   );

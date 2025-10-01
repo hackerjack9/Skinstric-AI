@@ -58,7 +58,7 @@ function Testing() {
           <input
             className="form-input-2"
             type="text"
-            placeholder="Your current city"
+            placeholder="your city name"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyDown={handleKeyDown}
