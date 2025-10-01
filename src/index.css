@@ -826,7 +826,7 @@ input::placeholder {
 }
 
 #button-back-camera:hover .minibox-back-camera {
-  transform: scale(1.1) rotate(45deg)
+  transform: scale(1.1) rotate(45deg);
 }
 
 .minibox-back-camera {
@@ -844,6 +844,128 @@ input::placeholder {
   position: absolute;
   margin-left: 14px;
 }
+
+/* ---------------Select------------------ */
+
+.analysis-title-box {
+  position: absolute;
+  left: 34px;
+  top: 60px;
+  line-height: 26px;
+}
+
+.analysis-title {
+  font-size: 16px;
+}
+
+.analysis-subtitle {
+  font-size: 14px;
+}
+
+.select-grid-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.large-box {
+  position: relative;
+  display: flex;
+  width: 348px;
+  height: 348px;
+  flex-wrap: wrap;
+  transform: rotate(135deg);
+}
+.box-1,
+.box-2,
+.box-3,
+.box-4 {
+  width: calc(48%);
+  background-color: #f3f4f6;
+  height: calc(46%);
+  transform: rotate(90deg);
+  transition: transform 0.3sec ease-in-out;
+  border: none;
+  
+}
+.box-3 {
+  background-color: #e5e7eb;
+}
+
+.box-1:hover,
+.box-2:hover, 
+.box-3:hover,
+.box-4:hover {
+  background-color: #d1d5db;
+}
+
+.box-3:hover {
+  transform: scale(1.1) rotate(90deg);
+}
+
+.textbox-1,
+.textbox-2,
+.textbox-3,
+.textbox-4 {
+  font-size: 16px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(135deg);
+  font-weight: 600;
+}
+
+#button-summary {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: absolute;
+  align-items: center;
+  color: #1a1b1c;
+  background-color: white;
+  white-space: nowrap;
+  font-size: 14px;
+  border: none;
+  bottom: 20px;
+  right: 48px;
+}
+
+.button-summary-text {
+  display: flex;
+  justify-content: center;
+  margin: 0px, 0px, 0px, 24px;
+  font-weight: 600;
+}
+.minibox-summary {
+  display: flex;
+  position: relative;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  transform: rotate(45deg);
+  border: 1px solid black;
+  margin-right: 28px;
+}
+
+.minibox-arrow-summary {
+  position: absolute;
+  top: 2;
+  bottom: 12;
+  right: 0;
+  left: 0;
+  transform: rotate(-45deg);
+  transition: transform 0.3ms ease-in-out;
+}
+#button-summary:hover .minibox-summary {
+  transform: scale(1.1) rotate(45deg);
+}
+
 /* ================================================== */
 
 /* R E S P O N S I V E */

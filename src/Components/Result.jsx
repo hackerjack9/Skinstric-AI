@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import camIcon from "../assets/Shapes/camera-icon.webp";
 import gallIcon from "../assets/Shapes/gallery-icon.webp";
@@ -7,7 +7,7 @@ import scanLine2 from "../assets/Shapes/gallery-icon-line.webp";
 
 function Result() {
   const navigate = useNavigate();
-  const fileInputRef = useRef(null); 
+  const fileInputRef = useRef(null);
 
   const goToTesting = () => {
     navigate("/testing");
@@ -30,6 +30,17 @@ function Result() {
       console.log("Selected file:", selectedFile.name);
     }
   };
+
+  /* When preview has obtained the image from gallery icon - doing loading state for routing to next page */
+  /*  useEffect(() => {
+    const timer = setTimeout(() => {
+      if(preview === true) {
+      navigate("/select");
+      }
+    }, 3000);
+
+    return () => clearTimeout(timer); 
+  }, [navigate]); */
 
   return (
     <div className="result-title">
@@ -73,7 +84,7 @@ function Result() {
             src={gallIcon}
             alt="Click to upload"
             style={{ cursor: "pointer" }}
-            onClick={handleImageClick} 
+            onClick={handleImageClick}
           />
 
           <input

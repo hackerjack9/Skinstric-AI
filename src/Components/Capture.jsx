@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; 
-import cameraIconLens from "../assets/Shapes/camera-icon-lens.webp"; 
+import { useNavigate } from "react-router-dom";
+import cameraIconLens from "../assets/Shapes/camera-icon-lens.webp";
 
 const Capture = () => {
   const videoRef = useRef(null);
@@ -70,10 +70,7 @@ const Capture = () => {
           ) : (
             <div>
               <h3>Captured Image:</h3>
-              <img
-                src={capturedImage}
-                alt="Captured"
-              />
+              <img src={capturedImage} alt="Captured" />
             </div>
           )}
 

@@ -5,6 +5,7 @@ import Testing from "./Components/Testing.jsx";
 import Result from "./Components/Result.jsx";
 import Camera from "./Components/Camera.jsx";
 import Capture from "./Components/Capture.jsx";
+import Select from "./Components/Select.jsx";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/result" element={<Result />} />
         <Route path="/camera" element={<Camera />} />
         <Route path="/camera/capture" element={<Capture />} />
+        <Route path="/select" element={<Select />} />
 
       </Routes>
     </Router>
