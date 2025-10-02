@@ -59,7 +59,7 @@ function Home() {
         <div className="triangle-left">
           <img className="triangle-left" src={LeftTriangle} alt="" />
         </div>
-        <div className="container-text-left">
+        <div className="container-bottom-left">
           Skinstric developed an A.I. that creates a
           <br />
           highly-personalized routine tailored to

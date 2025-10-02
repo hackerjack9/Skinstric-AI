@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import cameraIcon from "../assets/Shapes/camera-icon-lens.webp";
+import cameraIcon from "../assets/Shapes/camera-icon.webp";
 
 function Camera() {
   const navigate = useNavigate();
@@ -14,13 +14,34 @@ function Camera() {
   }, [navigate]);
 
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <img
+    <div className="body">
+      <div className="rotating-square-1c">
+          <div className="rotating-square-2c">
+            <div className="rotating-square-3c"></div>
+          </div>
+          
+      </div>
+    
+    <div className="skeleton-state">
+    <div  className="skeleton-camera">
+      <img 
+        className="camera-icon-2"
         src={cameraIcon}
         alt="Camera Setup"
-        style={{ width: "80px", marginBottom: "20px" }}
       />
-      <h2>Setting up your camera...</h2>
+      <h2>Setting up camera...</h2>
+    </div>
+    </div>
+      <div className="camera-centertext-container-1">
+            <p className="camera-centertext-title-1">
+              TO GET BETTER RESULTS MAKE SURE TO HAVE
+            </p>
+            <div className="camera-centertext-subtitle-1">
+              <p>◇ NEUTRAL EXPRESSION</p>
+              <p>◇ FRONTAL POSE</p>
+              <p>◇ ADEQUATE LIGHTING</p>
+            </div>
+          </div>
     </div>
   );
 }

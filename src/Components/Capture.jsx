@@ -12,6 +12,10 @@ const Capture = () => {
     navigate("/result");
   };
 
+  const goToSelect = () => {
+    navigate("/select", { state: { photo: capturedImage } });
+  };
+
   useEffect(() => {
     async function initCamera() {
       try {
@@ -42,18 +46,17 @@ const Capture = () => {
     setCapturedImage(imageData);
   };
 
+  const handleRetake = () => {
+    setCapturedImage(null);
+  };
+
   return (
     <div className="camera-body">
       <div className="camera-container">
         <div className="video-container">
           {!capturedImage ? (
-            <div>
-              <video
-                ref={videoRef}
-                autoPlay
-                playsInline
-                style={{ width: "400px", borderRadius: "8px" }}
-              />
+            <div className="video-subcontainer">
+              <video ref={videoRef} autoPlay />
               <br />
               <div className="take-picture-container">
                 <div className="take-picture-text">TAKE PICTURE</div>
@@ -69,16 +72,20 @@ const Capture = () => {
             </div>
           ) : (
             <div>
-              <h3>Captured Image:</h3>
-              <img src={capturedImage} alt="Captured" />
+              <img className="captured-img" src={capturedImage} alt="Captured" />
+              <div className="captured-buttons">
+                <p className="button-title">PREVIEW</p>
+                <button className="button-retake" onClick={handleRetake}>Retake</button>
+                <button className="button-usephoto" onClick={goToResult}>Use This Photo</button>
+              </div>
             </div>
           )}
 
-          <div className="camera-centertext-container">
-            <p className="camera-centertext-title">
+          <div className="camera-centertext-container-2">
+            <p className="camera-centertext-title-2">
               TO GET BETTER RESULTS MAKE SURE TO HAVE
             </p>
-            <div className="camera-centertext-subtitle">
+            <div className="camera-centertext-subtitle-2">
               <p>◇ NEUTRAL EXPRESSION</p>
               <p>◇ FRONTAL POSE</p>
               <p>◇ ADEQUATE LIGHTING</p>
