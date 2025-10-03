@@ -15,6 +15,9 @@ const Capture = () => {
   const goToSelect = () => {
     navigate("/select", { state: { photo: capturedImage } });
   };
+  const goToCapture = () => {
+    navigate("/capture");
+  };
 
   useEffect(() => {
     async function initCamera() {
@@ -46,9 +49,6 @@ const Capture = () => {
     setCapturedImage(imageData);
   };
 
-  const handleRetake = () => {
-    setCapturedImage(null);
-  };
 
   return (
     <div className="camera-body">
@@ -75,8 +75,8 @@ const Capture = () => {
               <img className="captured-img" src={capturedImage} alt="Captured" />
               <div className="captured-buttons">
                 <p className="button-title">PREVIEW</p>
-                <button className="button-retake" onClick={handleRetake}>Retake</button>
-                <button className="button-usephoto" onClick={goToResult}>Use This Photo</button>
+                <button id="button-usephoto" onClick={goToSelect}>Use This Photo</button>
+                <button id="button-retake" onClick={goToCapture}>Retake</button>
               </div>
             </div>
           )}

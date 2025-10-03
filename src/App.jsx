@@ -6,6 +6,7 @@ import Result from "./Components/Result.jsx";
 import Camera from "./Components/Camera.jsx";
 import Capture from "./Components/Capture.jsx";
 import Select from "./Components/Select.jsx";
+import Summary from "./Components/Summary.jsx";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/camera" element={<Camera />} />
         <Route path="/camera/capture" element={<Capture />} />
         <Route path="/select" element={<Select />} />
+        <Route path="/summary" element={<Summary />} />
 
       </Routes>
     </Router>

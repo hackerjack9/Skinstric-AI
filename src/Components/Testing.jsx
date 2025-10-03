@@ -34,7 +34,7 @@ function Testing() {
 
   return (
     <div className="testing-title">
-      <p className="testing-title-text">TO START ANALYSIS</p>
+      <p className="testing-top-text">TO START ANALYSIS</p>
       <div className="rotating-square-1">
         <div className="rotating-square-2">
           <div className="rotating-square-3"></div>
@@ -42,7 +42,9 @@ function Testing() {
       </div>
 
       <div className="testing-container">
+        <p className="testing-container-title">CLICK TO TYPE</p>
         {phase === 1 && (
+          
           <input
             className="form-input-1"
             type="text"
@@ -73,10 +75,10 @@ function Testing() {
           </div>
         )}
         {phase === 3 && !loading && (
-          <p>
-            Thank you! <br />
+          <p className="testing-thanks-text">
+            <span className="testing-thanks-title">Thank you!</span><br />
             <br />
-            Proceed to the next step.
+           <span className="testing-thanks-subtitle">Proceed to the next step</span> 
           </p>
         )}
         <button id="button-back" onClick={handleNavigate}>
