@@ -35,17 +35,19 @@ function Summary() {
             </div>
           </section>
           <section id="section-2">
-            <p className="section-2-title">Middle eastern</p>
-            <div className="percentage-circle">
-              <p>
-                98<span>%</span>
-              </p>
+            <div className="section-2-box">
+              <p className="section-2-title">Middle eastern</p>
+              <div className="percentage-circle">
+                <p className="circle-number">
+                  98<span className="circle-percentage-sign">%</span>
+                </p>
+              </div>
             </div>
           </section>
           <section id="section-3">
             <div className="category-class">
-              <h4>RACE</h4>
-              <h4>A.I. CONFIDENCE</h4>
+              <h4 className="section-3-title">RACE</h4>
+              <h4 className="section-3-title">A.I. CONFIDENCE</h4>
             </div>
             <div className="category-selector-1">
               <div className="alignment">
@@ -113,6 +115,9 @@ function Summary() {
             </div>
           </button>
         </div>
+        <p className="bottom-AI-title">
+          If A.I. estimate is wrong, select the correct one.
+        </p>
       </main>
     </div>
   );

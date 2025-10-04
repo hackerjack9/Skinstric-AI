@@ -32,7 +32,7 @@ function Select() {
               <button className="box-2">
                 <span className="textbox-2">WEATHER</span>
               </button>
-              <button className="box-3">
+              <button className="box-3" onClick={goToSummary}>
                 <span className="textbox-3">DEMOGRAPHICS</span>
               </button>
               <button className="box-4">
