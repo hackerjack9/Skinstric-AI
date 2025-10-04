@@ -1334,10 +1334,6 @@ input::placeholder {
   padding: 0px 16px;
 }
 
-.bullet-point {
-  background-color: black;
-}
-
 .section-3-title {
   font-weight: 500;
 }
@@ -1371,6 +1367,51 @@ input::placeholder {
   font-size: 16px;
   display: flex;
   justify-content: center;
+}
+
+#button-home {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: absolute;
+  align-items: center;
+  color: #1a1b1c;
+  background-color: white;
+  white-space: nowrap;
+  font-size: 14px;
+  border: none;
+  bottom: -20px;
+  right: 20px;
+}
+
+.button-home-text {
+  display: flex;
+  justify-content: center;
+  margin: 0px, 0px, 0px, 24px;
+  font-weight: 600;
+}
+.minibox-home {
+  display: flex;
+  position: relative;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  transform: rotate(45deg);
+  border: 1px solid black;
+  margin-right: 28px;
+  margin-left: 28px;
+}
+.minibox-arrow-home {
+  position: absolute;
+  top: 2;
+  bottom: 12;
+  right: 0;
+  left: 0;
+  transform: rotate(-45deg);
+  transition: transform 0.3ms ease-in-out;
+}
+#button-home:hover .minibox-home {
+  transform: scale(1.1) rotate(45deg);
 }
 
 /* ================================================== */

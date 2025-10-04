@@ -1,5 +1,5 @@
 import React from "react";
-import bulletPoint from "../assets/Shapes/bullet-point.webp";
+import bulletPoint from "../assets/Shapes/radio-button.svg";
 import { useNavigate } from "react-router-dom";
 
 function Summary() {
@@ -58,7 +58,7 @@ function Summary() {
             </div>
             <div className="category-selector-2">
               <div className="alignment">
-                <img src={bulletPoint} alt="" />
+                <img  src={bulletPoint} alt="" />
                 <span>Black</span>
               </div>
               <span>0%</span>
@@ -108,10 +108,10 @@ function Summary() {
             </div>
           </button>
 
-          <button id="button-proceed" onClick={handleNavigate}>
-            <span className="button-proceed-text">HOME</span>
-            <div className="minibox-proceed">
-              <span className="minibox-arrow-proceed">▶</span>
+          <button id="button-home" onClick={handleNavigate}>
+            <span className="button-home-text">HOME</span>
+            <div className="minibox-home">
+              <span className="minibox-arrow-home">▶</span>
             </div>
           </button>
         </div>

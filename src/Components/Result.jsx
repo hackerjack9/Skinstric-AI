@@ -31,16 +31,7 @@ function Result() {
     }
   };
 
-  /* When preview has obtained the image from gallery icon - doing loading state for routing to next page */
-  /*  useEffect(() => {
-    const timer = setTimeout(() => {
-      if(preview === true) {
-      navigate("/select");
-      }
-    }, 3000);
-
-    return () => clearTimeout(timer); 
-  }, [navigate]); */
+ 
 
   return (
     <div className="result-title">
