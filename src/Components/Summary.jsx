@@ -14,10 +14,11 @@ function Summary() {
   return (
     <div className="body">
       <main className="main">
-        <div className="title-container"></div>
-        <h2 className="analysis-title">A.I. ANALYSIS</h2>
-        <h3 className="demographics-title">DEMOGRAPHICS</h3>
-        <h4 className="predicted-title">PREDICTED RACE & AGE</h4>
+        <div className="title-container">
+          <h2 className="analysis-title">A.I. ANALYSIS</h2>
+          <h3 className="demographics-title">DEMOGRAPHICS</h3>
+          <h4 className="predicted-title">PREDICTED RACE & AGE</h4>
+        </div>
         <div className="summary-boxes-container">
           <section id="section-1">
             <div className="category-box-1">
@@ -97,19 +98,21 @@ function Summary() {
             </div>
           </section>
         </div>
-        <button id="button-back" onClick={goToSelect}>
-          <span className="button-back-text">BACK</span>
-          <div className="minibox-back">
-            <span className="minibox-arrow-back">▶</span>
-          </div>
-        </button>
+        <div className="sticky-bottom">
+          <button id="button-back" onClick={goToSelect}>
+            <span className="button-back-text">BACK</span>
+            <div className="minibox-back">
+              <span className="minibox-arrow-back">▶</span>
+            </div>
+          </button>
 
-        <button id="button-proceed" onClick={handleNavigate}>
-          <span className="button-proceed-text">HOME</span>
-          <div className="minibox-proceed">
-            <span className="minibox-arrow-proceed">▶</span>
-          </div>
-        </button>
+          <button id="button-proceed" onClick={handleNavigate}>
+            <span className="button-proceed-text">HOME</span>
+            <div className="minibox-proceed">
+              <span className="minibox-arrow-proceed">▶</span>
+            </div>
+          </button>
+        </div>
       </main>
     </div>
   );
