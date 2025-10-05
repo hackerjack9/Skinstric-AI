@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
+import { DataContext } from "../DataContext";
 import bulletPoint from "../assets/Shapes/radio-button.svg";
 import { useNavigate } from "react-router-dom";
 
 function Summary() {
+
+  const { analysisData } = useContext(DataContext);
   const navigate = useNavigate();
+
+  if (!analysisData) {
+    return <p>No data available. Please analyze an image first.</p>;
+  }
+
+  const { race, age, gender, raceConfidence } = analysisData; 
+  // shape depends on your API — adapt this destructuring accordingly
+
   const handleNavigate = () => {
     navigate("/");
   };
@@ -22,24 +33,25 @@ function Summary() {
         <div className="summary-boxes-container">
           <section id="section-1">
             <div className="category-box-1">
-              <p>Middle eastern</p>
+              <p>{race}</p>
               <h4 className="category-title">RACE</h4>
             </div>
             <div className="category-box-2">
-              <p>0-2</p>
+              <p>{age}</p>
               <h4 className="category-title">AGE</h4>
             </div>
             <div className="category-box-3">
-              <p>MALE</p>
+              <p>{gender}</p>
               <h4 className="category-title">SEX</h4>
             </div>
           </section>
           <section id="section-2">
             <div className="section-2-box">
-              <p className="section-2-title">Middle eastern</p>
+              <p className="section-2-title">{race}</p>
               <div className="percentage-circle">
                 <p className="circle-number">
-                  98<span className="circle-percentage-sign">%</span>
+                  {raceConfidence}
+                  <span className="circle-percentage-sign">%</span>
                 </p>
               </div>
             </div>
@@ -54,49 +66,49 @@ function Summary() {
                 <img src={bulletPoint} alt="" />
                 <span>Middle eastern</span>
               </div>
-              <span>98%</span>
+              <span>{raceConfidence}%</span>
             </div>
             <div className="category-selector-2">
               <div className="alignment">
                 <img  src={bulletPoint} alt="" />
                 <span>Black</span>
               </div>
-              <span>0%</span>
+              <span>{raceConfidence}%</span>
             </div>
             <div className="category-selector-3">
               <div className="alignment">
                 <img src={bulletPoint} alt="" />
                 <span>White</span>
               </div>
-              <span>0%</span>
+              <span>{raceConfidence}%</span>
             </div>
             <div className="category-selector-4">
               <div className="alignment">
                 <img src={bulletPoint} alt="" />
                 <span>Southeast asian</span>
               </div>
-              <span>0%</span>
+              <span>{raceConfidence}%</span>
             </div>
             <div className="category-selector-5">
               <div className="alignment">
                 <img src={bulletPoint} alt="" />
                 <span>South asian</span>
               </div>
-              <span>0%</span>
+              <span>{raceConfidence}%</span>
             </div>
             <div className="category-selector-7">
               <div className="alignment">
                 <img src={bulletPoint} alt="" />
                 <span>Latino hispanic</span>
               </div>
-              <span>0%</span>
+              <span>{raceConfidence}%</span>
             </div>
             <div className="category-selector-8">
               <div className="alignment">
                 <img src={bulletPoint} alt="" />
                 <span>East Asian</span>
               </div>
-              <span>0%</span>
+              <span>{raceConfidence}%</span>
             </div>
           </section>
         </div>

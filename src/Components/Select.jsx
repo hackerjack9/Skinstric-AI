@@ -1,14 +1,26 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { DataContext } from "../DataContext";
+
 
 function Select() {
   const navigate = useNavigate();
+const { analysisData } = useContext(DataContext);
+
+  const handleDemographicsClick = () => {
+    if (!analysisData) {
+      alert("No analysis data found. Please upload or capture an image first.");
+      return;
+    }
+    navigate("/summary");
+  };
 
   const goToResult = () => {
     navigate("/result");
   };
   const goToSummary = () => {
-    navigate("/summary");
+    navigate("/result");
   };
 
   return (
@@ -32,7 +44,7 @@ function Select() {
               <button className="box-2">
                 <span className="textbox-2">WEATHER</span>
               </button>
-              <button className="box-3" onClick={goToSummary}>
+              <button className="box-3" onClick={handleDemographicsClick}>
                 <span className="textbox-3">DEMOGRAPHICS</span>
               </button>
               <button className="box-4">
