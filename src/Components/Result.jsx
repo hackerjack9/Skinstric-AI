@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import camIcon from "../assets/Shapes/camera-icon.webp";
 import gallIcon from "../assets/Shapes/gallery-icon.webp";
@@ -9,6 +9,12 @@ function Result() {
   const navigate = useNavigate();
   const fileInputRef = useRef(null);
 
+  const [previewImage, setPreviewImage] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const API_URL =
+    "https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseTwo";
+
   const goToTesting = () => {
     navigate("/testing");
   };
@@ -17,88 +23,173 @@ function Result() {
     navigate("/camera");
   };
 
-  // Function to handle the image click of gallery icon
+  // Trigger hidden file input on gallery icon click
   const handleImageClick = () => {
-    // Trigger the click event on the hidden file input
     fileInputRef.current.click();
   };
 
-  // Function to handle file selection
-  const handleFileChange = (event) => {
+  // Convert selected file to base64 and handle UI flow
+  const handleFileChange = async (event) => {
     const selectedFile = event.target.files[0];
-    if (selectedFile) {
-      console.log("Selected file:", selectedFile.name);
+    if (!selectedFile) return;
+
+    try {
+      const base64String = await convertToBase64(selectedFile);
+      setPreviewImage(base64String);
+      localStorage.setItem("userImageBase64", base64String);
+
+      // Start loading state
+      setLoading(true);
+
+      // Send image to API while loading
+      await sendImageToAPI(base64String);
+
+      // Wait 3 seconds to show loading screen
+      setTimeout(() => {
+        alert("Image analyzed successfully!");
+        navigate("/select");
+      }, 3000);
+    } catch (error) {
+      console.error("Error handling image:", error);
+      alert("Failed to process the image. Try again.");
     }
   };
 
- 
+  // Helper: Convert file → base64 string
+  const convertToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const base64String = reader.result.split(",")[1];
+        resolve(base64String);
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  };
+
+  // Helper: POST base64 to Phase 2 API
+  const sendImageToAPI = async (base64String) => {
+    try {
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ image: base64String }),
+      });
+
+      const data = await response.json();
+      console.log("API response (Phase 2):", data);
+      localStorage.setItem("phase2Response", JSON.stringify(data));
+    } catch (error) {
+      console.error("API error:", error);
+    }
+  };
 
   return (
-    <div className="result-title">
+    <div className="result-page">
+      {/* This p tag stays visible even during loading */}
       <p className="result-title-text">TO START ANALYSIS</p>
-      <div className="rotating-square-container-1">
-        <p className="cam-text">
-          ALLOW A.I. <br /> TO SCAN YOUR FACE
-        </p>
-        <img className="scanLine1" src={scanLine1} alt="scan line" />
-        <img className="icon-img-1" src={camIcon} alt="camera icon image" />
-        <div className="rotating-square-4">
-          <div className="rotating-square-5">
-            <div className="rotating-square-6"></div>
-          </div>
+
+      {/* PREVIEW BOX (always visible once image chosen) */}
+      <div className="preview-container">
+        <h1 className="preview-title">Preview</h1>
+        <div className="preview-box">
+          {previewImage && (
+            <img
+              src={`data:image/jpeg;base64,${previewImage}`}
+              alt="preview"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                borderRadius: "8px",
+              }}
+            />
+          )}
         </div>
       </div>
-      <div className="allow-AI-box">
-        <h2 className="allow-AI-title">ALLOW A.I. TO ACCESS YOUR CAMERA</h2>
-        <hr />
-        <div className="button-AI-container">
-          <button id="button-AI-deny">DENY</button>
-          <button id="button-AI-allow" onClick={goToCamera}>
-            ALLOW
+
+      {/* ✅ HIDE THIS SECTION WHEN LOADING */}
+      {!loading && (
+        <>
+          {/* CAMERA SECTION */}
+          <div className="rotating-square-container-1">
+            <p className="cam-text">
+              ALLOW A.I. <br /> TO SCAN YOUR FACE
+            </p>
+            <img className="scanLine1" src={scanLine1} alt="scan line" />
+            <img className="icon-img-1" src={camIcon} alt="camera icon image" />
+            <div className="rotating-square-4">
+              <div className="rotating-square-5">
+                <div className="rotating-square-6"></div>
+              </div>
+            </div>
+          </div>
+
+          <div className="allow-AI-box">
+            <h2 className="allow-AI-title">ALLOW A.I. TO ACCESS YOUR CAMERA</h2>
+            <hr />
+            <div className="button-AI-container">
+              <button id="button-AI-deny">DENY</button>
+              <button id="button-AI-allow" onClick={goToCamera}>
+                ALLOW
+              </button>
+            </div>
+          </div>
+
+          {/* GALLERY SECTION */}
+          <div className="rotating-square-container-2">
+            <p className="gall-text">
+              ALLOW A.I. <br />
+              ACCESS GALLERY
+            </p>
+            <img className="scanLine2" src={scanLine2} alt="scan line" />
+            <div>
+              <img
+                className="icon-img-2"
+                src={gallIcon}
+                alt="Click to upload"
+                style={{ cursor: "pointer" }}
+                onClick={handleImageClick}
+              />
+              <input
+                type="file"
+                accept="image/*"
+                ref={fileInputRef}
+                style={{ display: "none" }}
+                onChange={handleFileChange}
+              />
+            </div>
+            <div className="rotating-square-7">
+              <div className="rotating-square-8">
+                <div className="rotating-square-9"></div>
+              </div>
+            </div>
+          </div>
+
+          <button id="button-back" onClick={goToTesting}>
+            <span className="button-back-text">BACK</span>
+            <div className="minibox-back">
+              <span className="minibox-arrow-back">▶</span>
+            </div>
           </button>
-        </div>
-      </div>
-      <div className="rotating-square-container-2">
-        <div className="preview-container">
-          <h1 className="preview-title">Preview</h1>
-          <div className="preview-box"></div>
-        </div>
-        <p className="gall-text">
-          ALLOW A.I. <br />
-          ACCESS GALLERY
-        </p>
-        <img className="scanLine2" src={scanLine2} alt="scan line" />
+        </>
+      )}
 
-        <div>
-          <img
-            className="icon-img-2"
-            src={gallIcon}
-            alt="Click to upload"
-            style={{ cursor: "pointer" }}
-            onClick={handleImageClick}
-          />
-
-          <input
-            type="file"
-            ref={fileInputRef}
-            style={{ display: "none" }}
-            onChange={handleFileChange}
-          />
-        </div>
-
-        <div className="rotating-square-7">
-          <div className="rotating-square-8">
-            <div className="rotating-square-9"></div>
+      {/* LOADING OVERLAY */}
+      {loading && (
+       <div className="body">
+      <div className="rotating-square-1c">
+          <div className="rotating-square-2c">
+            <div className="rotating-square-3c"></div>
           </div>
-        </div>
       </div>
-
-      <button id="button-back" onClick={goToTesting}>
-        <span className="button-back-text">BACK</span>
-        <div className="minibox-back">
-          <span className="minibox-arrow-back">▶</span>
-        </div>
-      </button>
+    <div className="skeleton-state">
+      <h2>PREPARING YOUR ANALYSIS...</h2>
+    </div>
+     
+    </div>
+      )}
     </div>
   );
 }

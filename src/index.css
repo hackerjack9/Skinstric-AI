@@ -558,18 +558,17 @@ input::placeholder {
 }
 
 /* ----------Result Page ----------*/
-.result-title {
+.result-page {
   display: flex;
-  position: relative;
-  justify-content: space-between;
   align-items: center;
-  text-align: center;
+  justify-content: space-between;
   height: 90vh;
+  width: 100%;
 }
 
 .result-title-text {
   position: absolute;
-  top: 8px;
+  top: 60px;
   left: 32px;
   font-size: 14px;
   font-weight: 600;
@@ -593,7 +592,6 @@ input::placeholder {
 /* square sizes */
 .rotating-square-4,
 .rotating-square-7 {
-  top: 160px;
   width: 295px;
   height: 295px;
   border-color: #c5c6c8;
@@ -613,82 +611,53 @@ input::placeholder {
 }
 
 /* square screen alignment */
-.rotating-square-4 {
-  left: 270px;
-}
-
-.rotating-square-7 {
-  right: 350px;
-}
 
 .rotating-square-container-1,
-.rotating-square-container-2 {
-  position: relative;
-  width: calc(50%);
-  height: 100%;
+.rotating-square-container-2
+ {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+   width: calc(50%);
+  height: 75%;
+}
+
+.rotating-square-container-2 {
+flex-direction: column-reverse;
 }
 
 /* camera and gallery items */
-.gall-text,
-.cam-text {
-  font-size: 14px;
-  position: absolute;
-}
-.cam-text {
-  text-align: left;
-  top: 250px;
-  right: 120px;
-}
-
-.gall-text {
-  text-align: right;
-  bottom: 310px;
-  left: 68px;
-}
 
 .icon-img-1,
 .icon-img-2 {
-  position: absolute;
+  position: relative;
   width: 136px;
-  top: 285px;
   transition: transform 0.5s ease-in-out;
-  z-index: 1;
+z-index: 5;
 }
 
-.icon-img-1 {
-  left: 350px;
-}
+   /* Reordering items */
+    .allow-AI-title { order: 1; } /* Moves to the 3rd position */
+    .icon-img-1 { order: 2; } /* Moves to the 1st position */
+    .scanLine1 { order: 3; } /* Moves to the 2nd position */
 
-.icon-img-2 {
-  right: 428px;
-}
+   /* Reordering items */
+    .allow-AI-title { order: 1; } /* Moves to the 3rd position */
+    .icon-img-2 { order: 2; } /* Moves to the 1st position */
+    .scanLine2 { order: 3; } /* Moves to the 2nd position */
 
 .icon-img-1:hover,
 .icon-img-2:hover {
   transform: scale(1.1);
 }
 
-.scanLine1 {
-  display: flex;
-  position: absolute;
-  top: 265px;
-  right: 265px;
-}
-
-.scanLine2 {
-  position: absolute;
-  bottom: 340px;
-  left: 186px;
-}
 
 /* preview items */
 .preview-container {
   position: absolute;
   right: 30px;
-  top: 18px;
+  top: 100px;
 }
 
 .preview-title {
