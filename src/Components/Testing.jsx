@@ -13,13 +13,6 @@ function Testing() {
   const API_URL =
     "https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseOne";
 
-  // Load stored values if user previously entered them
-  useEffect(() => {
-    const storedName = localStorage.getItem("userName");
-    const storedLocation = localStorage.getItem("userLocation");
-    if (storedName) setName(storedName);
-    if (storedLocation) setLocation(storedLocation);
-  }, []);
 
   // Simple text validation
   const isValidText = (value) => {

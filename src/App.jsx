@@ -7,13 +7,12 @@ import Camera from "./Components/Camera.jsx";
 import Capture from "./Components/Capture.jsx";
 import Select from "./Components/Select.jsx";
 import Summary from "./Components/Summary.jsx";
-import { DataProvider } from "../src/DataContext.jsx";
+import Practice from "./Components/Practice.jsx";
 
 function App() {
   return (
     <Router>
       <Nav />
-<DataProvider>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/testing" element={<Testing />} />
@@ -22,8 +21,8 @@ function App() {
         <Route path="/camera/capture" element={<Capture />} />
         <Route path="/select" element={<Select />} />
         <Route path="/summary" element={<Summary />} />
+        <Route path="/practice" element={<Practice />} />
       </Routes>
-        </DataProvider>
     </Router>
   );
 }

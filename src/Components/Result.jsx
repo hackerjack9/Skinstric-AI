@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import camIcon from "../assets/Shapes/camera-icon.webp";
 import gallIcon from "../assets/Shapes/gallery-icon.webp";
@@ -48,7 +48,7 @@ function Result() {
       setTimeout(() => {
         alert("Image analyzed successfully!");
         navigate("/select");
-      }, 3000);
+      }, 4000);
     } catch (error) {
       console.error("Error handling image:", error);
       alert("Failed to process the image. Try again.");
@@ -84,6 +84,8 @@ function Result() {
       console.error("API error:", error);
     }
   };
+
+
 
   return (
     <div className="result-page">
