@@ -6,9 +6,9 @@ import scanLine1 from "../assets/Shapes/cam-icon-line.webp";
 import scanLine2 from "../assets/Shapes/gallery-icon-line.webp";
 
 function Result() {
+   const [showAllowCamera, setShowAllowCamera] = useState(false);
   const navigate = useNavigate();
   const fileInputRef = useRef(null);
-
   const [previewImage, setPreviewImage] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -85,7 +85,15 @@ function Result() {
     }
   };
 
+// Show Allow AI box
+useEffect(() => {
+    const data = window.localStorage.getItem('SKINSTRIC-AI-APP');
+    if ( data !=null ) setShowAllowCamera(JSON.parse(data))
+  }, [])
 
+  useEffect(() => {
+    window.localStorage.setItem('SKINSTRIC-AI-APP', JSON.stringify(showAllowCamera))
+  }, [showAllowCamera])
 
   return (
     <div className="result-page">
@@ -110,6 +118,24 @@ function Result() {
           )}
         </div>
       </div>
+
+       {/* Show Allow AI Box */}
+      {showAllowCamera && (
+        <div>
+          <div className="rotating-square-container-1">
+            <div className="allow-AI-box">
+              <h2 className="allow-AI-title"> ALLOW A.I. TO ACCESS YOUR CAMERA</h2>
+              <hr />
+              <div className="button-AI-container">
+                <button id="button-AI-deny">DENY</button>
+                <button id="button-AI-allow" onClick={goToCamera}>ALLOW</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      <img onClick={() => setShowAllowCamera(true)} className="icon-img-1" src={camIcon} alt="camera icon image" />
+    
 
       {/* ✅ HIDE THIS SECTION WHEN LOADING */}
       {!loading && (
