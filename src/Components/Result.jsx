@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import camIcon from "../assets/Shapes/camera-icon.webp";
 import gallIcon from "../assets/Shapes/gallery-icon.webp";
@@ -6,11 +6,12 @@ import scanLine1 from "../assets/Shapes/cam-icon-line.webp";
 import scanLine2 from "../assets/Shapes/gallery-icon-line.webp";
 
 function Result() {
-   const [showAllowCamera, setShowAllowCamera] = useState(false);
+  const [showAllowCamera, setShowAllowCamera] = useState(false);
   const navigate = useNavigate();
   const fileInputRef = useRef(null);
   const [previewImage, setPreviewImage] = useState(null);
   const [loading, setLoading] = useState(false);
+    const [galleryImage, setGalleryImage] =useState(null);
 
   const API_URL =
     "https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseTwo";
@@ -20,6 +21,7 @@ function Result() {
   };
 
   const goToCamera = () => {
+    setShowAllowCamera(false);
     navigate("/camera");
   };
 
@@ -44,7 +46,7 @@ function Result() {
       // Send image to API while loading
       await sendImageToAPI(base64String);
 
-      // Wait 3 seconds to show loading screen
+      // Wait a bit then 
       setTimeout(() => {
         alert("Image analyzed successfully!");
         navigate("/select");
@@ -85,22 +87,34 @@ function Result() {
     }
   };
 
-// Show Allow AI box
-useEffect(() => {
-    const data = window.localStorage.getItem('SKINSTRIC-AI-APP');
-    if ( data !=null ) setShowAllowCamera(JSON.parse(data))
-  }, [])
+  // Save to React state
+  setGalleryImage(selectedFile);
+  
+  // Save to localStorage
+  try {
+    localStorage.setItem("galleryPhoto", selectedFile);
+    console.log("Photo saved to localStorage");
+  } catch (err) {
+    console.error("Failed to save photo to localStorage:", err);
+  }
+};
 
-  useEffect(() => {
-    window.localStorage.setItem('SKINSTRIC-AI-APP', JSON.stringify(showAllowCamera))
-  }, [showAllowCamera])
+// Load the photo from localStorage if it exists
+// If you want the captured photo to persist even if the user refreshes the page:
+
+useEffect(() => {
+  const savedPhotoTwo = localStorage.getItem("galleryPhoto");
+  if (savedPhotoTwo) {
+    setGalleryImage(savedPhotoTwo);
+  }
+}, []);
+
 
   return (
     <div className="result-page">
-      {/* This p tag stays visible even during loading */}
       <p className="result-title-text">TO START ANALYSIS</p>
 
-      {/* PREVIEW BOX (always visible once image chosen) */}
+      {/* PREVIEW BOX */}
       <div className="preview-container">
         <h1 className="preview-title">Preview</h1>
         <div className="preview-box">
@@ -119,49 +133,44 @@ useEffect(() => {
         </div>
       </div>
 
-       {/* Show Allow AI Box */}
+    
       {showAllowCamera && (
-        <div>
-          <div className="rotating-square-container-1">
-            <div className="allow-AI-box">
-              <h2 className="allow-AI-title"> ALLOW A.I. TO ACCESS YOUR CAMERA</h2>
-              <hr />
-              <div className="button-AI-container">
-                <button id="button-AI-deny">DENY</button>
-                <button id="button-AI-allow" onClick={goToCamera}>ALLOW</button>
-              </div>
+        <div className="rotating-square-container-1">
+          <div className="allow-AI-box">
+            <h2 className="allow-AI-title">ALLOW A.I. TO ACCESS YOUR CAMERA</h2>
+            <hr />
+            <div className="button-AI-container">
+              <button id="button-AI-deny" onClick={() => setShowAllowCamera(false)}>
+                DENY
+              </button>
+              <button id="button-AI-allow" onClick={goToCamera}>
+                ALLOW
+              </button>
             </div>
           </div>
         </div>
       )}
-      <img onClick={() => setShowAllowCamera(true)} className="icon-img-1" src={camIcon} alt="camera icon image" />
-    
 
-      {/* ✅ HIDE THIS SECTION WHEN LOADING */}
+   
       {!loading && (
         <>
-          {/* CAMERA SECTION */}
           <div className="rotating-square-container-1">
             <p className="cam-text">
               ALLOW A.I. <br /> TO SCAN YOUR FACE
             </p>
             <img className="scanLine1" src={scanLine1} alt="scan line" />
-            <img className="icon-img-1" src={camIcon} alt="camera icon image" />
+          
+            <img
+              className="icon-img-1"
+              src={camIcon}
+              alt="camera icon image"
+              onClick={() => setShowAllowCamera(true)}
+              style={{ cursor: "pointer" }}
+            />
             <div className="rotating-square-4">
               <div className="rotating-square-5">
                 <div className="rotating-square-6"></div>
               </div>
-            </div>
-          </div>
-
-          <div className="allow-AI-box">
-            <h2 className="allow-AI-title">ALLOW A.I. TO ACCESS YOUR CAMERA</h2>
-            <hr />
-            <div className="button-AI-container">
-              <button id="button-AI-deny">DENY</button>
-              <button id="button-AI-allow" onClick={goToCamera}>
-                ALLOW
-              </button>
             </div>
           </div>
 
@@ -206,20 +215,20 @@ useEffect(() => {
 
       {/* LOADING OVERLAY */}
       {loading && (
-       <div className="body">
-      <div className="rotating-square-1c">
-          <div className="rotating-square-2c">
-            <div className="rotating-square-3c"></div>
+        <div className="body">
+          <div className="rotating-square-1c">
+            <div className="rotating-square-2c">
+              <div className="rotating-square-3c"></div>
+            </div>
           </div>
-      </div>
-    <div className="skeleton-state">
-      <h2>PREPARING YOUR ANALYSIS...</h2>
-    </div>
-     
-    </div>
+          <div className="skeleton-state">
+            <h2>PREPARING YOUR ANALYSIS...</h2>
+          </div>
+        </div>
       )}
     </div>
-  );
-}
+  )
+};
 
 export default Result;
+

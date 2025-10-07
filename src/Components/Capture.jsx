@@ -7,6 +7,7 @@ const Capture = () => {
   const canvasRef = useRef(null);
   const [capturedImage, setCapturedImage] = useState(null);
 
+
   const navigate = useNavigate();
   const goToResult = () => {
     navigate("/result");
@@ -36,19 +37,38 @@ const Capture = () => {
   }, []);
 
   const handleCapture = () => {
-    const canvas = canvasRef.current;
-    const video = videoRef.current;
-    if (!canvas || !video) return;
+  const canvas = canvasRef.current;
+  const video = videoRef.current;
+  if (!canvas || !video) return;
 
-    const context = canvas.getContext("2d");
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
+  const context = canvas.getContext("2d");
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
 
-    context.drawImage(video, 0, 0, canvas.width, canvas.height);
-    const imageData = canvas.toDataURL("image/png");
-    setCapturedImage(imageData);
-  };
+  context.drawImage(video, 0, 0, canvas.width, canvas.height);
+  const imageData = canvas.toDataURL("image/png");
+  
+  // Save to React state
+  setCapturedImage(imageData);
+  
+  // Save to localStorage
+  try {
+    localStorage.setItem("capturedPhoto", imageData);
+    console.log("Photo saved to localStorage");
+  } catch (err) {
+    console.error("Failed to save photo to localStorage:", err);
+  }
+};
 
+// Load the photo from localStorage if it exists
+// If you want the captured photo to persist even if the user refreshes the page:
+
+useEffect(() => {
+  const savedPhoto = localStorage.getItem("capturedPhoto");
+  if (savedPhoto) {
+    setCapturedImage(savedPhoto);
+  }
+}, []);
 
   return (
     <div className="camera-body">
