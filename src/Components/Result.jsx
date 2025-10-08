@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import camIcon from "../assets/Shapes/camera-icon.webp";
 import gallIcon from "../assets/Shapes/gallery-icon.webp";
@@ -7,57 +7,26 @@ import scanLine2 from "../assets/Shapes/gallery-icon-line.webp";
 
 function Result() {
   const [showAllowCamera, setShowAllowCamera] = useState(false);
-  const navigate = useNavigate();
-  const fileInputRef = useRef(null);
   const [previewImage, setPreviewImage] = useState(null);
   const [loading, setLoading] = useState(false);
-    const [galleryImage, setGalleryImage] =useState(null);
+  const [galleryImage, setGalleryImage] = useState(null); // Main image state
+  const fileInputRef = useRef(null);
+  const navigate = useNavigate();
 
   const API_URL =
     "https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseTwo";
 
-  const goToTesting = () => {
-    navigate("/testing");
-  };
-
+  // Navigate helpers
+  const goToTesting = () => navigate("/testing");
   const goToCamera = () => {
     setShowAllowCamera(false);
     navigate("/camera");
   };
 
-  // Trigger hidden file input on gallery icon click
-  const handleImageClick = () => {
-    fileInputRef.current.click();
-  };
+  // Trigger hidden file input
+  const handleImageClick = () => fileInputRef.current.click();
 
-  // Convert selected file to base64 and handle UI flow
-  const handleFileChange = async (event) => {
-    const selectedFile = event.target.files[0];
-    if (!selectedFile) return;
-
-    try {
-      const base64String = await convertToBase64(selectedFile);
-      setPreviewImage(base64String);
-      localStorage.setItem("userImageBase64", base64String);
-
-      // Start loading state
-      setLoading(true);
-
-      // Send image to API while loading
-      await sendImageToAPI(base64String);
-
-      // Wait a bit then 
-      setTimeout(() => {
-        alert("Image analyzed successfully!");
-        navigate("/select");
-      }, 4000);
-    } catch (error) {
-      console.error("Error handling image:", error);
-      alert("Failed to process the image. Try again.");
-    }
-  };
-
-  // Helper: Convert file → base64 string
+  // Convert File → Base64
   const convertToBase64 = (file) => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -70,7 +39,7 @@ function Result() {
     });
   };
 
-  // Helper: POST base64 to Phase 2 API
+  // Send image to API
   const sendImageToAPI = async (base64String) => {
     try {
       const response = await fetch(API_URL, {
@@ -87,28 +56,46 @@ function Result() {
     }
   };
 
-  // Save to React state
-  setGalleryImage(selectedFile);
-  
-  // Save to localStorage
-  try {
-    localStorage.setItem("galleryPhoto", selectedFile);
-    console.log("Photo saved to localStorage");
-  } catch (err) {
-    console.error("Failed to save photo to localStorage:", err);
-  }
-};
+  // Handle gallery image selection
+  const handleFileChange = async (event) => {
+    const selectedFile = event.target.files[0];
+    if (!selectedFile) return;
 
-// Load the photo from localStorage if it exists
-// If you want the captured photo to persist even if the user refreshes the page:
+    try {
+      setLoading(true);
 
-useEffect(() => {
-  const savedPhotoTwo = localStorage.getItem("galleryPhoto");
-  if (savedPhotoTwo) {
-    setGalleryImage(savedPhotoTwo);
-  }
-}, []);
+      const base64String = await convertToBase64(selectedFile);
 
+      // Save in state so it shows in UI
+      setPreviewImage(base64String);
+      setGalleryImage(base64String);
+
+      // Save in localStorage for persistence
+      localStorage.setItem("userImageBase64", base64String);
+
+      // Send image to API
+      await sendImageToAPI(base64String);
+
+      setTimeout(() => {
+        setLoading(false);
+        alert("Image analyzed successfully!");
+        navigate("/select");
+      }, 4000);
+    } catch (error) {
+      console.error("Error handling image:", error);
+      alert("Failed to process the image. Try again.");
+      setLoading(false);
+    }
+  };
+
+  // Load saved image from localStorage on mount
+  useEffect(() => {
+    const savedImage = localStorage.getItem("userImageBase64");
+    if (savedImage) {
+      setPreviewImage(savedImage);
+      setGalleryImage(savedImage);
+    }
+  }, []);
 
   return (
     <div className="result-page">
@@ -118,10 +105,10 @@ useEffect(() => {
       <div className="preview-container">
         <h1 className="preview-title">Preview</h1>
         <div className="preview-box">
-          {previewImage && (
+          {galleryImage ? (
             <img
-              src={`data:image/jpeg;base64,${previewImage}`}
-              alt="preview"
+              src={`data:image/jpeg;base64,${galleryImage}`}
+              alt="Preview"
               style={{
                 width: "100%",
                 height: "100%",
@@ -129,11 +116,13 @@ useEffect(() => {
                 borderRadius: "8px",
               }}
             />
+          ) : (
+            <p>No image selected yet</p>
           )}
         </div>
       </div>
 
-    
+      {/* CAMERA PERMISSION POPUP */}
       {showAllowCamera && (
         <div className="rotating-square-container-1">
           <div className="allow-AI-box">
@@ -151,15 +140,14 @@ useEffect(() => {
         </div>
       )}
 
-   
       {!loading && (
         <>
+          {/* CAMERA SECTION */}
           <div className="rotating-square-container-1">
             <p className="cam-text">
               ALLOW A.I. <br /> TO SCAN YOUR FACE
             </p>
             <img className="scanLine1" src={scanLine1} alt="scan line" />
-          
             <img
               className="icon-img-1"
               src={camIcon}
@@ -177,8 +165,7 @@ useEffect(() => {
           {/* GALLERY SECTION */}
           <div className="rotating-square-container-2">
             <p className="gall-text">
-              ALLOW A.I. <br />
-              ACCESS GALLERY
+              ALLOW A.I. <br /> ACCESS GALLERY
             </p>
             <img className="scanLine2" src={scanLine2} alt="scan line" />
             <div>
@@ -227,8 +214,8 @@ useEffect(() => {
         </div>
       )}
     </div>
-  )
-};
+  );
+}
 
 export default Result;
 

@@ -1,34 +1,23 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import cameraIconLens from "../assets/Shapes/camera-icon-lens.webp";
+
+const API_URL = "https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseTwo";
 
 const Capture = () => {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const [capturedImage, setCapturedImage] = useState(null);
-
-
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const goToResult = () => {
-    navigate("/result");
-  };
 
-  const goToSelect = () => {
-    navigate("/select", { state: { photo: capturedImage } });
-  };
-  const goToCapture = () => {
-    navigate("/capture");
-  };
-
+  // ✅ Initialize camera
   useEffect(() => {
     async function initCamera() {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({
-          video: true,
-        });
-        if (videoRef.current) {
-          videoRef.current.srcObject = stream;
-        }
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        if (videoRef.current) videoRef.current.srcObject = stream;
       } catch (err) {
         console.error("Camera access denied:", err);
       }
@@ -36,39 +25,51 @@ const Capture = () => {
     initCamera();
   }, []);
 
+  // 📸 Capture the current frame
   const handleCapture = () => {
-  const canvas = canvasRef.current;
-  const video = videoRef.current;
-  if (!canvas || !video) return;
+    const canvas = canvasRef.current;
+    const video = videoRef.current;
+    if (!canvas || !video) return;
 
-  const context = canvas.getContext("2d");
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
+    const context = canvas.getContext("2d");
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-  context.drawImage(video, 0, 0, canvas.width, canvas.height);
-  const imageData = canvas.toDataURL("image/png");
-  
-  // Save to React state
-  setCapturedImage(imageData);
-  
-  // Save to localStorage
-  try {
-    localStorage.setItem("capturedPhoto", imageData);
-    console.log("Photo saved to localStorage");
-  } catch (err) {
-    console.error("Failed to save photo to localStorage:", err);
-  }
-};
+    const imageData = canvas.toDataURL("image/png");
+    setCapturedImage(imageData);
 
-// Load the photo from localStorage if it exists
-// If you want the captured photo to persist even if the user refreshes the page:
+    try {
+      localStorage.setItem("capturedPhoto", imageData);
+    } catch (err) {
+      console.error("Failed to save photo:", err);
+    }
+  };
 
-useEffect(() => {
-  const savedPhoto = localStorage.getItem("capturedPhoto");
-  if (savedPhoto) {
-    setCapturedImage(savedPhoto);
-  }
-}, []);
+  // 🧠 Send image to API and store response
+  const handleUsePhoto = async () => {
+    if (!capturedImage) return;
+    setLoading(true);
+
+    try {
+      // Wait 3 seconds to show the loading animation
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+
+      const response = await axios.post(API_URL, { image: capturedImage });
+      console.log("API response:", response.data);
+
+      // ✅ Save full response to localStorage for Summary component
+      localStorage.setItem("summaryData", JSON.stringify(response.data));
+
+      // ✅ Navigate to Summary
+      navigate("/summary");
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      alert("Failed to analyze image. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="camera-body">
@@ -77,7 +78,6 @@ useEffect(() => {
           {!capturedImage ? (
             <div className="video-subcontainer">
               <video ref={videoRef} autoPlay />
-              <br />
               <div className="take-picture-container">
                 <div className="take-picture-text">TAKE PICTURE</div>
                 <div className="camera-icon-container">
@@ -95,8 +95,16 @@ useEffect(() => {
               <img className="captured-img" src={capturedImage} alt="Captured" />
               <div className="captured-buttons">
                 <p className="button-title">PREVIEW</p>
-                <button id="button-usephoto" onClick={goToSelect}>Use This Photo</button>
-                <button id="button-retake" onClick={goToCapture}>Retake</button>
+                <button
+                  id="button-usephoto"
+                  onClick={handleUsePhoto}
+                  disabled={loading}
+                >
+                  {loading ? "Uploading..." : "Use This Photo"}
+                </button>
+                <button id="button-retake" onClick={() => setCapturedImage(null)}>
+                  Retake
+                </button>
               </div>
             </div>
           )}
@@ -112,16 +120,24 @@ useEffect(() => {
             </div>
           </div>
         </div>
-
-        <button id="button-back-camera" onClick={goToResult}>
-          <span className="button-back-text">BACK</span>
-          <div className="minibox-back-camera">
-            <span className="minibox-arrow-camera">▶</span>
-          </div>
-        </button>
       </div>
 
+      {/* Hidden canvas for capture */}
       <canvas ref={canvasRef} style={{ display: "none" }} />
+
+      {/* ⏳ Loading Overlay */}
+      {loading && (
+        <div className="loading-overlay">
+          <div className="loading-box">
+            <p>Analyzing this image</p>
+            <div className="bouncing-dots">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

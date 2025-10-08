@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function Testing() {
   const navigate = useNavigate();
-
-  // State
   const [phase, setPhase] = useState(1);
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
@@ -13,66 +12,39 @@ function Testing() {
   const API_URL =
     "https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseOne";
 
-
-  // Simple text validation
-  const isValidText = (value) => {
-    const regex = /^[A-Za-z\s]+$/;
-    return regex.test(value) && value.trim() !== "";
-  };
+  const isValidText = (value) => /^[A-Za-z\s]+$/.test(value.trim());
 
   const handleKeyDown = async (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
+    if (e.key !== "Enter") return;
 
-      // Phase 1: collect name
-      if (phase === 1) {
-        if (!isValidText(name)) {
-          alert("Please enter a valid name (letters only).");
-          return;
-        }
-        localStorage.setItem("userName", name.trim());
-        setPhase(2);
-      }
+    if (phase === 1) {
+      if (!isValidText(name)) return alert("Please enter a valid name.");
+      localStorage.setItem("userName", name.trim());
+      setPhase(2);
+    } 
+    
+    else if (phase === 2) {
+      if (!isValidText(location)) return alert("Please enter a valid city.");
+      localStorage.setItem("userLocation", location.trim());
 
-      // Phase 2: collect location & submit
-      else if (phase === 2) {
-        if (!isValidText(location)) {
-          alert("Please enter a valid city (letters only).");
-          return;
-        }
-
-        // Save to local storage
-        localStorage.setItem("userLocation", location.trim());
-
-        setLoading(true);
-        try {
-          const response = await fetch(API_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              name: name.trim(),
-              location: location.trim(),
-            }),
-          });
-
-          const data = await response.json();
-          console.log("API response:", data);
-        } catch (error) {
-          console.error("API Error:", error);
-          alert("Failed to submit. Please try again.");
-        } finally {
-          // Keep the skeleton loader visible for 3 seconds
-          setTimeout(() => {
-            setLoading(false);
-            setPhase(3);
-          }, 3000);
-        }
+      setLoading(true);
+      try {
+        const { data } = await axios.post(API_URL, {
+          name: name.trim(),
+          location: location.trim(),
+        });
+        localStorage.setItem("phaseOneResponse", JSON.stringify(data));
+      } catch (err) {
+        console.error("API Error:", err);
+        alert("Failed to submit. Please try again.");
+      } finally {
+        setTimeout(() => {
+          setLoading(false);
+          setPhase(3);
+        }, 3000);
       }
     }
   };
-
-  const handleNavigate = () => navigate("/");
-  const goToResult = () => navigate("/result");
 
   return (
     <div className="testing-title">
@@ -123,13 +95,11 @@ function Testing() {
         {phase === 3 && !loading && (
           <p className="testing-thanks-text">
             <span className="testing-thanks-title">Thank you!</span><br /><br />
-            <span className="testing-thanks-subtitle">
-              Proceed to the next step
-            </span>
+            <span className="testing-thanks-subtitle">Proceed to the next step</span>
           </p>
         )}
 
-        <button id="button-back" onClick={handleNavigate}>
+        <button id="button-back" onClick={() => navigate("/")}>
           <span className="button-back-text">BACK</span>
           <div className="minibox-back">
             <span className="minibox-arrow-back">▶</span>
@@ -137,7 +107,7 @@ function Testing() {
         </button>
 
         {phase === 3 && !loading && (
-          <button id="button-proceed" onClick={goToResult}>
+          <button id="button-proceed" onClick={() => navigate("/result")}>
             <span className="button-proceed-text">PROCEED</span>
             <div className="minibox-proceed">
               <span className="minibox-arrow-proceed">▶</span>
