@@ -81,7 +81,7 @@ body {
   padding: 0px 10px 0px 10px;
 }
 
-/* ----------------------------Home Page------------------------------ */
+/* -----------------Home Page------------------- */
 
 #button-left,
 #button-right {
@@ -138,7 +138,7 @@ body {
   margin-bottom: 4px;
 }
 
-/* ----------------------Hover Effects----------------------------- */
+/* --------------Hover Effects----------------- */
 
 /* Home Page */
 /* Hover and move left */
@@ -192,8 +192,8 @@ body {
 }
 
 .center-text {
+  border: 2px solid green;
   display: flex;
-  position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -345,7 +345,7 @@ body {
   transform: scale(1.1) rotate(45deg);
 }
 
-/* ---------------------Testing------------------------ */
+/* -------------------Testing------------------- */
 
 .testing-container {
   display: flex;
@@ -557,13 +557,14 @@ input::placeholder {
   justify-content: space-between;
 }
 
-/* ----------Result Page ----------*/
+/* ----------------Result Page ------------------*/
 .result-page {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 90vh;
   width: 100%;
+  padding: 200px;
 }
 
 .result-title-text {
@@ -587,6 +588,15 @@ input::placeholder {
   border: 2px dotted #a0a4ab;
   margin: 50px auto; /* Center the div */
   animation: rotate 85s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* square sizes */
@@ -623,35 +633,25 @@ input::placeholder {
   height: 75%;
 }
 
-.rotating-square-container-2 {
-flex-direction: column-reverse;
-}
-
 /* camera and gallery items */
+
+.gall-text {
+text-align: end;
+}
 
 .icon-img-1,
 .icon-img-2 {
   position: relative;
   width: 136px;
   transition: transform 0.5s ease-in-out;
-z-index: 5;
+  z-index: 5;
+  
 }
-
-   /* Reordering items */
-    .allow-AI-title { order: 1; } /* Moves to the 3rd position */
-    .icon-img-1 { order: 2; } /* Moves to the 1st position */
-    .scanLine1 { order: 3; } /* Moves to the 2nd position */
-
-   /* Reordering items */
-    .allow-AI-title { order: 1; } /* Moves to the 3rd position */
-    .icon-img-2 { order: 2; } /* Moves to the 1st position */
-    .scanLine2 { order: 3; } /* Moves to the 2nd position */
 
 .icon-img-1:hover,
 .icon-img-2:hover {
   transform: scale(1.1);
 }
-
 
 /* preview items */
 .preview-container {
@@ -748,7 +748,7 @@ z-index: 5;
   width: 250px;
   height: 250px;
   border: 2px dotted #a0a4ab;
-  transform: rotate(45deg);
+  animation: rotate 85s infinite;
 }
 
 .rotating-square-1c {
@@ -1392,50 +1392,48 @@ z-index: 5;
 /* Small devices (tablets) */
 @media (max-width: 640px) {
   .hovereffect-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-  }
-
-  .center-text {
-    position: relative;
-    top: -10px;
+    width: 100%;
+    height: 90vh;
   }
 
   .center-title,
   .center-subtitle {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .container-bottom-left {
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-size: 16px;
-    line-height: 26px;
+    font-size: 10px;
+    line-height: 20px;
   }
 
   .diamond-box {
-    position: absolute;
     display: flex;
-    width: 300px;
-    height: 300px;
+    flex-direction: column;
+    align-items: space-between;
+    width: 500px;
+    height: 500px;
     border: 2px dotted #a0a4ab;
     outline: 2px dotted #a0a4ab;
     outline-offset: 30px;
-    transform: rotate(45deg);
     z-index: -1;
   }
 
   #button-exp {
-    display: flex;
     position: relative;
-    align-items: center;
     color: #1a1b1c;
     background-color: white;
     white-space: nowrap;
     font-size: 14px;
     border: none;
-    bottom: -50px;
+    height: 40px;
+    width: 150px;
     transition: transform 0.3sec ease-in-out;
+    border: 2px solid green;
+    z-index: 5;
   }
 
   #button-exp:hover .minibox-exp {
@@ -1455,6 +1453,7 @@ z-index: 5;
     width: 24px;
     transform: rotate(45deg);
     border: 1px solid black;
+    z-index: 5;
   }
 
   .minibox-arrow-exp {

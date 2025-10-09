@@ -61,8 +61,8 @@ const Capture = () => {
       // ✅ Save full response to localStorage for Summary component
       localStorage.setItem("summaryData", JSON.stringify(response.data));
 
-      // ✅ Navigate to Summary
-      navigate("/summary");
+      // ✅ Navigate to Select
+      navigate("/select");
     } catch (error) {
       console.error("Error uploading image:", error);
       alert("Failed to analyze image. Please try again.");

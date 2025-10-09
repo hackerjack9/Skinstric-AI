@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -6,36 +6,55 @@ function Testing() {
   const navigate = useNavigate();
   const [phase, setPhase] = useState(1);
   const [name, setName] = useState("");
-  const [location, setLocation] = useState("");
+    const [location, setLocation] = useState("");
   const [loading, setLoading] = useState(false);
+  const inputRef = useRef(null);
 
   const API_URL =
     "https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseOne";
 
   const isValidText = (value) => /^[A-Za-z\s]+$/.test(value.trim());
 
+  // Automatically focus input when phase changes
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [phase]);
+
   const handleKeyDown = async (e) => {
     if (e.key !== "Enter") return;
 
     if (phase === 1) {
-      if (!isValidText(name)) return alert("Please enter a valid name.");
+      if (!isValidText(name)) {
+        alert("Please enter a valid name.");
+        return;
+      }
       localStorage.setItem("userName", name.trim());
       setPhase(2);
     } 
     
     else if (phase === 2) {
-      if (!isValidText(location)) return alert("Please enter a valid city.");
-      localStorage.setItem("userLocation", location.trim());
+      if (!isValidText(location)) {
+        alert("Please enter a valid city.");
+        return;
+      }
 
+      localStorage.setItem("userLocation", location.trim());
       setLoading(true);
+
       try {
         const { data } = await axios.post(API_URL, {
           name: name.trim(),
           location: location.trim(),
         });
+
+        // ✅ Store under consistent key for Summary.jsx
         localStorage.setItem("phaseOneResponse", JSON.stringify(data));
+        console.log("✅ API data stored:", data);
+
       } catch (err) {
-        console.error("API Error:", err);
+        console.error("❌ API Error:", err);
         alert("Failed to submit. Please try again.");
       } finally {
         setTimeout(() => {
@@ -61,6 +80,7 @@ function Testing() {
 
         {phase === 1 && (
           <input
+            ref={inputRef}
             className="form-input-1"
             type="text"
             placeholder="Introduce Yourself"
@@ -72,6 +92,7 @@ function Testing() {
 
         {phase === 2 && (
           <input
+            ref={inputRef}
             className="form-input-2"
             type="text"
             placeholder="your city name"
@@ -95,7 +116,9 @@ function Testing() {
         {phase === 3 && !loading && (
           <p className="testing-thanks-text">
             <span className="testing-thanks-title">Thank you!</span><br /><br />
-            <span className="testing-thanks-subtitle">Proceed to the next step</span>
+            <span className="testing-thanks-subtitle">
+              Proceed to the next step
+            </span>
           </p>
         )}
 

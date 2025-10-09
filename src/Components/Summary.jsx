@@ -5,42 +5,61 @@ import { useNavigate } from "react-router-dom";
 function Summary({ apiData: propsApiData }) {
   const navigate = useNavigate();
   const [apiData, setApiData] = useState(null);
- const [activeCategory, setActiveCategory] = useState("race"); // ← KEY
- 
+  const [activeCategory, setActiveCategory] = useState("race");
+
   // Load data from props or localStorage
   useEffect(() => {
     if (propsApiData) {
       setApiData(propsApiData);
       localStorage.setItem("summaryData", JSON.stringify(propsApiData));
     } else {
-      const stored = localStorage.getItem("summaryData");
+      const stored = localStorage.getItem("phaseTwoResponse");
       if (stored) {
-        setApiData(JSON.parse(stored));
+        try {
+          const parsed = JSON.parse(stored);
+          setApiData(parsed);
+        } catch (e) {
+          console.error("Error parsing stored data:", e);
+        }
       }
     }
   }, [propsApiData]);
 
-  const handleNavigate = () => navigate("/");
-  const goToSelect = () => navigate("/select");
-
-  if (!apiData) {
+  // ⛔ If data not loaded yet
+  if (!apiData || !apiData.data) {
     return (
       <div className="body">
         <main className="main">
           <h2 className="analysis-title">A.I. ANALYSIS</h2>
-          <p>Loading data...</p>
+          <p>No data found in localStorage.</p>
         </main>
       </div>
     );
   }
 
-  const { race, age, gender } = apiData.data;
-  // Pick the top race, age, gender for display
+  const { race, age, gender } = apiData.data || {};
+
+  // 🛡 Guard: if race/age/gender are undefined, display message
+  if (!race || !age || !gender) {
+    return (
+      <div className="body">
+        <main className="main">
+          <h2 className="analysis-title">A.I. ANALYSIS</h2>
+          <p>Incomplete demographic data. Please try again.</p>
+        </main>
+      </div>
+    );
+  }
+
+  // Safe to use Object.entries now
   const topRace = Object.entries(race).sort((a, b) => b[1] - a[1])[0];
   const topAge = Object.entries(age).sort((a, b) => b[1] - a[1])[0];
   const topGender = Object.entries(gender).sort((a, b) => b[1] - a[1])[0];
 
   const formatPercent = (num) => `${Math.round(num * 100)}%`;
+
+  const handleNavigate = () => navigate("/");
+  const goToSelect = () => navigate("/select");
 
   return (
     <div className="body">
@@ -52,7 +71,7 @@ function Summary({ apiData: propsApiData }) {
         </div>
 
         <div className="summary-boxes-container">
-          {/* SECTION 1: Top Categories */}
+          {/* SECTION 1 */}
           <section id="section-1">
             <div className="category-box-1">
               <p>{topRace[0]}</p>
@@ -68,7 +87,7 @@ function Summary({ apiData: propsApiData }) {
             </div>
           </section>
 
-          {/* SECTION 2: Top Race Confidence Circle */}
+          {/* SECTION 2 */}
           <section id="section-2">
             <div className="section-2-box">
               <p className="section-2-title">{topRace[0]}</p>
@@ -81,7 +100,7 @@ function Summary({ apiData: propsApiData }) {
             </div>
           </section>
 
-          {/* SECTION 3: Race Breakdown */}
+          {/* SECTION 3 */}
           <section id="section-3">
             <div className="category-class">
               <h4 className="section-3-title">RACE</h4>
@@ -89,10 +108,7 @@ function Summary({ apiData: propsApiData }) {
             </div>
 
             {Object.entries(race).map(([raceName, val], i) => (
-              <div
-                key={raceName}
-                className={`category-selector-${i + 1}`}
-              >
+              <div key={raceName} className={`category-selector-${i + 1}`}>
                 <div className="alignment">
                   <img src={bulletPoint} alt="" />
                   <span>{raceName}</span>

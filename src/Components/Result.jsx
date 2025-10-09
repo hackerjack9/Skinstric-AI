@@ -2,31 +2,27 @@ import React, { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import camIcon from "../assets/Shapes/camera-icon.webp";
 import gallIcon from "../assets/Shapes/gallery-icon.webp";
-import scanLine1 from "../assets/Shapes/cam-icon-line.webp";
-import scanLine2 from "../assets/Shapes/gallery-icon-line.webp";
 
 function Result() {
   const [showAllowCamera, setShowAllowCamera] = useState(false);
   const [previewImage, setPreviewImage] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [galleryImage, setGalleryImage] = useState(null); // Main image state
+  const [galleryImage, setGalleryImage] = useState(null);
   const fileInputRef = useRef(null);
   const navigate = useNavigate();
 
   const API_URL =
     "https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseTwo";
 
-  // Navigate helpers
   const goToTesting = () => navigate("/testing");
   const goToCamera = () => {
     setShowAllowCamera(false);
     navigate("/camera");
   };
 
-  // Trigger hidden file input
   const handleImageClick = () => fileInputRef.current.click();
 
-  // Convert File → Base64
+  // Convert file to base64 string
   const convertToBase64 = (file) => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -39,7 +35,7 @@ function Result() {
     });
   };
 
-  // Send image to API
+  // Send image to API and return data
   const sendImageToAPI = async (base64String) => {
     try {
       const response = await fetch(API_URL, {
@@ -50,9 +46,13 @@ function Result() {
 
       const data = await response.json();
       console.log("API response (Phase 2):", data);
-      localStorage.setItem("phase2Response", JSON.stringify(data));
+
+      // Store entire response for Summary page to use later
+      localStorage.setItem("phaseTwoResponse", JSON.stringify(data));
+      return data;
     } catch (error) {
       console.error("API error:", error);
+      throw error;
     }
   };
 
@@ -66,15 +66,18 @@ function Result() {
 
       const base64String = await convertToBase64(selectedFile);
 
-      // Save in state so it shows in UI
+      // Show preview in UI
       setPreviewImage(base64String);
       setGalleryImage(base64String);
 
-      // Save in localStorage for persistence
+      // Save the base64 image separately
       localStorage.setItem("userImageBase64", base64String);
 
-      // Send image to API
-      await sendImageToAPI(base64String);
+      // Call the API and get response
+      const apiResponse = await sendImageToAPI(base64String);
+
+      // ✅ apiResponse is now defined — we store the whole object
+      localStorage.setItem("phaseTwoResponse", JSON.stringify(apiResponse));
 
       setTimeout(() => {
         setLoading(false);
@@ -88,7 +91,6 @@ function Result() {
     }
   };
 
-  // Load saved image from localStorage on mount
   useEffect(() => {
     const savedImage = localStorage.getItem("userImageBase64");
     if (savedImage) {
@@ -147,11 +149,10 @@ function Result() {
             <p className="cam-text">
               ALLOW A.I. <br /> TO SCAN YOUR FACE
             </p>
-            <img className="scanLine1" src={scanLine1} alt="scan line" />
             <img
               className="icon-img-1"
               src={camIcon}
-              alt="camera icon image"
+              alt="camera icon"
               onClick={() => setShowAllowCamera(true)}
               style={{ cursor: "pointer" }}
             />
@@ -167,7 +168,6 @@ function Result() {
             <p className="gall-text">
               ALLOW A.I. <br /> ACCESS GALLERY
             </p>
-            <img className="scanLine2" src={scanLine2} alt="scan line" />
             <div>
               <img
                 className="icon-img-2"
@@ -200,7 +200,6 @@ function Result() {
         </>
       )}
 
-      {/* LOADING OVERLAY */}
       {loading && (
         <div className="body">
           <div className="rotating-square-1c">
@@ -218,4 +217,3 @@ function Result() {
 }
 
 export default Result;
-
