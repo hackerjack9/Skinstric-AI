@@ -6,23 +6,63 @@ function Testing() {
   const navigate = useNavigate();
   const [phase, setPhase] = useState(1);
   const [name, setName] = useState("");
-    const [location, setLocation] = useState("");
+  const [location, setLocation] = useState("");
   const [loading, setLoading] = useState(false);
   const inputRef = useRef(null);
 
-  const API_URL =
-    "https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseOne";
+  const API_URL = "https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseOne";
 
   const isValidText = (value) => /^[A-Za-z\s]+$/.test(value.trim());
 
-  // Automatically focus input when phase changes
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();
     }
   }, [phase]);
 
-  const handleKeyDown = async (e) => {
+  const handleSubmitPhaseOne = async () => {
+    const trimmedName = name.trim();
+    const trimmedLocation = location.trim();
+
+    if (!isValidText(trimmedName)) {
+      alert("Please enter a valid name.");
+      return;
+    }
+    if (!isValidText(trimmedLocation)) {
+      alert("Please enter a valid city.");
+      return;
+    }
+
+    // Save name/location separately
+    localStorage.setItem("userName", trimmedName);
+    localStorage.setItem("userLocation", trimmedLocation);
+
+    setLoading(true);
+
+    try {
+      const response = await axios.post(
+        API_URL,
+        { name: trimmedName, location: trimmedLocation },
+        { headers: { "Content-Type": "application/json" } }
+      );
+
+      console.log("✅ Phase One API Response:", response.data);
+
+      // Store entire response under consistent key for Summary
+      localStorage.setItem("phaseOneResponse", JSON.stringify(response.data));
+
+    } catch (error) {
+      console.error("❌ Phase One API Error:", error);
+      alert("There was an error hitting the API. Please try again.");
+    } finally {
+      setTimeout(() => {
+        setLoading(false);
+        setPhase(3);
+      }, 3000);
+    }
+  };
+
+  const handleKeyDown = (e) => {
     if (e.key !== "Enter") return;
 
     if (phase === 1) {
@@ -32,36 +72,8 @@ function Testing() {
       }
       localStorage.setItem("userName", name.trim());
       setPhase(2);
-    } 
-    
-    else if (phase === 2) {
-      if (!isValidText(location)) {
-        alert("Please enter a valid city.");
-        return;
-      }
-
-      localStorage.setItem("userLocation", location.trim());
-      setLoading(true);
-
-      try {
-        const { data } = await axios.post(API_URL, {
-          name: name.trim(),
-          location: location.trim(),
-        });
-
-        // ✅ Store under consistent key for Summary.jsx
-        localStorage.setItem("phaseOneResponse", JSON.stringify(data));
-        console.log("✅ API data stored:", data);
-
-      } catch (err) {
-        console.error("❌ API Error:", err);
-        alert("Failed to submit. Please try again.");
-      } finally {
-        setTimeout(() => {
-          setLoading(false);
-          setPhase(3);
-        }, 3000);
-      }
+    } else if (phase === 2) {
+      handleSubmitPhaseOne();
     }
   };
 
@@ -76,7 +88,7 @@ function Testing() {
       </div>
 
       <div className="testing-container">
-        <p className="testing-container-title">CLICK TO TYPE</p>
+       
 
         {phase === 1 && (
           <input
@@ -121,8 +133,8 @@ function Testing() {
             </span>
           </p>
         )}
-
-        <button id="button-back" onClick={() => navigate("/")}>
+    
+        <button id="button-back-1" onClick={() => navigate("/")}>
           <span className="button-back-text">BACK</span>
           <div className="minibox-back">
             <span className="minibox-arrow-back">▶</span>

@@ -109,6 +109,17 @@ const Capture = () => {
             </div>
           )}
 
+           {loading && (
+    <div className="loading-overlay-2">
+        <p>Analyzing this image</p>
+        <div className="loading-dots">
+          <span className="dot"></span>
+          <span className="dot"></span>
+          <span className="dot"></span>
+        </div>
+    </div>
+  )}
+
           <div className="camera-centertext-container-2">
             <p className="camera-centertext-title-2">
               TO GET BETTER RESULTS MAKE SURE TO HAVE
@@ -124,20 +135,6 @@ const Capture = () => {
 
       {/* Hidden canvas for capture */}
       <canvas ref={canvasRef} style={{ display: "none" }} />
-
-      {/* ⏳ Loading Overlay */}
-      {loading && (
-        <div className="loading-overlay">
-          <div className="loading-box">
-            <p>Analyzing this image</p>
-            <div className="bouncing-dots">
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

@@ -15,8 +15,8 @@ function Result() {
     "https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseTwo";
 
   const goToTesting = () => navigate("/testing");
+
   const goToCamera = () => {
-    setShowAllowCamera(false);
     navigate("/camera");
   };
 

@@ -5,8 +5,7 @@ import { useNavigate } from "react-router-dom";
 function Summary({ apiData: propsApiData }) {
   const navigate = useNavigate();
   const [apiData, setApiData] = useState(null);
-  const [activeCategory, setActiveCategory] = useState("race");
-
+ 
   // Load data from props or localStorage
   useEffect(() => {
     if (propsApiData) {
@@ -120,7 +119,7 @@ function Summary({ apiData: propsApiData }) {
         </div>
 
         <div className="sticky-bottom">
-          <button id="button-back" onClick={goToSelect}>
+          <button id="button-back-2" onClick={goToSelect}>
             <span className="button-back-text">BACK</span>
             <div className="minibox-back">
               <span className="minibox-arrow-back">▶</span>
