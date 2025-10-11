@@ -25,6 +25,7 @@ function Select() {
 
         <div className="select-grid-container">
           <div className="select-grid-subcontainer">
+           <div className="large-box-border">
             <div className="large-box">
               <button className="box-1">
                 <span className="textbox-1">SKIN TYPE DETAILS</span>
@@ -42,6 +43,7 @@ function Select() {
                   CONCERNS
                 </span>
               </button>
+            </div>
             </div>
           </div>
         </div>

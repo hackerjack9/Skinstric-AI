@@ -9,6 +9,7 @@ function Home() {
   const navigate = useNavigate();
   const handleNavigate = () => {
     navigate("/testing");
+    console.log(handleNavigate)
   };
 
   return (
