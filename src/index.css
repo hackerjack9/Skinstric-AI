@@ -848,11 +848,11 @@ text-align: end;
 .camera-centertext-subtitle-1 {
   font-size: 14px;
   display: flex;
-  position: absolute;
   left: 540px;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 2rem;
   align-items: center;
-  width: 500px;
+
 }
 
 /* -----------------Capture------------- */
@@ -948,12 +948,12 @@ text-align: end;
 .camera-centertext-subtitle-2 {
   font-size: 14px;
   display: flex;
-  position: absolute;
   left: 540px;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 2rem;
   align-items: center;
   color: #fcfcfc;
-  width: 500px;
+
 }
 
 #button-back-camera {
@@ -1538,6 +1538,23 @@ text-align: end;
   .triangle-left {
     display: none;
   }
+
+  .rotating-square-1c {
+    width: 200px;
+    height: 200px;
+  }
+  .rotating-square-2c {
+    width: 225px;
+    height: 225px;
+  }
+  .rotating-square-3c {
+    width: 250px;
+    height: 250px;
+  }
+
+  .skeleton-state-text {
+    font-size: 12px;
+  }
   /* ------------------Testing-----------------------*/
 .rotating-square-1,
 .rotating-square-2,
@@ -1563,14 +1580,112 @@ input::placeholder {
 }
 
   /* ------------------Result------------------------*/
+
+
+.result-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space-between;
+  padding: 0;
+}
+
+.rotating-square-4,
+.rotating-square-7{
+  width: 200px;
+  height: 200px;
+ 
+}
+
+.rotating-square-5, .rotating-square-8 {
+  width: 235px;
+  height: 235px;
+}
+.rotating-square-6, .rotating-square-9{
+  width: 265px;
+  height: 265px;
+}
+
+.gall-text {
+font-size: 14px;
+}
+.cam-text {
+font-size: 14px;
+}
+
+.allow-AI-box {
+  position: absolute;
+  top: 300px;
+  left: 100px;
+  z-index: 10;
+}
+
+.icon-img-1,
+.icon-img-2 {
+  width: 88px;
+}
+
+.preview-container {
+  right: 20px;
+  top: 60px;
+}
+
+.preview-box {
+  width: 80px;
+  height: 80px;
+}
+
   /* ------------------Capture-----------------------*/
+ 
+.camera-centertext-title-2, .camera-centertext-subtitle-2 {
+  font-size: 12px;
+}
+
+.take-picture-container {
+  position: absolute;
+  top: 120px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.camera-icon-lens {
+  position: absolute;
+  top: -20px;
+}
+
+.captured-buttons {
+  position: absolute;
+  display: flex;
+  width: screen;
+  align-items: center;
+  justify-content: center;
+}
+
+
+ 
+ 
   /* ------------------Camera------------------------*/
+  .camera-centertext-title-2, .camera-centertext-subtitle-2 {
+  font-size: 12px;
+}
+
+.camera-centertext-subtitle-1 {
+  color: black;
+}
+
+.camera-centertext-title-1, .camera-centertext-subtitle-1 {
+  font-size: 10px;
+}
   /* ------------------Select------------------------*/
   /* ------------------Summary-----------------------*/
 }
 
 /*------------------------- Large devices (desktops) ----------------------*/
 @media (min-width: 640px) and (max-width: 1024px) {
+ 
+
+  /* ------------------Home-----------------------*/
+
   .hovereffect-container {
     justify-content: center;
     position: relative;
@@ -1661,4 +1776,99 @@ input::placeholder {
   .triangle-left {
     display: none;
   }
+
+  /* ------------------Result-----------------------*/
+
+.rotating-square-7{
+  width: 245px;
+  height: 245px;
+}
+
+.rotating-square-4 {
+  margin-right: 200px;
+  width: 245px;
+  height: 245px;
+}
+.rotating-square-7 {
+  margin-left: 200px;
+}
+
+.rotating-square-5, .rotating-square-8 {
+  width: 265px;
+  height: 265px;
+}
+.rotating-square-6, .rotating-square-9{
+  width: 285px;
+  height: 285px;
+}
+
+.gall-text {
+font-size: 14px;
+margin-left: 150px;
+width: 150px;
+}
+.cam-text {
+font-size: 14px;
+margin-right: 150px;
+width: 150px;
+}
+
+.icon-img-1,
+.icon-img-2 {
+  width: 110px;
+  margin-top: 10px;
+}
+
+.icon-img-1 {
+  margin-right: 168px;
+}
+.icon-img-2 {
+  margin-left: 168px;
+}
+
+.allow-AI-box {
+position: absolute;
+left: 100px;
+top: 400px;
+}
+
+.preview-container {
+  right: 30px;
+  top: 80px;
+}
+
+.preview-box {
+  width: 110px;
+  height: 110px;
+}
+
+.skeleton-state-text {
+  font-size: 12px;
+}
+
+.rotating-square-1c {
+  width: 200px;
+  height: 200px;
+}
+.rotating-square-2c {
+  width: 220px;
+  height: 220px;
+}
+.rotating-square-3c {
+  width: 240px;
+  height: 240px;
+}
+
+
+/* ------------------Capture-----------------------*/
+
+/* ------------------Camera------------------------*/
+
+.camera-centertext-subtitle-1 {
+  color: black;
+
+}
+
+/* ------------------Select------------------------*/
+  /* ------------------Summary-----------------------*/
 }

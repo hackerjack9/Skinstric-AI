@@ -208,7 +208,7 @@ function Result() {
             </div>
           </div>
           <div className="skeleton-state">
-            <h2>PREPARING YOUR ANALYSIS...</h2>
+            <h2 className="skeleton-state-text">PREPARING YOUR ANALYSIS...</h2>
           </div>
         </div>
       )}
