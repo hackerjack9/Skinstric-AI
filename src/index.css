@@ -564,7 +564,7 @@ input::placeholder {
   font-size: 14px;
   border: none;
   left: 40px;
-  bottom: -40px;
+  bottom: -20px;
 }
 
 #button-back-1:hover .minibox-back {
@@ -1441,8 +1441,13 @@ text-align: end;
 
 /* ================================================== */
 
+
+
+
 /*--------------------------- Small phones-----------------------*/
 @media (max-width: 640px) {
+  /* -------------------Home-------------------------*/
+
  .hovereffect-container {
     justify-content: center;
     position: relative;
@@ -1533,6 +1538,35 @@ text-align: end;
   .triangle-left {
     display: none;
   }
+  /* ------------------Testing-----------------------*/
+.rotating-square-1,
+.rotating-square-2,
+.rotating-square-3 {
+  width: 328px;
+  height: 328px;
+}
+
+.rotating-square-1 {
+  margin-top: 125px;
+}
+
+.form-input-1, .form-input-2 {
+  width: 300px;
+  letter-spacing: -3px;
+  font-size: 42px;
+}
+
+/* Style the placeholder text */
+input::placeholder {
+  font-size: 42px;
+  color: gray;
+}
+
+  /* ------------------Result------------------------*/
+  /* ------------------Capture-----------------------*/
+  /* ------------------Camera------------------------*/
+  /* ------------------Select------------------------*/
+  /* ------------------Summary-----------------------*/
 }
 
 /*------------------------- Large devices (desktops) ----------------------*/
