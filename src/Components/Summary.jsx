@@ -119,14 +119,19 @@ function Summary({ apiData: propsApiData }) {
           <h2 className="analysis-title">A.I. ANALYSIS</h2>
           <h3 className="demographics-title">DEMOGRAPHICS</h3>
           <h4 className="predicted-title">PREDICTED RACE & AGE</h4>
-          <h5 className="AI-estimate-title">  If A.I. estimate is wrong, select the correct one.</h5>
+          <h5 className="AI-estimate-title">
+            {" "}
+            If A.I. estimate is wrong, select the correct one.
+          </h5>
         </div>
 
         <div className="summary-boxes-container">
           {/* SECTION 1 */}
           <section id="section-1">
             <div
-              className={`category-box-1 ${selectedCategory === "race" ? "active" : ""}`}
+              className={`category-box-1 ${
+                selectedCategory === "race" ? "active" : ""
+              }`}
               onClick={() => handleCategoryClick("race")}
             >
               <p>{manualRaceSelection || topRace[0]}</p>
@@ -134,7 +139,9 @@ function Summary({ apiData: propsApiData }) {
             </div>
 
             <div
-              className={`category-box-2 ${selectedCategory === "age" ? "active" : ""}`}
+              className={`category-box-2 ${
+                selectedCategory === "age" ? "active" : ""
+              }`}
               onClick={() => handleCategoryClick("age")}
             >
               <p>{manualAgeSelection || topAge[0]}</p>
@@ -142,7 +149,9 @@ function Summary({ apiData: propsApiData }) {
             </div>
 
             <div
-              className={`category-box-3 ${selectedCategory === "gender" ? "active" : ""}`}
+              className={`category-box-3 ${
+                selectedCategory === "gender" ? "active" : ""
+              }`}
               onClick={() => handleCategoryClick("gender")}
             >
               <p>{(manualGenderSelection || topGender[0]).toUpperCase()}</p>
@@ -151,49 +160,47 @@ function Summary({ apiData: propsApiData }) {
           </section>
 
           {/* SECTION 2 */}
-<section id="section-2">
-  <div className="section-2-box">
-    <p className="section-2-title">{currentTop[0]}</p>
-
-    <div className="percentage-circle">
-     <svg
-  className="progress-ring"
-  width="386"
-  height="386"
-  viewBox="0 0 386 386"
->
-  <circle
-    className="progress-ring-background"
-    stroke="#E5E5E5"
-    fill="transparent"
-    strokeWidth="20"
-    r="173"
-    cx="193"
-    cy="193"
-  />
-  <circle
-    className="progress-ring-progress"
-    stroke="black"
-    fill="transparent"
-    strokeWidth="20"
-    r="173"
-    cx="193"
-    cy="193"
-    style={{
-      strokeDasharray: `${2 * Math.PI * 173}`,
-      strokeDashoffset: 2 * Math.PI * 173 * (1 - currentTop[1]),
-      transition: "stroke-dashoffset 1s ease-in-out",
-    }}
-  />
-</svg>
-
-      <p className="circle-number">
-        {Math.round(currentTop[1] * 100)}
-        <span className="circle-percentage-sign">%</span>
-      </p>
-    </div>
-  </div>
-</section>
+          <section id="section-2">
+            <div className="section-2-box">
+              <p className="section-2-title">{currentTop[0]}</p>
+              <div className="percentage-circle">
+                <svg
+                  className="progress-ring"
+                  width="386"
+                  height="386"
+                  viewBox="0 0 386 386"
+                >
+                  <circle
+                    className="progress-ring-background"
+                    stroke="#E5E5E5"
+                    fill="transparent"
+                    strokeWidth="20"
+                    r="173"
+                    cx="193"
+                    cy="193"
+                  />
+                  <circle
+                    className="progress-ring-progress"
+                    stroke="black"
+                    fill="transparent"
+                    strokeWidth="20"
+                    r="173"
+                    cx="193"
+                    cy="193"
+                    style={{
+                      strokeDasharray: `${2 * Math.PI * 173}`,
+                      strokeDashoffset: 2 * Math.PI * 173 * (1 - currentTop[1]),
+                      transition: "stroke-dashoffset 1s ease-in-out",
+                    }}
+                  />
+                </svg>
+                <p className="circle-number">
+                  {Math.round(currentTop[1] * 100)}
+                  <span className="circle-percentage-sign">%</span>
+                </p>
+              </div>
+            </div>
+          </section>
 
           {/* SECTION 3 */}
           <section id="section-3">
@@ -212,7 +219,8 @@ function Summary({ apiData: propsApiData }) {
               const isActive =
                 (selectedCategory === "race" && manualRaceSelection === name) ||
                 (selectedCategory === "age" && manualAgeSelection === name) ||
-                (selectedCategory === "gender" && manualGenderSelection === name);
+                (selectedCategory === "gender" &&
+                  manualGenderSelection === name);
 
               const clickHandler =
                 selectedCategory === "race"
@@ -224,7 +232,9 @@ function Summary({ apiData: propsApiData }) {
               return (
                 <div
                   key={name}
-                  className={`category-selector-${i + 1} ${isActive ? "active" : ""}`}
+                  className={`category-selector-${i + 1} ${
+                    isActive ? "active" : ""
+                  }`}
                   onClick={clickHandler}
                   style={{ cursor: "pointer" }}
                 >
@@ -238,7 +248,6 @@ function Summary({ apiData: propsApiData }) {
             })}
           </section>
         </div>
-
         <div className="sticky-bottom">
           <button id="button-back-2" onClick={goToSelect}>
             <span className="button-back-text">BACK</span>
@@ -246,7 +255,6 @@ function Summary({ apiData: propsApiData }) {
               <span className="minibox-arrow-back">▶</span>
             </div>
           </button>
-
           <button id="button-home" onClick={handleNavigate}>
             <span className="button-home-text">HOME</span>
             <div className="minibox-home">

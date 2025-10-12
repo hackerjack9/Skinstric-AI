@@ -16,32 +16,26 @@ function Camera() {
   return (
     <div className="body">
       <div className="rotating-square-1c">
-          <div className="rotating-square-2c">
-            <div className="rotating-square-3c"></div>
-          </div>
-          
+        <div className="rotating-square-2c">
+          <div className="rotating-square-3c"></div>
+        </div>
       </div>
-    
-    <div className="skeleton-state">
-    <div  className="skeleton-camera">
-      <img 
-        className="camera-icon-2"
-        src={cameraIcon}
-        alt="Camera Setup"
-      />
-      <h2>Setting up camera...</h2>
-    </div>
-    </div>
+      <div className="skeleton-state">
+        <div className="skeleton-camera">
+          <img className="camera-icon-2" src={cameraIcon} alt="Camera Setup" />
+          <h2>Setting up camera...</h2>
+        </div>
+      </div>
       <div className="camera-centertext-container-1">
-            <p className="camera-centertext-title-1">
-              TO GET BETTER RESULTS MAKE SURE TO HAVE
-            </p>
-            <div className="camera-centertext-subtitle-1">
-              <p>◇ NEUTRAL EXPRESSION</p>
-              <p>◇ FRONTAL POSE</p>
-              <p>◇ ADEQUATE LIGHTING</p>
-            </div>
-          </div>
+        <p className="camera-centertext-title-1">
+          TO GET BETTER RESULTS MAKE SURE TO HAVE
+        </p>
+        <div className="camera-centertext-subtitle-1">
+          <p>◇ NEUTRAL EXPRESSION</p>
+          <p>◇ FRONTAL POSE</p>
+          <p>◇ ADEQUATE LIGHTING</p>
+        </div>
+      </div>
     </div>
   );
 }

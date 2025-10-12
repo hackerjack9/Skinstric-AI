@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import cameraIconLens from "../assets/Shapes/camera-icon-lens.webp";
 
-const API_URL = "https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseTwo";
+const API_URL =
+  "https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseTwo";
 
 const Capture = () => {
   const videoRef = useRef(null);
@@ -12,11 +13,17 @@ const Capture = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  const goToCamera = () => {
+    navigate("/camera");
+  };
+
   // ✅ Initialize camera
   useEffect(() => {
     async function initCamera() {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: true,
+        });
         if (videoRef.current) videoRef.current.srcObject = stream;
       } catch (err) {
         console.error("Camera access denied:", err);
@@ -59,7 +66,7 @@ const Capture = () => {
       console.log("API response:", response.data);
 
       // ✅ Save full response to localStorage for Summary component
-      localStorage.setItem("summaryData", JSON.stringify(response.data));
+      localStorage.setItem("phaseTwoResponse", JSON.stringify(response.data));
 
       // ✅ Navigate to Select
       navigate("/select");
@@ -92,7 +99,11 @@ const Capture = () => {
             </div>
           ) : (
             <div>
-              <img className="captured-img" src={capturedImage} alt="Captured" />
+              <img
+                className="captured-img"
+                src={capturedImage}
+                alt="Captured"
+              />
               <div className="captured-buttons">
                 <p className="button-title">PREVIEW</p>
                 <button
@@ -102,23 +113,23 @@ const Capture = () => {
                 >
                   {loading ? "Uploading..." : "Use This Photo"}
                 </button>
-                <button id="button-retake" onClick={() => setCapturedImage(null)}>
+                <button id="button-retake" onClick={goToCamera}>
                   Retake
                 </button>
               </div>
             </div>
           )}
 
-           {loading && (
-    <div className="loading-overlay-2">
-        <p>Analyzing this image</p>
-        <div className="loading-dots">
-          <span className="dot"></span>
-          <span className="dot"></span>
-          <span className="dot"></span>
-        </div>
-    </div>
-  )}
+          {loading && (
+            <div className="loading-overlay-2">
+              <p>Analyzing this image</p>
+              <div className="loading-dots">
+                <span className="dot"></span>
+                <span className="dot"></span>
+                <span className="dot"></span>
+              </div>
+            </div>
+          )}
 
           <div className="camera-centertext-container-2">
             <p className="camera-centertext-title-2">

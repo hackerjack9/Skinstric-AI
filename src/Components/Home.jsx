@@ -9,7 +9,6 @@ function Home() {
   const navigate = useNavigate();
   const handleNavigate = () => {
     navigate("/testing");
-    console.log(handleNavigate)
   };
 
   return (
@@ -55,10 +54,10 @@ function Home() {
           </div>
         </button>
         <div className="triangle-right">
-          <img className="triangle-right" src={RightTriangle} alt="" />
+          <img className="triangle-right" src={RightTriangle} alt="triangle" />
         </div>
         <div className="triangle-left">
-          <img className="triangle-left" src={LeftTriangle} alt="" />
+          <img className="triangle-left" src={LeftTriangle} alt="triangle" />
         </div>
         <div className="container-bottom-left">
           Skinstric developed an A.I. that creates a

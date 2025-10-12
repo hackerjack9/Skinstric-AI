@@ -126,18 +126,19 @@ function Result() {
 
       {/* CAMERA PERMISSION POPUP */}
       {showAllowCamera && (
-        <div className="rotating-square-container-1">
-          <div className="allow-AI-box">
-            <h2 className="allow-AI-title">ALLOW A.I. TO ACCESS YOUR CAMERA</h2>
-            <hr />
-            <div className="button-AI-container">
-              <button id="button-AI-deny" onClick={() => setShowAllowCamera(false)}>
-                DENY
-              </button>
-              <button id="button-AI-allow" onClick={goToCamera}>
-                ALLOW
-              </button>
-            </div>
+        <div className="allow-AI-box">
+          <h2 className="allow-AI-title">ALLOW A.I. TO ACCESS YOUR CAMERA</h2>
+          <hr />
+          <div className="button-AI-container">
+            <button
+              id="button-AI-deny"
+              onClick={() => setShowAllowCamera(false)}
+            >
+              DENY
+            </button>
+            <button id="button-AI-allow" onClick={goToCamera}>
+              ALLOW
+            </button>
           </div>
         </div>
       )}

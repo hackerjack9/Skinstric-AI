@@ -8,9 +8,11 @@ function Testing() {
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
   const [loading, setLoading] = useState(false);
+  const [apiMessage, setApiMessage] = useState(null);
   const inputRef = useRef(null);
 
-  const API_URL = "https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseOne";
+  const API_URL =
+    "https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseOne";
 
   const isValidText = (value) => /^[A-Za-z\s]+$/.test(value.trim());
 
@@ -33,7 +35,6 @@ function Testing() {
       return;
     }
 
-    // Save name/location separately
     localStorage.setItem("userName", trimmedName);
     localStorage.setItem("userLocation", trimmedLocation);
 
@@ -46,13 +47,15 @@ function Testing() {
         { headers: { "Content-Type": "application/json" } }
       );
 
-      console.log("✅ Phase One API Response:", response.data);
+      // Save structured response
+      const data = response.data;
+      localStorage.setItem("phaseOneResponse", JSON.stringify(data));
 
-      // Store entire response under consistent key for Summary
-      localStorage.setItem("phaseOneResponse", JSON.stringify(response.data));
-
+      // Example: { SUCCESS: "Added John Doe from New York" }
+      if (data.SUCCESS) {
+        setApiMessage(data.SUCCESS);
+      }
     } catch (error) {
-      console.error("❌ Phase One API Error:", error);
       alert("There was an error hitting the API. Please try again.");
     } finally {
       setTimeout(() => {
@@ -88,8 +91,6 @@ function Testing() {
       </div>
 
       <div className="testing-container">
-       
-
         {phase === 1 && (
           <input
             ref={inputRef}
@@ -127,13 +128,17 @@ function Testing() {
 
         {phase === 3 && !loading && (
           <p className="testing-thanks-text">
-            <span className="testing-thanks-title">Thank you!</span><br /><br />
+            <span className="testing-thanks-title">
+              {apiMessage ? apiMessage : "Thank you!"}
+            </span>
+            <br />
+            <br />
             <span className="testing-thanks-subtitle">
               Proceed to the next step
             </span>
           </p>
         )}
-    
+
         <button id="button-back-1" onClick={() => navigate("/")}>
           <span className="button-back-text">BACK</span>
           <div className="minibox-back">

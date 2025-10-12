@@ -14,7 +14,7 @@ body {
   overflow: hidden;
 }
 
-/* ---------------Nav Bar -----------------*/
+/* ------------------Nav Bar -------------------*/
 .nav-bar {
   display: flex;
   width: 100%;
@@ -82,7 +82,7 @@ body {
   padding: 0px 10px 0px 10px;
 }
 
-/* -----------------Home Page------------------- */
+/* ---------------------Home------------------------ */
 
 #button-left,
 #button-right {
@@ -570,7 +570,7 @@ input::placeholder {
   transform: scale(1.1) rotate(45deg);
 }
 
-/* ----------------Result Page ------------------*/
+/* -------------------Result ---------------------*/
 .result-page {
   display: flex;
   align-items: center;
@@ -739,7 +739,7 @@ input::placeholder {
   font-weight: 300;
 }
 
-/* -----------------Camera-------------- */
+/* -------------------Camera-------------------- */
 
 .body {
   display: flex;
@@ -851,7 +851,7 @@ input::placeholder {
   align-items: center;
 }
 
-/* -----------------Capture------------- */
+/* -------------------Capture------------------ */
 
 .camera-body,
 .camera-container,
@@ -1051,7 +1051,7 @@ input::placeholder {
   height: 200px;
 }
 
-/* ---------------Select------------------ */
+/* ------------------Select----------------------- */
 
 .analysis-title-box {
   position: absolute;
@@ -1669,11 +1669,11 @@ input::placeholder {
     font-size: 14px;
   }
 
+  
   .allow-AI-box {
     position: absolute;
-    top: 300px;
     left: 100px;
-    z-index: 10;
+    top: 300px;
   }
 
   .icon-img-1,
@@ -1711,12 +1711,22 @@ input::placeholder {
   }
 
   .captured-buttons {
-    position: absolute;
-    display: flex;
-    width: screen;
-    align-items: center;
-    justify-content: center;
-  }
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 85%;
+  margin-left: -80px;
+  width: 220px;
+  height: 140px;
+  z-index: 2;
+}
+
+.button-title {
+  margin-top: -40px;
+  background-color: #1a1b1c;
+  
+}
 
   /* ------------------Camera------------------------*/
   .camera-centertext-title-2,
@@ -2083,14 +2093,31 @@ input::placeholder {
 
   /* ------------------Capture-----------------------*/
 
+  .captured-buttons {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 85%;
+  margin-left: -80px;
+  width: 220px;
+  height: 140px;
+  z-index: 2;
+}
+
+.button-title {
+  margin-top: -20px;
+  background-color: #1a1b1c;
+  
+}
   /* ------------------Camera------------------------*/
 
   .camera-centertext-subtitle-1 {
     color: black;
   }
 
-  /* ------------------Select------------------------*/
   /* ------------------Summary-----------------------*/
+
   .body {
     overflow-y: scroll;
   }
