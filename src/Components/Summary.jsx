@@ -119,6 +119,7 @@ function Summary({ apiData: propsApiData }) {
           <h2 className="analysis-title">A.I. ANALYSIS</h2>
           <h3 className="demographics-title">DEMOGRAPHICS</h3>
           <h4 className="predicted-title">PREDICTED RACE & AGE</h4>
+          <h5 className="AI-estimate-title">  If A.I. estimate is wrong, select the correct one.</h5>
         </div>
 
         <div className="summary-boxes-container">
@@ -194,13 +195,12 @@ function Summary({ apiData: propsApiData }) {
   </div>
 </section>
 
-
           {/* SECTION 3 */}
           <section id="section-3">
             <div className="category-class">
               <h4 className="section-3-title">
                 {selectedCategory === "age"
-                  ? "AGE GROUP"
+                  ? "AGE"
                   : selectedCategory === "gender"
                   ? "SEX"
                   : "RACE"}
@@ -254,10 +254,6 @@ function Summary({ apiData: propsApiData }) {
             </div>
           </button>
         </div>
-
-        <p className="bottom-AI-title">
-          If A.I. estimate is wrong, select the correct one.
-        </p>
       </main>
     </div>
   );
