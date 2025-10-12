@@ -1291,23 +1291,46 @@ text-align: end;
   height: 100%;
 }
 
-.circle-number {
-  font-size: 40px;
+.progress-ring {
+  transform: rotate(-90deg);
 }
+
+.circle-number {
+  position: absolute;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: black;
+}
+
 .circle-percentage-sign {
-  font-size: 30px;
+  font-size: 0.8rem;
+}
+
+.progress-ring-background,
+.progress-ring-progress {
+  stroke-linecap: round;
+}
+
+.progress-ring-progress {
+  position: absolute;
+  top: 0;
+}
+
+.percentage-circle svg {
+  width: 386px !important;
+  height: 386px !important;
+  flex-shrink: 0;
+  display: block;
 }
 
 .percentage-circle {
   display: flex;
+  position: absolute;
   justify-content: center;
   align-items: center;
+  width: 386px;
+  height: 386px;
   align-self: flex-end;
-  border-radius: 50%;
-  border: 6px solid black;
-  width: 384px;
-  height: 384px;
-  margin-bottom: 6px;
 }
 
 .category-box-1,
@@ -1355,6 +1378,28 @@ text-align: end;
   min-height: 48px;
   padding: 0px 16px;
 }
+
+.category-box-1.active,
+.category-box-2.active,
+.category-box-3.active {
+  background-color: black;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.category-selector-1.active,
+.category-selector-2.active,
+.category-selector-3.active,
+.category-selector-4.active,
+.category-selector-5.active,
+.category-selector-6.active,
+.category-selector-7.active,
+.category-selector-8.active {
+  background-color: black;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
 
 .category-class {
   display: flex;
@@ -1456,6 +1501,8 @@ text-align: end;
   transform: rotate(-45deg);
   transition: transform 0.3ms ease-in-out;
 }
+
+
 #button-home:hover .minibox-home {
   transform: scale(1.1) rotate(45deg);
 }
