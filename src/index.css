@@ -96,7 +96,7 @@ body {
   white-space: nowrap;
   height: 40px;
   width: 145px;
-  font-size: 14px;
+  font-size: 1rem;
   border: none;
   z-index: 2;
   padding: 4px 12px;
@@ -104,13 +104,13 @@ body {
 }
 
 #button-left {
-  left: 74px;
+  left: 2%;
   flex-direction: row-reverse;
   width: 170px;
 }
 
 #button-right {
-  right: 100px;
+  right: 2%;
 }
 
 .minibox-right,
@@ -213,17 +213,25 @@ body {
 }
 
 .triangle-left {
-  width: 320px;
+  width: auto;
   position: fixed;
-  top: 10%;
+  top: 13%;
   left: 0;
   z-index: -1;
+  height: 70vh;
+}
+
+svg {
+  height: 50vh; /* Will shrink/grow with viewport height */
+  width: auto;
+  display: block;
 }
 
 .triangle-right {
-  width: 320px;
+  width: auto;
+  height: 70vh;
   position: absolute;
-  top: 10%;
+  top: 8%;
   right: 0;
   z-index: -1;
 }
@@ -298,7 +306,7 @@ body {
   font-size: 14px;
   border: none;
   bottom: -20px;
-  right: 20px;
+  right: 10px;
   opacity: 0;
   transform: translateX(-100px); /* Start 100px to the left */
   animation: fadeInLeft 1s ease-out forwards; /* Apply animation */
@@ -1221,9 +1229,9 @@ input::placeholder {
   margin-left: 30px;
 }
 
- .AI-estimate-title {
-    margin-top: 20px;
-  }
+.AI-estimate-title {
+  margin-top: 20px;
+}
 
 .analysis-title {
   font-size: 16px;
@@ -1483,7 +1491,6 @@ input::placeholder {
   transform: scale(1.1) rotate(45deg);
 }
 
-
 /* ================================================== */
 
 /* R E S P O N S I V E */
@@ -1491,9 +1498,239 @@ input::placeholder {
 /* ================================================== */
 
 /*--------------------------- Small phones-----------------------*/
-@media (max-width: 640px) {
-  /* -------------------Home-------------------------*/
 
+/*------------------------- Large devices (desktops) ----------------------*/
+@media (max-width: 1280px) {
+  /* ------------------Home-----------------------*/
+
+  .center-title, .center-subtitle {
+    font-size: 5rem;
+  }
+
+  .button-left-text, .button-right-text {
+    font-size: .80rem;
+  }
+
+  .container-bottom-left {
+    font-size: .80rem;
+  }
+
+  .minibox-right, .minibox-left {
+    width: 24px;
+    height: 24px;
+  }
+
+.minibox-arrow-left, .minibox-arrow-right {
+  font-size: .75rem;
+  left: -2px;
+}
+
+  /* ------------------Result-----------------------*/
+
+  .rotating-square-7 {
+    width: 245px;
+    height: 245px;
+  }
+
+  .rotating-square-4 {
+    margin-right: 200px;
+    width: 245px;
+    height: 245px;
+  }
+  .rotating-square-7 {
+    margin-left: 200px;
+  }
+
+  .rotating-square-5,
+  .rotating-square-8 {
+    width: 265px;
+    height: 265px;
+  }
+  .rotating-square-6,
+  .rotating-square-9 {
+    width: 285px;
+    height: 285px;
+  }
+
+  .gall-text {
+    font-size: 14px;
+    margin-left: 150px;
+    width: 150px;
+  }
+  .cam-text {
+    font-size: 14px;
+    margin-right: 150px;
+    width: 150px;
+  }
+
+  .icon-img-1,
+  .icon-img-2 {
+    width: 110px;
+    margin-top: 10px;
+  }
+
+  .icon-img-1 {
+    margin-right: 168px;
+  }
+  .icon-img-2 {
+    margin-left: 168px;
+  }
+
+  .allow-AI-box {
+    position: absolute;
+    left: 100px;
+    top: 400px;
+  }
+
+  .preview-container {
+    right: 30px;
+    top: 80px;
+  }
+
+  .preview-box {
+    width: 110px;
+    height: 110px;
+  }
+
+  .skeleton-state-text {
+    font-size: 12px;
+  }
+
+  .rotating-square-1c {
+    width: 200px;
+    height: 200px;
+  }
+  .rotating-square-2c {
+    width: 220px;
+    height: 220px;
+  }
+  .rotating-square-3c {
+    width: 240px;
+    height: 240px;
+  }
+
+  /* ------------------Capture-----------------------*/
+
+  .captured-buttons {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 85%;
+    margin-left: -80px;
+    width: 220px;
+    height: 140px;
+    z-index: 2;
+  }
+
+  .button-title {
+    margin-top: -20px;
+    background-color: #1a1b1c;
+  }
+  /* ------------------Camera------------------------*/
+
+  .camera-centertext-subtitle-1 {
+    color: black;
+  }
+
+  /* ------------------Summary-----------------------*/
+
+  .body {
+    overflow-y: scroll;
+  }
+
+  .summary-boxes-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 130vh;
+    gap: 20px;
+  }
+
+  .title-container {
+    margin-left: 20px;
+    margin-bottom: 50px;
+    align-items: center;
+  }
+
+  #section-1 {
+    flex-direction: row;
+    height: 150px;
+  }
+
+  .section-2-title {
+    position: relative;
+    padding: 20px;
+    font-size: 30px;
+  }
+
+  .section-2-box {
+    position: relative;
+    height: 400px;
+  }
+
+  #section-1,
+  #section-2,
+  #section-3 {
+    width: 550px;
+  }
+
+  .category-box-1,
+  .category-box-2,
+  .category-box-3 {
+    width: 200px;
+  }
+  .progress-ring-progress {
+    position: absolute;
+  }
+
+  .demographics-title {
+    font-size: 26px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .AI-estimate-title {
+    margin-top: 50px;
+  }
+
+  .sticky-bottom {
+    position: absolute;
+    bottom: 20px;
+  }
+
+  .bottom-AI-title {
+    display: none;
+  }
+
+  #button-back-2 {
+    margin-left: 20px;
+  }
+
+  .minibox-back {
+    width: 30px;
+    height: 30px;
+  }
+
+  #button-home {
+    right: 20px;
+  }
+
+  .minibox-home {
+    height: 30px;
+    width: 30px;
+    margin-right: 20px;
+  }
+
+
+
+}
+
+@media (max-width: 1024px) {
+ 
+  /* -------------------------------------Home--------------------------------------- */
   .hovereffect-container {
     justify-content: center;
     position: relative;
@@ -1502,12 +1739,12 @@ input::placeholder {
 
   .center-title,
   .center-subtitle {
-    font-size: 44px;
+    font-size: 58px;
   }
 
   .container-bottom-left {
     position: absolute;
-    font-size: 10px;
+    font-size: 11px;
     line-height: 20px;
     z-index: 1;
     width: 100%;
@@ -1517,18 +1754,19 @@ input::placeholder {
     display: flex;
     align-items: center;
     margin-left: -20px;
-    padding-top: 20px;
+    padding-top: 50px;
+    bottom: 6%;
   }
 
   .diamond-box {
     position: absolute;
-    width: 260px;
-    height: 260px;
+    width: 320px;
+    height: 320px;
     border: 2px dotted #a0a4ab;
     outline: 2px dotted #a0a4ab;
     outline-offset: 30px;
     transform: rotate(45deg);
-    z-index: 10;
+    z-index: -1;
   }
 
   #button-exp {
@@ -1538,18 +1776,17 @@ input::placeholder {
     align-items: space-between;
     justify-content: space-between;
     color: #1a1b1c;
-    background-color: white;
+    background-color: transparent;
+    white-space: nowrap;
     border: none;
-    width: 110px;
+    width: 13rem;
     height: 40px;
     bottom: -80px;
-    left: 75px;
-    z-index: 20;
-    padding-right: 20px;
+    z-index: 10;
   }
 
   .button-text-exp {
-    font-size: 8px;
+    font-size: 10px;
     text-align: start;
     font-weight: 400;
     display: inline-block;
@@ -1560,13 +1797,132 @@ input::placeholder {
     display: flex;
     position: absolute;
     align-items: center;
-    margin-right: -28px;
-    top: 10px;
-    height: 20px;
-    width: 20px;
+    margin-right: -40px;
+    top: 6px;
+    height: 24px;
+    width: 24px;
     transform: rotate(45deg);
     border: 1px solid black;
-    z-index: 20;
+    z-index: 10;
+  }
+
+  .minibox-arrow-exp {
+    position: absolute;
+    margin-left: 8px;
+    font-size: 12px;
+    transform: rotate(-45deg);
+    margin-bottom: 4px;
+  }
+
+  #button-exp:hover .minibox-exp {
+    transform: scale(1.1) rotate(45deg);
+  }
+
+  .minibox-left,
+  .minibox-right,
+  .minibox-arrow-left,
+  .minibox-arrow-right,
+  #button-left,
+  #button-right,
+  .button-left-text,
+  .button-right-text,
+  .triangle-right,
+  .triangle-left {
+    display: none;
+  }
+}
+/* ----------------------Home--------------------------------- */
+@media (max-width: 768px) {
+
+  .container-bottom-left {
+    bottom: 6%;
+  }
+
+  #button-exp {
+    width: 13rem;
+    z-index: -1;
+    background-color: transparent
+  }
+
+}
+/* -----------------------------------------------------------Small phones------------------------------------------------- */
+@media (max-width: 500px) {
+  /*-------------------------Home----------------------------*/
+
+.hovereffect-container {
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    display: flex;
+    height: 90vh;
+  }
+
+  .center-title,
+  .center-subtitle {
+    font-size: 26px;
+  }
+
+  .center-subtitle {
+    margin-bottom: 1rem;
+  }
+
+.container-bottom-left {
+    position: absolute;
+    font-size: 0.5rem;
+    line-height: 1rem;
+    z-index: 10;
+    bottom: 51%;
+    right: 0;
+    right: 0;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    transform: translateY(50%);
+  }
+  
+  .diamond-box {
+    position: absolute;
+    width: 12rem;
+    height: 12rem;
+    border: 2px dotted #a0a4ab;
+    outline: 2px dotted #a0a4ab;
+    outline-offset: 20px;
+    transform: rotate(45deg);
+    z-index: 10;
+  }
+
+  #button-exp {
+    display: flex;
+    flex-direction: row-reverse;
+    position: absolute;
+    align-items: space-between;
+    justify-content: space-between;
+    background-color: transparent;
+    border: none;
+    width: 110px;
+    height: 40px;
+    top: 58%;
+    margin: 0 auto;
+  }
+
+  .button-text-exp {
+    font-size: 7px;
+    display: inline-block;
+    align-self: center;
+  }
+
+  .minibox-exp {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    margin-right: -22px;
+    top: 12px;
+    height: 16px;
+    width: 16px;
+    transform: rotate(45deg);
+    border: 1px solid black;
+    z-index: 10;
   }
 
   .minibox-arrow-exp {
@@ -1594,6 +1950,19 @@ input::placeholder {
     display: none;
   }
 
+
+  /* ------------------Testing-----------------------*/
+  .rotating-square-1,
+  .rotating-square-2,
+  .rotating-square-3 {
+    width: 328px;
+    height: 328px;
+  }
+
+  .rotating-square-1 {
+    margin-top: 125px;
+  }
+
   .rotating-square-1c {
     width: 200px;
     height: 200px;
@@ -1607,26 +1976,15 @@ input::placeholder {
     height: 250px;
   }
 
-  .skeleton-state-text {
-    font-size: 12px;
-  }
-  /* ------------------Testing-----------------------*/
-  .rotating-square-1,
-  .rotating-square-2,
-  .rotating-square-3 {
-    width: 328px;
-    height: 328px;
-  }
-
-  .rotating-square-1 {
-    margin-top: 125px;
-  }
-
   .form-input-1,
   .form-input-2 {
     width: 300px;
     letter-spacing: -3px;
     font-size: 42px;
+  }
+
+    .skeleton-state-text {
+    font-size: 12px;
   }
 
   /* Style the placeholder text */
@@ -1669,7 +2027,6 @@ input::placeholder {
     font-size: 14px;
   }
 
-  
   .allow-AI-box {
     position: absolute;
     left: 100px;
@@ -1711,22 +2068,21 @@ input::placeholder {
   }
 
   .captured-buttons {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 85%;
-  margin-left: -80px;
-  width: 220px;
-  height: 140px;
-  z-index: 2;
-}
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 85%;
+    margin-left: -80px;
+    width: 220px;
+    height: 140px;
+    z-index: 2;
+  }
 
-.button-title {
-  margin-top: -40px;
-  background-color: #1a1b1c;
-  
-}
+  .button-title {
+    margin-top: -40px;
+    background-color: #1a1b1c;
+  }
 
   /* ------------------Camera------------------------*/
   .camera-centertext-title-2,
@@ -1900,310 +2256,5 @@ input::placeholder {
 
   .category-selector-9 {
     margin-bottom: 40px;
-  }
-}
-
-/*------------------------- Large devices (desktops) ----------------------*/
-@media (min-width: 640px) and (max-width: 1024px) {
-  /* ------------------Home-----------------------*/
-
-  .hovereffect-container {
-    justify-content: center;
-    position: relative;
-    align-items: center;
-  }
-
-  .center-title,
-  .center-subtitle {
-    font-size: 58px;
-  }
-
-  .container-bottom-left {
-    position: absolute;
-    font-size: 11px;
-    line-height: 20px;
-    z-index: 1;
-    width: 100%;
-    height: 75%;
-    text-align: center;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    margin-left: -20px;
-    padding-top: 50px;
-  }
-
-  .diamond-box {
-    position: absolute;
-    width: 320px;
-    height: 320px;
-    border: 2px dotted #a0a4ab;
-    outline: 2px dotted #a0a4ab;
-    outline-offset: 30px;
-    transform: rotate(45deg);
-    z-index: 10;
-  }
-
-  #button-exp {
-    display: flex;
-    flex-direction: row-reverse;
-    position: relative;
-    align-items: space-between;
-    justify-content: space-between;
-    color: #1a1b1c;
-    background-color: white;
-    white-space: nowrap;
-    border: none;
-    width: 40px;
-    height: 40px;
-    bottom: -80px;
-    left: 160px;
-    z-index: 20;
-  }
-
-  .button-text-exp {
-    font-size: 10px;
-    text-align: start;
-    font-weight: 400;
-    display: inline-block;
-    align-self: center;
-  }
-
-  .minibox-exp {
-    display: flex;
-    position: absolute;
-    align-items: center;
-    margin-right: -40px;
-    top: 6px;
-    height: 24px;
-    width: 24px;
-    transform: rotate(45deg);
-    border: 1px solid black;
-    z-index: 20;
-  }
-
-  .minibox-arrow-exp {
-    position: absolute;
-    margin-left: 8px;
-    font-size: 12px;
-    transform: rotate(-45deg);
-    margin-bottom: 4px;
-  }
-
-  #button-exp:hover .minibox-exp {
-    transform: scale(1.1) rotate(45deg);
-  }
-
-  .minibox-left,
-  .minibox-right,
-  .minibox-arrow-left,
-  .minibox-arrow-right,
-  #button-left,
-  #button-right,
-  .button-left-text,
-  .button-right-text,
-  .triangle-right,
-  .triangle-left {
-    display: none;
-  }
-
-  /* ------------------Result-----------------------*/
-
-  .rotating-square-7 {
-    width: 245px;
-    height: 245px;
-  }
-
-  .rotating-square-4 {
-    margin-right: 200px;
-    width: 245px;
-    height: 245px;
-  }
-  .rotating-square-7 {
-    margin-left: 200px;
-  }
-
-  .rotating-square-5,
-  .rotating-square-8 {
-    width: 265px;
-    height: 265px;
-  }
-  .rotating-square-6,
-  .rotating-square-9 {
-    width: 285px;
-    height: 285px;
-  }
-
-  .gall-text {
-    font-size: 14px;
-    margin-left: 150px;
-    width: 150px;
-  }
-  .cam-text {
-    font-size: 14px;
-    margin-right: 150px;
-    width: 150px;
-  }
-
-  .icon-img-1,
-  .icon-img-2 {
-    width: 110px;
-    margin-top: 10px;
-  }
-
-  .icon-img-1 {
-    margin-right: 168px;
-  }
-  .icon-img-2 {
-    margin-left: 168px;
-  }
-
-  .allow-AI-box {
-    position: absolute;
-    left: 100px;
-    top: 400px;
-  }
-
-  .preview-container {
-    right: 30px;
-    top: 80px;
-  }
-
-  .preview-box {
-    width: 110px;
-    height: 110px;
-  }
-
-  .skeleton-state-text {
-    font-size: 12px;
-  }
-
-  .rotating-square-1c {
-    width: 200px;
-    height: 200px;
-  }
-  .rotating-square-2c {
-    width: 220px;
-    height: 220px;
-  }
-  .rotating-square-3c {
-    width: 240px;
-    height: 240px;
-  }
-
-  /* ------------------Capture-----------------------*/
-
-  .captured-buttons {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 85%;
-  margin-left: -80px;
-  width: 220px;
-  height: 140px;
-  z-index: 2;
-}
-
-.button-title {
-  margin-top: -20px;
-  background-color: #1a1b1c;
-  
-}
-  /* ------------------Camera------------------------*/
-
-  .camera-centertext-subtitle-1 {
-    color: black;
-  }
-
-  /* ------------------Summary-----------------------*/
-
-  .body {
-    overflow-y: scroll;
-  }
-
-  .summary-boxes-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 130vh;
-    gap: 20px;
-  }
-
-  .title-container {
-    margin-left: 20px;
-    margin-bottom: 50px;
-    align-items: center;
-  }
-
-  #section-1 {
-    flex-direction: row;
-    height: 150px;
-  }
-
-  .section-2-title {
-    position: relative;
-    padding: 20px;
-    font-size: 30px;
-  }
-
-  .section-2-box {
-    position: relative;
-    height: 400px;
-  }
-
-  #section-1,
-  #section-2,
-  #section-3 {
-    width: 550px;
-  }
-
-  .category-box-1,
-  .category-box-2,
-  .category-box-3 {
-    width: 200px;
-  }
-  .progress-ring-progress {
-    position: absolute;
-  }
-
-  .demographics-title {
-    font-size: 26px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-
-  .AI-estimate-title {
-    margin-top: 50px;
-  }
-
-  .sticky-bottom {
-    position: absolute;
-    bottom: 20px;
-  }
-
-  .bottom-AI-title {
-    display: none;
-  }
-
-  #button-back-2 {
-    margin-left: 20px;
-  }
-
-  .minibox-back {
-    width: 30px;
-    height: 30px;
-  }
-
-  #button-home {
-    right: 20px;
-  }
-
-  .minibox-home {
-    height: 30px;
-    width: 30px;
-    margin-right: 20px;
   }
 }
