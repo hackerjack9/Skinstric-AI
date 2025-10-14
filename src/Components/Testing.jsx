@@ -81,16 +81,15 @@ function Testing() {
   };
 
   return (
-    <div className="testing-title">
+    <div className="testing-container">
       <p className="testing-top-text">TO START ANALYSIS</p>
-
+      <div className="rotating-square-wrap">
       <div className="rotating-square-1">
         <div className="rotating-square-2">
           <div className="rotating-square-3"></div>
         </div>
+        </div>
       </div>
-
-      <div className="testing-container">
         {phase === 1 && (
           <input
             ref={inputRef}
@@ -103,7 +102,7 @@ function Testing() {
           />
         )}
 
-        {phase === 2 && (
+        {phase === 2 && !loading && (
           <input
             ref={inputRef}
             className="form-input-2"
@@ -141,8 +140,8 @@ function Testing() {
 
         <button id="button-back-1" onClick={() => navigate("/")}>
           <span className="button-back-text">BACK</span>
-          <div className="minibox-back">
-            <span className="minibox-arrow-back">▶</span>
+          <div className="minibox-back-1">
+            <span className="minibox-arrow-back-1">▶</span>
           </div>
         </button>
 
@@ -155,7 +154,6 @@ function Testing() {
           </button>
         )}
       </div>
-    </div>
   );
 }
 

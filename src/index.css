@@ -9,9 +9,15 @@
 }
 
 body {
-  height: 100vh;
+  height: 90vh;
   position: relative;
   overflow: hidden;
+  min-width: 320px;
+  min-height: 480px;
+}
+
+html {
+  font-size: 62.5%;
 }
 
 /* ------------------Nav Bar -------------------*/
@@ -21,7 +27,6 @@ body {
   height: 64px;
   justify-content: space-between;
   padding: 12px 0px;
-  margin: 0px 0px 12px;
 }
 
 .nav-wrap {
@@ -84,6 +89,73 @@ body {
 
 /* ---------------------Home------------------------ */
 
+
+.hovereffect-container {
+  display: flex;
+  align-items: center;
+  max-width: screen;
+  justify-content: center;
+  width: 1200px;
+  max-width: 90%;
+  margin: 0 auto;
+  height: 90vh;
+}
+
+.center-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  max-width: 100%;
+  height: 70vh;
+  margin-bottom: 54px;
+}
+
+.center-title {
+  font-size: 96px;
+  font-weight: 500;
+  margin-bottom: -10px;
+}
+
+.center-subtitle {
+  font-size: 92px;
+  font-weight: 500;
+}
+
+.triangle-left {
+  width: auto;
+  position: fixed;
+  top: 13%;
+  left: 0;
+  z-index: -1;
+  height: 70vh;
+}
+
+svg {
+  height: 50vh; /* Will shrink/grow with viewport height */
+  width: auto;
+  display: block;
+}
+
+.triangle-right {
+  width: auto;
+  height: 70vh;
+  position: absolute;
+  top: 8%;
+  right: 0;
+  z-index: -1;
+}
+
+.container-bottom-left {
+  position: fixed;
+  bottom: 56px;
+  left: 22px;
+  font-size: 14px;
+  text-transform: uppercase;
+  line-height: 22px;
+}
+
+
 #button-left,
 #button-right {
   display: flex;
@@ -96,10 +168,9 @@ body {
   white-space: nowrap;
   height: 40px;
   width: 145px;
-  font-size: 1rem;
   border: none;
   z-index: 2;
-  padding: 4px 12px;
+  padding: 4px 16px;
   bottom: 50%;
 }
 
@@ -182,69 +253,6 @@ body {
   opacity: 0;
 }
 
-.hovereffect-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1800px;
-  max-width: 100%;
-  height: 90vh;
-}
-
-.center-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  max-width: 100%;
-  height: 70vh;
-  margin-bottom: 54px;
-}
-
-.center-title {
-  font-size: 96px;
-  font-weight: 500;
-  margin-bottom: -10px;
-}
-
-.center-subtitle {
-  font-size: 92px;
-  font-weight: 500;
-}
-
-.triangle-left {
-  width: auto;
-  position: fixed;
-  top: 13%;
-  left: 0;
-  z-index: -1;
-  height: 70vh;
-}
-
-svg {
-  height: 50vh; /* Will shrink/grow with viewport height */
-  width: auto;
-  display: block;
-}
-
-.triangle-right {
-  width: auto;
-  height: 70vh;
-  position: absolute;
-  top: 8%;
-  right: 0;
-  z-index: -1;
-}
-
-.container-bottom-left {
-  position: fixed;
-  bottom: 56px;
-  left: 22px;
-  font-size: 14px;
-  text-transform: uppercase;
-  line-height: 22px;
-}
-
 #button-exp,
 .button-text-exp,
 .minibox-exp {
@@ -262,7 +270,7 @@ svg {
   white-space: nowrap;
   font-size: 14px;
   border: none;
-  bottom: 40px;
+  bottom: 50px;
   left: 40px;
 }
 
@@ -305,7 +313,8 @@ svg {
   white-space: nowrap;
   font-size: 14px;
   border: none;
-  bottom: -20px;
+  bottom: 30px;
+  margin-bottom: 10px;
   right: 10px;
   opacity: 0;
   transform: translateX(-100px); /* Start 100px to the left */
@@ -355,26 +364,20 @@ svg {
 }
 
 /* -------------------Testing------------------- */
-
 .testing-container {
   display: flex;
   position: relative;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
-  margin-bottom: 142px;
-}
-
-.testing-container-title {
-  font-size: 14px;
-  font-weight: 300;
-  letter-spacing: 1px;
+  align-items: center;
+  text-align: center;
+  width: 1500px;
+  max-width: 95%;
+  margin: 0 auto;
+  height: 90vh;
 }
 
 .testing-top-text {
-  font-size: 12px;
+  font-size: 1.5rem;
   font-weight: 600;
   position: absolute;
   top: -10px;
@@ -391,25 +394,17 @@ svg {
   color: #757575;
 }
 
-/* rotating square */
-
-.testing-title {
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 90vh;
-}
-
-.testing-title-text {
+.rotating-square-wrap {
   position: absolute;
-  top: 8px;
-  left: 36px;
-  font-size: 12px;
-  font-weight: 600;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* All squares share responsive sizing */
 .rotating-square-1,
 .rotating-square-2,
 .rotating-square-3 {
@@ -417,77 +412,90 @@ svg {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 540px;
-  height: 540px;
-  margin: 50px auto; /* Center the div */
+  width: clamp(300px, 50vh, 740px);
+  height: clamp(300px, 50vh, 740px);
+  border: 1px dotted #ccc;
+}
+
+/* Rotations on each square individually */
+.rotating-square-1 {
   animation: spin 150s linear infinite;
 }
 
+.rotating-square-2 {
+  animation: spin 100s linear infinite reverse;
+}
+
+.rotating-square-3 {
+  animation: spin 50s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
 .rotating-square-1 {
-  top: 10px;
   border: 3px dotted rgb(170, 168, 168, 0.2);
 }
 .rotating-square-2 {
-  width: 500px;
-  height: 500px;
   border: 3px dotted rgb(170, 168, 168, 0.4);
 }
 .rotating-square-3 {
-  width: 450px;
-  height: 450px;
   border: 3px dotted rgb(170, 168, 168, 0.6);
 }
 
 /* Style the form */
 .form-1 {
   position: relative;
+}
+
+.form-input-1,
+.form-input-2 {
+  font-size: clamp(1.5rem, 5vw, 6rem);
+  width: clamp(150px, 50vw, 375px);
+  height: clamp(40px, 50vh, 80px);
+  border: none;
   z-index: 10;
+  outline: none;
+  text-align: center;
+  background-color: transparent;
+  border-bottom: 1px solid grey;
 }
 
 .form-input-1 {
-  width: 440px;
-  border: transparent;
-  z-index: 10;
-  outline: none;
-  text-align: center;
-  background-color: transparent;
-  border-bottom: 1px solid grey;
   letter-spacing: -3px;
-  font-size: 60px;
 }
 
-.form-input-2 {
-  font-size: 60px;
-  width: 440px;
-  border: transparent;
-  z-index: 10;
-  outline: none;
-  text-align: center;
-  background-color: transparent;
-  border-bottom: 1px solid grey;
+/* Style the placeholder text */
+input::placeholder {
+  font-size: 5rem;
+  color: gray;
 }
+
 
 .skeleton-state {
-  font-size: 10px;
+ font-size: 3rem;
 }
 
 .skeleton-loader {
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  margin: 0;
   font-family: Arial, sans-serif;
-  margin-top: 20px;
 }
 
 .skeleton-input {
   width: 300px;
-  height: 40px;
-  background-size: 200% 100%;
+  height: 50px;
+  background-size: 100%;
   animation: skeleton-loading 1.5s infinite;
   border-radius: 8px;
+  font-size: 2rem;
 }
 
 @keyframes skeleton-loading {
@@ -543,11 +551,6 @@ svg {
   overflow: hidden;
 }
 
-/* Style the placeholder text */
-input::placeholder {
-  font-size: 60px;
-  color: gray;
-}
 
 /* Keyframes for the rotation animation */
 @keyframes spin {
@@ -571,11 +574,32 @@ input::placeholder {
   font-size: 14px;
   border: none;
   left: 40px;
-  bottom: -20px;
+  bottom: 30px;
+  margin-bottom: 10px;
 }
 
-#button-back-1:hover .minibox-back {
+#button-back-1:hover .minibox-back-1 {
   transform: scale(1.1) rotate(45deg);
+}
+
+.minibox-back-1 {
+  display: flex;
+  position: relative;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  transform: rotate(45deg);
+  border: 1px solid black;
+  margin-right: 28px;
+}
+.minibox-arrow-back-1 {
+  position: absolute;
+  top: 2;
+  bottom: 12;
+  right: 0;
+  left: 0;
+  transform: rotate(-45deg);
+  transition: transform 0.3ms ease-in-out;
 }
 
 /* -------------------Result ---------------------*/
@@ -1500,30 +1524,19 @@ input::placeholder {
 /*--------------------------- Small phones-----------------------*/
 
 /*------------------------- Large devices (desktops) ----------------------*/
-@media (max-width: 1280px) {
+@media (max-width: 80rem) {
   /* ------------------Home-----------------------*/
 
-  .center-title, .center-subtitle {
-    font-size: 5rem;
+  html {
+    font-size: 50%;
   }
 
-  .button-left-text, .button-right-text {
-    font-size: .80rem;
+  .center-subtitle, .center-title {
+    font-size: 7rem;
   }
+  
+/* --------------------Testing--------------------- */
 
-  .container-bottom-left {
-    font-size: .80rem;
-  }
-
-  .minibox-right, .minibox-left {
-    width: 24px;
-    height: 24px;
-  }
-
-.minibox-arrow-left, .minibox-arrow-right {
-  font-size: .75rem;
-  left: -2px;
-}
 
   /* ------------------Result-----------------------*/
 
@@ -1728,9 +1741,14 @@ input::placeholder {
 
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 64rem) {
  
   /* -------------------------------------Home--------------------------------------- */
+ 
+ html {
+  font-size: 50%;
+ }
+ 
   .hovereffect-container {
     justify-content: center;
     position: relative;
@@ -1744,8 +1762,8 @@ input::placeholder {
 
   .container-bottom-left {
     position: absolute;
-    font-size: 11px;
-    line-height: 20px;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
     z-index: 1;
     width: 100%;
     height: 75%;
@@ -1755,7 +1773,7 @@ input::placeholder {
     align-items: center;
     margin-left: -20px;
     padding-top: 50px;
-    bottom: 6%;
+    bottom: 7%;
   }
 
   .diamond-box {
@@ -1779,14 +1797,14 @@ input::placeholder {
     background-color: transparent;
     white-space: nowrap;
     border: none;
-    width: 13rem;
+    width: 210px;
     height: 40px;
-    bottom: -80px;
+    bottom: -70px;
     z-index: 10;
   }
 
   .button-text-exp {
-    font-size: 10px;
+    font-size: 1.5rem;
     text-align: start;
     font-weight: 400;
     display: inline-block;
@@ -1809,7 +1827,6 @@ input::placeholder {
   .minibox-arrow-exp {
     position: absolute;
     margin-left: 8px;
-    font-size: 12px;
     transform: rotate(-45deg);
     margin-bottom: 4px;
   }
@@ -1832,21 +1849,56 @@ input::placeholder {
   }
 }
 /* ----------------------Home--------------------------------- */
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
+
+  html {
+    font-size: 50%;
+  }
 
   .container-bottom-left {
-    bottom: 6%;
+    bottom: 7%;
+    font-size: 1.5rem;
   }
 
   #button-exp {
     width: 13rem;
-    z-index: -1;
-    background-color: transparent
+    z-index: 20;
+    background-color: transparent;
+    width: 210px;
+  }
+  /* -----------------------Testing---------------------- */
+ .rotating-square-1,
+  .rotating-square-2,
+  .rotating-square-3 {
+    width: 325px;
+    height: 325px;
+    position: absolute;
+  }
+
+ .form-input-1,
+  .form-input-2 {
+    width: 300px;
+    height: 50px;
+    letter-spacing: -2.5px;
+    font-size: 5rem;
+    top:46%;
+    z-index: 10;
+    position: absolute;
+  }
+
+    .skeleton-state-text {
+    font-size: 12px;
+  }
+
+  /* Style the placeholder text */
+  input::placeholder {
+    font-size: 5rem;
+    color: gray;
   }
 
 }
 /* -----------------------------------------------------------Small phones------------------------------------------------- */
-@media (max-width: 500px) {
+@media (max-width: 31.25rem) {
   /*-------------------------Home----------------------------*/
 
 .hovereffect-container {
@@ -1855,23 +1907,24 @@ input::placeholder {
     align-items: center;
     display: flex;
     height: 90vh;
+    width: 500px;
+    max-width: 100%;
+    border: 2px solid red;
   }
 
   .center-title,
   .center-subtitle {
-    font-size: 26px;
+    font-size: 5rem;
   }
 
   .center-subtitle {
-    margin-bottom: 1rem;
+    margin-bottom: 6rem;
   }
 
 .container-bottom-left {
     position: absolute;
-    font-size: 0.5rem;
-    line-height: 1rem;
     z-index: 10;
-    bottom: 51%;
+    bottom: 49%;
     right: 0;
     right: 0;
     text-align: center;
@@ -1883,8 +1936,8 @@ input::placeholder {
   
   .diamond-box {
     position: absolute;
-    width: 12rem;
-    height: 12rem;
+    width: 34rem;
+    height: 34rem;
     border: 2px dotted #a0a4ab;
     outline: 2px dotted #a0a4ab;
     outline-offset: 20px;
@@ -1900,14 +1953,14 @@ input::placeholder {
     justify-content: space-between;
     background-color: transparent;
     border: none;
-    width: 110px;
+    width: 170px;
     height: 40px;
-    top: 58%;
-    margin: 0 auto;
+    top: 63%;
+    z-index: 20;
   }
 
   .button-text-exp {
-    font-size: 7px;
+   font-size: 1.5rem;
     display: inline-block;
     align-self: center;
   }
@@ -1922,7 +1975,7 @@ input::placeholder {
     width: 16px;
     transform: rotate(45deg);
     border: 1px solid black;
-    z-index: 10;
+    z-index: 20;
   }
 
   .minibox-arrow-exp {
@@ -1952,35 +2005,25 @@ input::placeholder {
 
 
   /* ------------------Testing-----------------------*/
+
+
+.testing-top-text {
+  top: 2rem;
+  left: 1rem;
+}
+ 
   .rotating-square-1,
   .rotating-square-2,
   .rotating-square-3 {
-    width: 328px;
-    height: 328px;
-  }
-
-  .rotating-square-1 {
-    margin-top: 125px;
-  }
-
-  .rotating-square-1c {
-    width: 200px;
-    height: 200px;
-  }
-  .rotating-square-2c {
-    width: 225px;
-    height: 225px;
-  }
-  .rotating-square-3c {
     width: 250px;
     height: 250px;
+    position: absolute;
   }
 
   .form-input-1,
   .form-input-2 {
-    width: 300px;
-    letter-spacing: -3px;
-    font-size: 42px;
+    top: 46%;
+    width: 200px;
   }
 
     .skeleton-state-text {
@@ -1989,8 +2032,12 @@ input::placeholder {
 
   /* Style the placeholder text */
   input::placeholder {
-    font-size: 42px;
+    font-size: 26px;
     color: gray;
+  }
+
+  .button-back-text-1 {
+    font-size: 0.5rem;
   }
 
   /* ------------------Result------------------------*/
