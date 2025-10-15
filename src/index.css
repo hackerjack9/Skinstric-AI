@@ -609,7 +609,6 @@ input::placeholder {
   justify-content: space-between;
   height: 90vh;
   width: 90%;
-  max-width: 1500px;
 }
 
 .result-title-text {
@@ -740,22 +739,22 @@ input::placeholder {
 
 .allow-AI-title {
   font-size: 16px;
-  margin: 0px 0px 48px;
+  margin: 0px 0px 46px;
   color: #fcfcfc;
   padding: 0px 0px 0px 16px;
   text-align: left;
 }
 
 #button-AI-allow {
-  font-size: 14px;
+ font-size: 1.75rem;
   color: #fcfcfc;
-  padding: 0px 16px;
   border: none;
   text-align: right;
   background-color: black;
+  padding-right: 12px;
 }
 #button-AI-deny {
-  font-size: 14px;
+  font-size: 1.75rem;
   color: #fcfcfca1;
   padding: 0px 20px;
   border: none;
@@ -775,10 +774,12 @@ input::placeholder {
 /* -------------------Camera-------------------- */
 
 
-.rotating-square-wrap {
+.rotating-square-wrap-2 {
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 300px;
+  height: 300px;
   transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
@@ -800,15 +801,15 @@ input::placeholder {
 }
 
 /* Rotations on each square individually */
-.rotating-square-1 {
+.rotating-square-1c {
   animation: spin 150s linear infinite;
 }
 
-.rotating-square-2 {
+.rotating-square-2c {
   animation: spin 100s linear infinite reverse;
 }
 
-.rotating-square-3 {
+.rotating-square-3c {
   animation: spin 50s linear infinite;
 }
 
@@ -818,13 +819,13 @@ input::placeholder {
 }
 
 
-.rotating-square-1 {
+.rotating-square-1c {
   border: 3px dotted rgb(170, 168, 168, 0.2);
 }
-.rotating-square-2 {
+.rotating-square-2c {
   border: 3px dotted rgb(170, 168, 168, 0.4);
 }
-.rotating-square-3 {
+.rotating-square-3c {
   border: 3px dotted rgb(170, 168, 168, 0.6);
 }
 
@@ -834,9 +835,10 @@ input::placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 300px;
-  height: 300px;
-  bottom: 70px;
+  width: 200px;
+  height: 200px;
+  left: 44%;
+  bottom: -250px;
 }
 
 .skeleton-camera {
@@ -846,6 +848,8 @@ input::placeholder {
   align-items: center;
   justify-content: center;
   opacity: 0.5;
+  width: 200px;
+  height: 200px;
   animation: scaleInOut 3s infinite ease-in-out;
   animation: fadeInOut 3s infinite;
 }
@@ -1248,10 +1252,8 @@ input::placeholder {
   align-items: center;
   justify-content: space-between;
   width: 90%;
-  max-width: 1500px;
   height: 90vh;
   margin: 0 auto;
-  border: 2px solid red;
 }
 
 .summary-boxes-container {
@@ -1259,9 +1261,7 @@ input::placeholder {
   justify-content: space-between;
   width: 100%;
   gap: 18px;
-  border: 2px solid orange;
   height: 700px;
- 
 }
 
 .title-container {
@@ -1270,17 +1270,16 @@ input::placeholder {
   align-items: flex-start;
   justify-content: flex-start;
   width: 100%;
-
   height: 30%;
   margin-top: 20px;
 }
 
 .AI-estimate-title {
   margin-top: 60px;
+  margin-bottom: 10px;
   font-size: 1.5rem;
   color: grey;
   align-self: center;
- 
 }
 
 .analysis-title {
@@ -1306,7 +1305,6 @@ input::placeholder {
   height: 88%;
   flex-shrink: 1;
   font-size: clamp(1.5rem, 2vh, 3.5rem);
-  border: 2px solid blue;
 }
 
 #section-1,
@@ -1327,10 +1325,10 @@ input::placeholder {
  
 }
 #section-3 {
-  width: 366px;
   background-color: rgb(244, 242, 242);
   height: 94%;
   width: 25%;
+  font-size: 2rem;
 }
 
 .section-2-title {
@@ -1356,13 +1354,13 @@ input::placeholder {
 
 .circle-number {
   position: absolute;
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 4rem;
+  font-weight: 500;
   color: black;
 }
 
 .circle-percentage-sign {
-  font-size: 0.8rem;
+  font-size: 4rem;
 }
 
 .progress-ring-background,
@@ -1665,6 +1663,11 @@ input::placeholder {
     color: black;
   }
 
+  .skeleton-state {
+    left: 43%;
+    bottom: -140px;
+  }
+
   /* ------------------Summary-----------------------*/
 
   .body {
@@ -1677,6 +1680,40 @@ input::placeholder {
     height: 90vh;
     margin: 0 auto;
   }
+
+  .AI-estimate-title {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+.analysis-title {
+  margin-bottom: -10px;
+}
+
+  .predicted-title {
+    margin-top: -5px;
+  }
+
+  .summary-boxes-container {
+     height: clamp(1500px, 50vh, 2000px);
+  }
+
+    .demographics-title {
+       font-size: clamp(1rem, 2vh, 3rem);
+      letter-spacing: .5rem;
+    }
+  .title-container {
+    margin-top: 5px;
+    margin-right: 18px;
+    align-items: center;
+    height: 25%;
+    }
+
+  .section-2-title {
+     font-size: clamp(3rem, 3vh, 4rem);
+    top: -100px;
+    right: 100px;
+    }
 
    .summary-boxes-container {
     display: flex;
@@ -1692,12 +1729,6 @@ input::placeholder {
     padding-bottom: 150px;
   }
 
-  .title-container {
-    margin-left: 20px;
-    margin-bottom: 50px;
-    align-items: center;
-  }
-
   #section-1 {
     flex-direction: row;
     width: 450px;
@@ -1710,24 +1741,23 @@ input::placeholder {
     height: 400px;
   }
 
-    #section-2 {
-    width: 450px;
+    #section-1 {
+    height: clamp(15px, 40vh, 90px);
+    width: clamp(550px, 70vh, 800px);
+   font-size: clamp(2rem, 2vh, 3rem);
   }
 
-  .section-2-title {
-    position: relative;
-    z-index: 5;
-    padding: 100px;
-    font-size: 3rem;
+#section-2 {
+      height: clamp(380px, 50vh, 600px);
+ width: clamp(550px, 70vh, 800px);
+   font-size: clamp(1.75rem, 2vh, 3rem);
   }
 
-  #section-1,
-  #section-2,
   #section-3 {
-    width: 550px;
-     font-size: clamp(1.5rem, 2vh, 3rem);
+    height: clamp(500px, 60vh, 800px);
+    width: clamp(550px, 70vh, 800px);
+   font-size: clamp(2.5rem, 3vh, 4rem);
   }
-
   .category-box-1,
   .category-box-2,
   .category-box-3 {
@@ -1743,37 +1773,43 @@ input::placeholder {
     margin-bottom: 10px;
   }
 
-  .AI-estimate-title {
-    margin-top: 50px;
-  }
-
-  .sticky-bottom {
-    position: absolute;
-    bottom: 20px;
-  }
-
-  .bottom-AI-title {
-    display: none;
-  }
-
-  #button-back-2 {
-    margin-left: 20px;
-  }
-
   .minibox-back {
     width: 30px;
     height: 30px;
   }
 
-  #button-home {
-    right: 20px;
-  }
-
   .minibox-home {
     height: 30px;
     width: 30px;
-    margin-right: 20px;
   }
+
+  .percentage-circle {
+    height: 340px;
+    margin-right: 50px;
+  }
+
+   .percentage-circle svg {
+  width: 300px !important;
+  height: 300px !important;
+  flex-shrink: 0;
+  display: block;
+}
+
+#button-home {
+  margin-right: -30px;
+  color: grey;
+}
+
+#button-back-2 {
+  color: grey;
+
+}
+
+.minibox-back {
+  background-color: white;
+  margin-left: -10px;
+}
+  
 }
 
 @media (max-width: 64rem) {
@@ -1883,12 +1919,17 @@ input::placeholder {
     display: none;
   }
 
-  /* --------------------Result-------------------------- */
+  /* ------------------Result-------------------------- */
 .rotating-square-container-1, 
   .rotating-square-container-2 {
     margin-left: 75px;
   }
 
+  /* ------------------Summary----------------------------- */
+
+  .summary-boxes-container {
+    height: 220vh;
+  }
 }
 /* ----------------------Home--------------------------------- */
 @media (max-width: 48rem) {
@@ -1908,7 +1949,7 @@ input::placeholder {
     background-color: transparent;
     width: 210px;
   }
-  /* -----------------------Testing---------------------- */
+  /* -------------------Testing---------------------- */
  .rotating-square-1,
   .rotating-square-2,
   .rotating-square-3 {
@@ -1979,7 +2020,27 @@ input::placeholder {
     position: absolute;
     left: 100px;
     top: 300px;
+    padding: 0px;
+    height: 82px;
+    width: 200px;
   }
+
+  .allow-AI-title {
+    margin-bottom: 20px;
+    font-size: 1.75rem;
+  }
+
+#button-AI-allow {
+ position: absolute;
+  right: 220px;
+  padding-left: 76px;
+  padding-bottom: 5px;
+}
+#button-AI-deny {
+ position: absolute;
+  right: 151px;
+padding-bottom: 5px;
+}
 
   .icon-img-1,
   .icon-img-2 {
@@ -2078,7 +2139,7 @@ input::placeholder {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 190vh;
+    height: 210vh;
     gap: 20px;
     padding-left: 10px;
     padding-right: 10px;
@@ -2089,13 +2150,6 @@ input::placeholder {
     display: flex;
     margin-bottom: 30px;
     height: 300px;
-  }
-
-  #section-1,
-  #section-2,
-  #section-3 {
-    border-top: 1px solid black;
-    display: flex;
   }
 
   #section-1 {
@@ -2120,6 +2174,11 @@ input::placeholder {
     height: 400px;
   }
 
+  .percentage-circle {
+    height: 380px;
+    margin-right: 10px;
+  }
+
   #section-3 {
     width: 450px;
     font-size: 2rem;
@@ -2130,10 +2189,7 @@ input::placeholder {
   .category-box-3 {
     width: 150px;
   }
-  .progress-ring-progress {
-    position: absolute;
-  }
-
+  
   .sticky-bottom {
     position: absolute;
     bottom: 20px;
@@ -2468,5 +2524,81 @@ input::placeholder {
 
   /* -------------------------Summary-------------------- */
 
+  .summary-boxes-container {
+     height: clamp(1500px, 50vh, 2000px);
+  }
+
+    .demographics-title {
+       font-size: clamp(1rem, 2vh, 3rem);
+      letter-spacing: .5rem;
+    }
+  .title-container {
+      height: clamp(110px, 50vh, 200px);
+    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-right: 18px;
+    }
+
+    .AI-estimate-title {
+      margin-top: 5px;
+    }
+  .section-2-title {
+     font-size: clamp(2rem, 2vh, 4rem);
+    top: -100px;
+    right: 100px;
+    }
+
+    .circle-number {
+      top: 165px;
+      right: 110px;
+    }
+
+  .section-3-title {
+     font-size: clamp(1.5rem, 2vh, 3rem);
+  }
+
+
+  #section-1 {
+    height: clamp(15px, 40vh, 90px);
+    width: clamp(270px, 50vh, 450px);
+   font-size: clamp(1.75rem, 2vh, 3rem);
+  }
+
+#section-2 {
+      height: clamp(250px, 40vh, 600px);
+ width: clamp(270px, 50vh, 400px);
+   font-size: clamp(1.75rem, 2vh, 3rem);
+  }
+
+  #section-3 {
+    height: clamp(500px, 30vh, 800px);
+    width: clamp(270px, 50vh, 450px);
+   font-size: clamp(1.75rem, 2vh, 3rem);
+  }
+.percentage-circle {
+    height: 220px;
+  }
+
+  .percentage-circle svg {
+  width: 200px !important;
+  height: 200px !important;
+  flex-shrink: 0;
+  display: block;
+  margin-left: 150px;
+}
+
+#button-home {
+  margin-right: -30px;
+  color: grey;
+}
+
+#button-back-2 {
+  color: grey;
+}
+
+.minibox-back {
+  background-color: white;
+}
+  
   
   }

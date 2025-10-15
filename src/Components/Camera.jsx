@@ -14,8 +14,8 @@ function Camera() {
   }, [navigate]);
 
   return (
-    <div className="body-2">
-      <div className="rotating-square-wrap">
+    <div className="body">
+      <div className="rotating-square-wrap-2">
       <div className="rotating-square-1c">
         <div className="rotating-square-2c">
           <div className="rotating-square-3c"></div>
