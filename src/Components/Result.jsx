@@ -209,7 +209,7 @@ function Result() {
               <div className="rotating-square-3c"></div>
             </div>
           </div>
-          <div className="skeleton-state">
+          <div className="skeleton-state-2">
             <h2 className="skeleton-state-text">PREPARING YOUR ANALYSIS...</h2>
           </div>
           </div>

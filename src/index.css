@@ -771,16 +771,15 @@ input::placeholder {
   font-weight: 300;
 }
 
-.skeleton-state {
+.skeleton-state-2 {
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 400px;
-  height: 400px;
-  top: 28%;
-  left: 38%;
-  border: 2px solid red;
+  width: 75px;
+  height: 75px;
+  top: -20;
+  left: -20;
 }
 
 .skeleton-state-text {
@@ -845,8 +844,6 @@ input::placeholder {
   border: 3px dotted rgb(170, 168, 168, 0.6);
 }
 
-
-
 .skeleton-camera {
   position: absolute;
   flex-direction: column;
@@ -858,6 +855,17 @@ input::placeholder {
   height: 200px;
   animation: scaleInOut 3s infinite ease-in-out;
   animation: fadeInOut 3s infinite;
+}
+
+.skeleton-state {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 75px;
+  height: 75px;
+  top: 400px;
+  left: 775px;
 }
 
 @keyframes fadeInOut {
