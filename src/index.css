@@ -1566,8 +1566,6 @@ input::placeholder {
 
 /* ========================================================================================================== */
 
-
-
 /*------------------------------- Large devices (desktops) -------------------------------------------------*/
 
 @media (max-width: 80rem) {
@@ -2207,6 +2205,11 @@ input::placeholder {
     font-size: 2rem;
   }
 
+  .section-3-title {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
   .category-box-1,
   .category-box-2,
   .category-box-3 {
@@ -2396,7 +2399,7 @@ input::placeholder {
 
   .form-input-1,
   .form-input-2 {
-    top: 46%;
+    top: 44%;
     width: 200px;
   }
 
@@ -2414,27 +2417,46 @@ input::placeholder {
     font-size: 0.5rem;
   }
 
+  .minibox-arrow-back-1 {
+    transform: rotate(135deg);
+    right: 8px;
+    bottom: 2px;
+    left: 8px;
+  }
+
+  .minibox-back-1 {
+    width: 30px;
+    height: 30px;
+  }
+
+  .minibox-arrow-proceed {
+    right: 8px;
+    bottom: 6px;
+    left: 10px;
+  }
+
+  .minibox-proceed {
+    width: 30px;
+    height: 30px;
+  }
+
   /* ------------------Result------------------------*/
 
   .rotating-square-4,
   .rotating-square-7 {
-    width: 150px;
-    height: 150px;
+    width: 125px;
+    height: 125px;
+    margin-right: 50px;
   }
   .rotating-square-5,
   .rotating-square-8 {
-    width: 175px;
-    height: 175px;
+    width: 135px;
+    height: 135px;
   }
   .rotating-square-6,
   .rotating-square-9 {
-    width: 200px;
-    height: 200px;
-  }
-
-  .rotating-square-container-1,
-  .rotating-square-container-2 {
-    margin-right: 50px;
+    width: 145px;
+    height: 145px;
   }
 
   .gall-icon-container {
@@ -2448,18 +2470,33 @@ input::placeholder {
     top: 300px;
   }
 
-  .icon-img-1,
+.icon-img-1 {
+  width: 60px;
+  margin-right: 55px;
+}
+
   .icon-img-2 {
     width: 60px;
+    margin-left: -15px;
+  }
+
+  .cam-text {
+    font-size: 1.25rem;
   }
 
   .gall-text {
     margin-bottom: 50px;
+    font-size: 1.25rem;
   }
 
   .icon-img-2 {
     bottom: 50px;
     right: 30px;
+  }
+
+  .preview-box {
+    width: 70px;
+    height: 70px;
   }
 
   /* ------------------Capture-----------------------*/
@@ -2567,8 +2604,8 @@ input::placeholder {
   }
 
   .circle-number {
-    top: 165px;
-    right: 110px;
+    top: 90px;
+    right: 84px;
   }
 
   .section-3-title {
