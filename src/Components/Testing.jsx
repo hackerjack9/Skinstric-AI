@@ -84,76 +84,76 @@ function Testing() {
     <div className="testing-container">
       <p className="testing-top-text">TO START ANALYSIS</p>
       <div className="rotating-square-wrap">
-      <div className="rotating-square-1">
-        <div className="rotating-square-2">
-          <div className="rotating-square-3"></div>
-        </div>
+        <div className="rotating-square-1">
+          <div className="rotating-square-2">
+            <div className="rotating-square-3"></div>
+          </div>
         </div>
       </div>
-        {phase === 1 && (
-          <input
-            ref={inputRef}
-            className="form-input-1"
-            type="text"
-            placeholder="Introduce Yourself"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            onKeyDown={handleKeyDown}
-          />
-        )}
+      {phase === 1 && (
+        <input
+          ref={inputRef}
+          className="form-input-1"
+          type="text"
+          placeholder="Introduce Yourself"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          onKeyDown={handleKeyDown}
+        />
+      )}
 
-        {phase === 2 && !loading && (
-          <input
-            ref={inputRef}
-            className="form-input-2"
-            type="text"
-            placeholder="your city name"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            onKeyDown={handleKeyDown}
-          />
-        )}
+      {phase === 2 && !loading && (
+        <input
+          ref={inputRef}
+          className="form-input-2"
+          type="text"
+          placeholder="your city name"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+          onKeyDown={handleKeyDown}
+        />
+      )}
 
-        {loading && (
-          <div className="skeleton-loader">
-            <div className="skeleton-input">Processing Submission!</div>
-            <div className="loading-dots">
-              <span className="dot"></span>
-              <span className="dot"></span>
-              <span className="dot"></span>
-            </div>
+      {loading && (
+        <div className="skeleton-loader">
+          <div className="skeleton-input">Processing Submission!</div>
+          <div className="loading-dots">
+            <span className="dot"></span>
+            <span className="dot"></span>
+            <span className="dot"></span>
           </div>
-        )}
+        </div>
+      )}
 
-        {phase === 3 && !loading && (
-          <p className="testing-thanks-text">
-            <span className="testing-thanks-title">
-              {apiMessage ? apiMessage : "Thank you!"}
-            </span>
-            <br />
-            <br />
-            <span className="testing-thanks-subtitle">
-              Proceed to the next step
-            </span>
-          </p>
-        )}
+      {phase === 3 && !loading && (
+        <p className="testing-thanks-text">
+          <span className="testing-thanks-title">
+            {apiMessage ? apiMessage : "Thank you!"}
+          </span>
+          <br />
+          <br />
+          <span className="testing-thanks-subtitle">
+            Proceed to the next step
+          </span>
+        </p>
+      )}
 
-        <button id="button-back-1" onClick={() => navigate("/")}>
-          <span className="button-back-text">BACK</span>
-          <div className="minibox-back-1">
-            <span className="minibox-arrow-back-1">▶</span>
+      <button id="button-back-1" onClick={() => navigate("/")}>
+        <span className="button-back-text">BACK</span>
+        <div className="minibox-back-1">
+          <span className="minibox-arrow-back-1">▶</span>
+        </div>
+      </button>
+
+      {phase === 3 && !loading && (
+        <button id="button-proceed" onClick={() => navigate("/result")}>
+          <span className="button-proceed-text">PROCEED</span>
+          <div className="minibox-proceed">
+            <span className="minibox-arrow-proceed">▶</span>
           </div>
         </button>
-
-        {phase === 3 && !loading && (
-          <button id="button-proceed" onClick={() => navigate("/result")}>
-            <span className="button-proceed-text">PROCEED</span>
-            <div className="minibox-proceed">
-              <span className="minibox-arrow-proceed">▶</span>
-            </div>
-          </button>
-        )}
-      </div>
+      )}
+    </div>
   );
 }
 

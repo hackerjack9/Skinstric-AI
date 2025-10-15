@@ -204,14 +204,16 @@ function Result() {
       {loading && (
         <div className="body">
           <div className="rotating-square-wrap">
-          <div className="rotating-square-1c">
-            <div className="rotating-square-2c">
-              <div className="rotating-square-3c"></div>
+            <div className="rotating-square-1c">
+              <div className="rotating-square-2c">
+                <div className="rotating-square-3c"></div>
+              </div>
             </div>
-          </div>
-          <div className="skeleton-state-2">
-            <h2 className="skeleton-state-text">PREPARING YOUR ANALYSIS...</h2>
-          </div>
+            <div className="skeleton-state-2">
+              <h2 className="skeleton-state-text">
+                PREPARING YOUR ANALYSIS...
+              </h2>
+            </div>
           </div>
         </div>
       )}
