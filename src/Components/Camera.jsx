@@ -14,16 +14,18 @@ function Camera() {
   }, [navigate]);
 
   return (
-    <div className="body">
+    <div className="body-2">
+      <div className="rotating-square-wrap">
       <div className="rotating-square-1c">
         <div className="rotating-square-2c">
           <div className="rotating-square-3c"></div>
         </div>
       </div>
+      </div>
       <div className="skeleton-state">
         <div className="skeleton-camera">
           <img className="camera-icon-2" src={cameraIcon} alt="Camera Setup" />
-          <h2>Setting up camera...</h2>
+          <h2 className="camera-icon-text">Setting up camera...</h2>
         </div>
       </div>
       <div className="camera-centertext-container-1">

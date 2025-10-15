@@ -169,7 +169,7 @@ function Result() {
             <p className="gall-text">
               ALLOW A.I. <br /> ACCESS GALLERY
             </p>
-            <div>
+            <div className="gall-icon-container">
               <img
                 className="icon-img-2"
                 src={gallIcon}
@@ -203,10 +203,12 @@ function Result() {
 
       {loading && (
         <div className="body">
+          <div className="rotating-square-wrap">
           <div className="rotating-square-1c">
             <div className="rotating-square-2c">
               <div className="rotating-square-3c"></div>
             </div>
+          </div>
           </div>
           <div className="skeleton-state">
             <h2 className="skeleton-state-text">PREPARING YOUR ANALYSIS...</h2>
