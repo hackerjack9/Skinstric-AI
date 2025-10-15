@@ -771,6 +771,22 @@ input::placeholder {
   font-weight: 300;
 }
 
+.skeleton-state {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 400px;
+  top: 28%;
+  left: 38%;
+  border: 2px solid red;
+}
+
+.skeleton-state-text {
+  font-size: 2rem;
+}
+
 /* -------------------Camera-------------------- */
 
 
@@ -830,16 +846,6 @@ input::placeholder {
 }
 
 
-.skeleton-state {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 200px;
-  height: 200px;
-  left: 44%;
-  bottom: -250px;
-}
 
 .skeleton-camera {
   position: absolute;
@@ -1625,6 +1631,15 @@ input::placeholder {
   .skeleton-state-text {
     font-size: 12px;
   }
+
+  .skeleton-state {
+    position: absolute;
+    top: 100px;
+    height: 300px;
+    width: 300px;
+  }
+
+
 
   .rotating-square-1c {
     width: 200px;

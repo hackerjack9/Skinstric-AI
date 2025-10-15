@@ -209,9 +209,9 @@ function Result() {
               <div className="rotating-square-3c"></div>
             </div>
           </div>
-          </div>
           <div className="skeleton-state">
             <h2 className="skeleton-state-text">PREPARING YOUR ANALYSIS...</h2>
+          </div>
           </div>
         </div>
       )}
