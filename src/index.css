@@ -99,7 +99,6 @@ svg {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1200px;
   max-width: 90%;
   margin: 0 auto;
   height: 90vh;
@@ -134,8 +133,6 @@ svg {
   z-index: -1;
   height: 70vh;
 }
-
-
 
 .triangle-right {
   width: auto;
@@ -373,7 +370,6 @@ svg {
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 1500px;
   max-width: 95%;
   margin: 0 auto;
   height: 90vh;
@@ -776,19 +772,8 @@ input::placeholder {
   font-weight: 300;
 }
 
-.skeleton-state-2 {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 75px;
-  height: 75px;
-  top: -20;
-  left: -20;
-}
-
-.skeleton-state-text {
-  font-size: 2rem;
+.skeleton-input {
+  text-align: center;
 }
 
 /* -----------------------------------------Camera----------------------------------------- */
@@ -843,6 +828,7 @@ input::placeholder {
 
 .rotating-square-1c {
   border: 3px dotted rgb(170, 168, 168, 0.2);
+  margin-top: 75px;
 }
 .rotating-square-2c {
   border: 3px dotted rgb(170, 168, 168, 0.4);
@@ -858,10 +844,11 @@ input::placeholder {
   align-items: center;
   justify-content: center;
   opacity: 0.5;
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   animation: scaleInOut 3s infinite ease-in-out;
   animation: fadeInOut 3s infinite;
+  padding-right: 80px;
 }
 
 .skeleton-state {
@@ -871,8 +858,8 @@ input::placeholder {
   justify-content: center;
   width: 75px;
   height: 75px;
-  top: 400px;
-  left: 775px;
+  top: 50%;
+  left: 50%;
 }
 
 @keyframes fadeInOut {
@@ -1140,6 +1127,7 @@ input::placeholder {
 
 .analysis-subtitle {
   font-size: 14px;
+  margin-top: 20px;
 }
 
 .large-box-border:hover {
@@ -1266,6 +1254,10 @@ input::placeholder {
 }
 #button-summary:hover .minibox-summary {
   transform: scale(1.1) rotate(45deg);
+}
+
+#button-back {
+  bottom: 40px;
 }
 
 /* -------------------------------Summary------------------------------------ */
@@ -1567,8 +1559,6 @@ input::placeholder {
   transform: scale(1.1) rotate(45deg);
 }
 
-
-
 /* ======================================================================================================== */
 
 /* R E S P O N S I V E */
@@ -1588,8 +1578,6 @@ input::placeholder {
   .center-title {
     font-size: 7rem;
   }
-
-  /* --------------------Testing--------------------- */
 
   /* ------------------Result-----------------------*/
 
@@ -1662,6 +1650,16 @@ input::placeholder {
     height: 240px;
   }
 
+  /* ------------------Camera------------------------*/
+
+  .camera-centertext-subtitle-1 {
+    color: black;
+  }
+
+  .rotating-square-1c {
+    align-self: center;
+  }
+
   /* ------------------Capture-----------------------*/
 
   .captured-buttons {
@@ -1680,23 +1678,16 @@ input::placeholder {
     margin-top: -20px;
     background-color: #1a1b1c;
   }
-  /* ------------------Camera------------------------*/
 
-  .camera-centertext-subtitle-1 {
-    color: black;
+  /* ------------------Select----------------------- */
+  .minibox-summary {
+    width: 30px;
+    height: 30px;
   }
 
-  .skeleton-state {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 75px;
-    height: 75px;
-    top: 400px;
-    left: 600px;
+  .minibox-arrow-summary {
+    bottom: 8px;
   }
-
   /* ------------------Summary-----------------------*/
 
   .body {
@@ -1837,20 +1828,17 @@ input::placeholder {
 
   #button-home {
     color: grey;
-
   }
 
   #button-back-2 {
     color: grey;
   }
-
-  
 }
 
 /* ----------------------------------------------------laptops--------------------------------------------- */
 
 @media (max-width: 64rem) {
-  /* -------------------------------------Home--------------------------------------- */
+  /* ------------------------Home------------------------ */
 
   html {
     font-size: 50%;
@@ -1955,12 +1943,12 @@ input::placeholder {
     margin-left: 75px;
   }
 
-  /* ------------------Summary----------------------------- */
+  /* ------------------Summary------------------------- */
 
   .summary-boxes-container {
     height: 220vh;
   }
-  
+
   #section-1,
   #section-2,
   #section-3 {
@@ -1970,12 +1958,11 @@ input::placeholder {
   .minibox-arrow-back {
     right: 6px;
   }
-
 }
 
 /* ------------------------------------------------Small tablets----------------------------------------- */
 
-/* ----------------------Home--------------------------------- */
+/* ----------------------Home-------------------------- */
 
 @media (max-width: 48rem) {
   html {
@@ -1996,8 +1983,8 @@ input::placeholder {
     width: 13rem;
     z-index: 20;
     background-color: transparent;
-    width: 178px;
-    bottom: -11rem;
+    width: 200px;
+    bottom: -10rem;
   }
   /* -------------------Testing---------------------- */
   .rotating-square-1,
@@ -2029,7 +2016,7 @@ input::placeholder {
     color: gray;
   }
 
-  /* ------------------------Result------------------------- */
+  /* -------------------Result-------------------- */
 
   .result-page {
     flex-direction: column;
@@ -2119,7 +2106,7 @@ input::placeholder {
     bottom: 40%;
   }
 
-  /* --------------------------Testing--------------------------- */
+  /* -----------------------Select----------------------- */
   .large-box {
     width: 290px;
     height: 295px;
@@ -2146,11 +2133,11 @@ input::placeholder {
   }
 
   #button-back {
-    bottom: -5px;
+    bottom: 50px;
   }
 
   #button-summary {
-    bottom: -5px;
+    bottom: 30px;
   }
 
   .minibox-summary {
@@ -2170,8 +2157,7 @@ input::placeholder {
     left: 4px;
   }
 
-  /* -------------------Summary--------------------- */
-
+  /* ----------------------Summary------------------------- */
 
   .body {
     overflow-y: scroll;
@@ -2198,7 +2184,7 @@ input::placeholder {
   .title-container {
     display: flex;
     margin-bottom: 30px;
-   height: clamp(110px, 50vh, 200px);
+    height: clamp(110px, 50vh, 200px);
   }
 
   #section-1 {
@@ -2253,10 +2239,10 @@ input::placeholder {
     width: 100%;
   }
 
-  #button-back-2 {
+  #button-back {
     white-space: nowrap;
     border: none;
-    margin-left: 40px;
+    bottom: 30px;
     background-color: transparent;
   }
 
@@ -2313,9 +2299,9 @@ input::placeholder {
 @media (max-width: 32rem) {
   /*-------------------------Home----------------------------*/
 
-html { 
-  font-size: 38%;
-}
+  html {
+    font-size: 38%;
+  }
 
   .hovereffect-container {
     justify-content: center;
@@ -2418,7 +2404,7 @@ html {
     display: none;
   }
 
-  /* ------------------Testing-----------------------*/
+  /* ----------------------Testing--------------------------*/
 
   .testing-top-text {
     top: 2rem;
@@ -2463,6 +2449,7 @@ html {
   .minibox-back-1 {
     width: 30px;
     height: 30px;
+    left: 10px;
   }
 
   .minibox-arrow-proceed {
@@ -2474,6 +2461,14 @@ html {
   .minibox-proceed {
     width: 30px;
     height: 30px;
+    right: 10px;
+  }
+
+  #button-back-1 {
+    left: 20px;
+  }
+  #button-proceed {
+    right: -20px;
   }
 
   /* ------------------Result------------------------*/
@@ -2482,13 +2477,23 @@ html {
   .rotating-square-7 {
     width: 125px;
     height: 125px;
-    margin-right: 50px;
+    margin-right: 60px;
   }
+
+  .rotating-square-4 {
+    margin-bottom: -20px;
+  }
+
+  .rotating-square-7 {
+    margin-top: -20px;
+  }
+
   .rotating-square-5,
   .rotating-square-8 {
     width: 135px;
     height: 135px;
   }
+
   .rotating-square-6,
   .rotating-square-9 {
     width: 145px;
@@ -2498,6 +2503,7 @@ html {
   .gall-icon-container {
     width: 20px;
     height: 20px;
+    margin-bottom: 60px;
   }
 
   .allow-AI-box {
@@ -2506,18 +2512,19 @@ html {
     top: 300px;
   }
 
-.icon-img-1 {
-  width: 60px;
-  margin-right: 55px;
-}
+  .icon-img-1 {
+    width: 60px;
+    right: 35px;
+  }
 
   .icon-img-2 {
     width: 60px;
-    margin-left: -15px;
+    left: -54px;
   }
 
   .cam-text {
     font-size: 1.25rem;
+    margin-top: 80px;
   }
 
   .gall-text {
@@ -2535,6 +2542,23 @@ html {
     height: 70px;
   }
 
+  #button-back {
+    bottom: 20px;
+  }
+
+  .button-back-text {
+    font-size: 2rem;
+  }
+
+  .minibox-back {
+    width: 20px;
+    height: 20px;
+  }
+
+  .minibox-arrow-back {
+    font-size: 1.5rem;
+    left: -8px;
+  }
   /* ------------------Capture-----------------------*/
 
   .camera-centertext-title-2,
@@ -2572,6 +2596,7 @@ html {
   }
 
   /* ------------------Camera------------------------*/
+  
   .camera-centertext-title-2,
   .camera-centertext-subtitle-2 {
     font-size: 12px;
@@ -2584,6 +2609,10 @@ html {
   .camera-centertext-title-1,
   .camera-centertext-subtitle-1 {
     font-size: 10px;
+  }
+
+  .skeleton-camera {
+    margin-bottom: 20px;
   }
 
   /* ------------------Select------------------------*/
@@ -2611,6 +2640,29 @@ html {
   .textbox-3,
   .textbox-4 {
     font-size: 12px;
+  }
+
+  #button-summary {
+    bottom: 20px;
+    right: -20px;
+  }
+
+  .minibox-summary {
+    width: 20px;
+    height: 20px;
+    right: 10px;
+  }
+
+  .minibox-arrow-summary {
+    font-size: 1.5rem;
+  }
+
+  #button-back {
+    left: 20px;
+  }
+
+  .minibox-back {
+    left: 10px;
   }
 
   /* -------------------------Summary-------------------- */
@@ -2649,8 +2701,9 @@ html {
     font-size: 3rem;
   }
 
-   .percentage-circle {
-    height: 220px;
+  .percentage-circle {
+    height: 200px;
+    right: 6px;
   }
 
   .circle-percentage-sign {
@@ -2681,19 +2734,44 @@ html {
   }
 
   #button-home {
-    margin-right: -30px;
+    margin-right: -45px;
     color: grey;
+    bottom: -2px;
+  }
+
+  .minibox-home {
+    width: 20px;
+    height: 20px;
+    right: 10px;
+  }
+
+  .minibox-arrow-home {
+    font-size: 1.5rem;
+    left: 2px;
+    top: 2px;
   }
 
   #button-back-2 {
+    background-color: transparent;
     color: grey;
+    bottom: -2px;
+    left: 10px;
   }
 
   .minibox-back {
     background-color: white;
   }
 
-   .percentage-circle svg {
+  .button-home-text {
+    font-size: 2rem;
+  }
+
+  .minibox-arrow-back {
+    right: 2px;
+    bottom: 2px;
+  }
+
+  .percentage-circle svg {
     width: 200px !important;
     height: 200px !important;
     flex-shrink: 0;
@@ -2701,4 +2779,3 @@ html {
     margin-left: 150px;
   }
 }
-

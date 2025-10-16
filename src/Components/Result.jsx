@@ -209,11 +209,14 @@ function Result() {
                 <div className="rotating-square-3c"></div>
               </div>
             </div>
-            <div className="skeleton-state-2">
-              <h2 className="skeleton-state-text">
-                PREPARING YOUR ANALYSIS...
-              </h2>
-            </div>
+            <div className="skeleton-loader">
+          <div className="skeleton-input">Processing Submission!</div>
+          <div className="loading-dots">
+            <span className="dot"></span>
+            <span className="dot"></span>
+            <span className="dot"></span>
+          </div>
+        </div>
           </div>
         </div>
       )}
