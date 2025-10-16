@@ -20,6 +20,12 @@ html {
   font-size: 62.5%;
 }
 
+svg {
+  height: 50vh;
+  width: auto;
+  display: block;
+}
+
 /* -----------------------------------Nav Bar -------------------------------------*/
 .nav-bar {
   display: flex;
@@ -92,7 +98,6 @@ html {
 .hovereffect-container {
   display: flex;
   align-items: center;
-  max-width: screen;
   justify-content: center;
   width: 1200px;
   max-width: 90%;
@@ -130,11 +135,7 @@ html {
   height: 70vh;
 }
 
-svg {
-  height: 50vh; /* Will shrink/grow with viewport height */
-  width: auto;
-  display: block;
-}
+
 
 .triangle-right {
   width: auto;
@@ -169,7 +170,7 @@ svg {
   border: none;
   z-index: 2;
   padding: 4px 16px;
-  bottom: 45%;
+  bottom: 50%;
 }
 
 #button-left {
@@ -251,12 +252,16 @@ svg {
   opacity: 0;
 }
 
-#button-exp,
-.button-text-exp,
-.minibox-exp {
-  display: none;
+/* Button hover effects */
+#button-back:hover .minibox-back {
+  transform: scale(1.1) rotate(45deg);
 }
 
+#button-proceed:hover .minibox-proceed {
+  transform: scale(1.1) rotate(45deg);
+}
+
+/* Buttons displayed on bottom of screen */
 #button-back {
   display: flex;
   flex-direction: row-reverse;
@@ -270,10 +275,6 @@ svg {
   border: none;
   bottom: 50px;
   left: 40px;
-}
-
-#button-back:hover .minibox-back {
-  transform: scale(1.1) rotate(45deg);
 }
 
 .button-back-text {
@@ -357,8 +358,12 @@ svg {
   transform: rotate(-45deg);
   transition: transform 0.3ms ease-in-out;
 }
-#button-proceed:hover .minibox-proceed {
-  transform: scale(1.1) rotate(45deg);
+
+/* Elements on visiible on smaller screen sizes */
+#button-exp,
+.button-text-exp,
+.minibox-exp {
+  display: none;
 }
 
 /* -----------------------------------Testing----------------------------------------- */
@@ -597,7 +602,7 @@ input::placeholder {
   bottom: 12;
   right: 0;
   left: 0;
-  transform: rotate(-45deg);
+  transform: rotate(135deg);
   transition: transform 0.3ms ease-in-out;
 }
 
@@ -1560,6 +1565,8 @@ input::placeholder {
   transform: scale(1.1) rotate(45deg);
 }
 
+
+
 /* ======================================================================================================== */
 
 /* R E S P O N S I V E */
@@ -1572,7 +1579,7 @@ input::placeholder {
   /* ------------------Home-----------------------*/
 
   html {
-    font-size: 50%;
+    font-size: 57%;
   }
 
   .center-subtitle,
@@ -1845,16 +1852,10 @@ input::placeholder {
     align-items: center;
   }
 
-  .center-title,
-  .center-subtitle {
-    font-size: 58px;
-  }
-
   .container-bottom-left {
     position: absolute;
     font-size: 1.5rem;
     line-height: 2.5rem;
-    z-index: 1;
     width: 100%;
     height: 75%;
     text-align: center;
@@ -1868,8 +1869,8 @@ input::placeholder {
 
   .diamond-box {
     position: absolute;
-    width: 320px;
-    height: 320px;
+    width: 340px;
+    height: 340px;
     border: 2px dotted #a0a4ab;
     outline: 2px dotted #a0a4ab;
     outline-offset: 30px;
@@ -1889,7 +1890,7 @@ input::placeholder {
     border: none;
     width: 210px;
     height: 40px;
-    bottom: -70px;
+    bottom: -90px;
     z-index: 10;
   }
 
@@ -1961,8 +1962,13 @@ input::placeholder {
   }
 
   .container-bottom-left {
-    bottom: 7%;
+    bottom: 9%;
     font-size: 1.5rem;
+  }
+
+  .diamond-box {
+    width: 38rem;
+    height: 38rem;
   }
 
   #button-exp {
@@ -1970,6 +1976,7 @@ input::placeholder {
     z-index: 20;
     background-color: transparent;
     width: 210px;
+    bottom: -8rem;
   }
   /* -------------------Testing---------------------- */
   .rotating-square-1,
@@ -2144,8 +2151,13 @@ input::placeholder {
 
   /* -------------------Summary--------------------- */
 
+
   .body {
     overflow-y: scroll;
+  }
+
+  html {
+    font-size: 44%;
   }
 
   .main {
@@ -2154,6 +2166,10 @@ input::placeholder {
     height: 90vh;
   }
 
+  #button-exp {
+    width: 183px;
+    bottom: -15%;
+  }
   .summary-boxes-container {
     display: flex;
     flex-direction: column;
@@ -2226,7 +2242,7 @@ input::placeholder {
   #button-back-2 {
     white-space: nowrap;
     border: none;
-    margin-left: 20px;
+    margin-left: 40px;
     background-color: transparent;
   }
 
@@ -2278,8 +2294,12 @@ input::placeholder {
 }
 
 /* -------------------------------Small phones----------------------------------- */
-@media (max-width: 31.25rem) {
+@media (max-width: 32rem) {
   /*-------------------------Home----------------------------*/
+
+html { 
+  font-size: 38%;
+}
 
   .hovereffect-container {
     justify-content: center;
@@ -2303,7 +2323,7 @@ input::placeholder {
   .container-bottom-left {
     position: absolute;
     z-index: 10;
-    bottom: 49%;
+    bottom: 53%;
     right: 0;
     right: 0;
     text-align: center;
@@ -2315,8 +2335,8 @@ input::placeholder {
 
   .diamond-box {
     position: absolute;
-    width: 34rem;
-    height: 34rem;
+    width: 28rem;
+    height: 28rem;
     border: 2px dotted #a0a4ab;
     outline: 2px dotted #a0a4ab;
     outline-offset: 20px;
@@ -2332,9 +2352,9 @@ input::placeholder {
     justify-content: space-between;
     background-color: transparent;
     border: none;
-    width: 170px;
+    width: 122px;
     height: 40px;
-    top: 63%;
+    top: 58%;
     z-index: 20;
   }
 
@@ -2654,3 +2674,4 @@ input::placeholder {
     background-color: white;
   }
 }
+

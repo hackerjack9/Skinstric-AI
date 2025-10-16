@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import cameraIcon from "../assets/Shapes/camera-icon.webp";
 
+
 function Camera() {
   const navigate = useNavigate();
 
