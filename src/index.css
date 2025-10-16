@@ -1144,6 +1144,7 @@ input::placeholder {
 
 .large-box-border:hover {
   border: 2px dotted rgb(187, 185, 185);
+  border-width: 5px;
 }
 
 .large-box-border {
@@ -1152,6 +1153,7 @@ input::placeholder {
   padding-top: 30px;
   padding-bottom: 30px;
   transform: rotate(45deg);
+  transition: border-width 0.3s ease-in-out;
 }
 
 .select-grid-container {
@@ -1341,12 +1343,12 @@ input::placeholder {
 #section-2 {
   justify-content: space-between;
   width: 60%;
-  height: 94%;
+  height: 92%;
   background-color: rgb(244, 242, 242);
 }
 #section-3 {
   background-color: rgb(244, 242, 242);
-  height: 94%;
+  height: 92%;
   width: 25%;
   font-size: 2rem;
 }
@@ -1711,10 +1713,12 @@ input::placeholder {
   .AI-estimate-title {
     margin-top: 20px;
     margin-bottom: 10px;
+    font-size: 2rem;
   }
 
   .analysis-title {
     margin-bottom: -10px;
+    font-size: 3rem;
   }
 
   .predicted-title {
@@ -1756,39 +1760,38 @@ input::placeholder {
     padding-bottom: 150px;
   }
 
-  #section-1 {
-    flex-direction: row;
-    width: 450px;
-    height: 100px;
-    font-size: clamp(1.5rem, 2vh, 3rem);
-  }
-
   .section-2-box {
     position: relative;
     height: 400px;
   }
 
   #section-1 {
-    height: clamp(15px, 40vh, 90px);
+    flex-direction: row;
+    height: clamp(15px, 40vh, 100px);
     width: clamp(550px, 70vh, 800px);
     font-size: clamp(2rem, 2vh, 3rem);
+    text-align: center;
   }
 
   #section-2 {
-    height: clamp(380px, 50vh, 600px);
+    height: clamp(380px, 50vh, 400px);
     width: clamp(550px, 70vh, 800px);
-    font-size: clamp(1.75rem, 2vh, 3rem);
+    font-size: clamp(1.75rem, 3vh, 3rem);
   }
 
   #section-3 {
     height: clamp(500px, 60vh, 800px);
     width: clamp(550px, 70vh, 800px);
-    font-size: clamp(2.5rem, 3vh, 4rem);
+    font-size: clamp(2.5rem, 3vh, 3rem);
+  }
+
+  .section-3-title {
+    font-size: 3rem;
   }
   .category-box-1,
   .category-box-2,
   .category-box-3 {
-    width: 200px;
+    width: 266px;
   }
   .progress-ring-progress {
     position: absolute;
@@ -1803,6 +1806,12 @@ input::placeholder {
   .minibox-back {
     width: 30px;
     height: 30px;
+    background-color: white;
+    margin-left: -10px;
+  }
+
+  .minibox-arrow-back {
+    right: 8px;
   }
 
   .minibox-home {
@@ -1810,9 +1819,13 @@ input::placeholder {
     width: 30px;
   }
 
+  .minibox-arrow-home {
+    bottom: 6px;
+  }
+
   .percentage-circle {
-    height: 340px;
-    margin-right: 50px;
+    height: 380px;
+    align-self: center;
   }
 
   .percentage-circle svg {
@@ -1823,18 +1836,15 @@ input::placeholder {
   }
 
   #button-home {
-    margin-right: -30px;
     color: grey;
+
   }
 
   #button-back-2 {
     color: grey;
   }
 
-  .minibox-back {
-    background-color: white;
-    margin-left: -10px;
-  }
+  
 }
 
 /* ----------------------------------------------------laptops--------------------------------------------- */
@@ -1950,6 +1960,17 @@ input::placeholder {
   .summary-boxes-container {
     height: 220vh;
   }
+  
+  #section-1,
+  #section-2,
+  #section-3 {
+    width: 600px;
+  }
+
+  .minibox-arrow-back {
+    right: 6px;
+  }
+
 }
 
 /* ------------------------------------------------Small tablets----------------------------------------- */
@@ -1975,8 +1996,8 @@ input::placeholder {
     width: 13rem;
     z-index: 20;
     background-color: transparent;
-    width: 210px;
-    bottom: -8rem;
+    width: 178px;
+    bottom: -11rem;
   }
   /* -------------------Testing---------------------- */
   .rotating-square-1,
@@ -2156,47 +2177,40 @@ input::placeholder {
     overflow-y: scroll;
   }
 
-  html {
-    font-size: 44%;
-  }
-
   .main {
     display: flex;
     flex-direction: column;
-    height: 90vh;
+    height: 100vh;
   }
 
-  #button-exp {
-    width: 183px;
-    bottom: -15%;
-  }
   .summary-boxes-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 210vh;
+    height: 160vh;
     gap: 20px;
     padding-left: 10px;
     padding-right: 10px;
-    padding-bottom: 150px;
   }
 
   .title-container {
     display: flex;
     margin-bottom: 30px;
-    height: 300px;
+   height: clamp(110px, 50vh, 200px);
   }
 
   #section-1 {
     flex-direction: row;
+    text-align: center;
     width: 450px;
     height: 100px;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
   }
   #section-2 {
     width: 450px;
+    height: 375px;
   }
 
   .section-2-title {
@@ -2218,7 +2232,7 @@ input::placeholder {
 
   #section-3 {
     width: 450px;
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   .section-3-title {
@@ -2261,12 +2275,14 @@ input::placeholder {
 
   .button-home-text {
     margin: 0px, 0px, 0px, 24px;
+    color: grey;
   }
   .minibox-home {
     height: 30px;
     width: 30px;
     margin-right: 28px;
     margin-left: 28px;
+    color: grey;
   }
   .minibox-arrow-home {
     top: 2;
@@ -2604,7 +2620,7 @@ html {
   }
 
   .demographics-title {
-    font-size: clamp(1rem, 2vh, 3rem);
+    font-size: clamp(1.5rem, 2vh, 3rem);
     letter-spacing: 0.5rem;
   }
   .title-container {
@@ -2612,6 +2628,10 @@ html {
     margin-bottom: 10px;
     margin-top: 5px;
     margin-right: 18px;
+  }
+
+  .analysis-title {
+    font-size: 2.5rem;
   }
 
   .AI-estimate-title {
@@ -2624,8 +2644,17 @@ html {
   }
 
   .circle-number {
-    top: 90px;
-    right: 84px;
+    top: 100px;
+    right: 25%;
+    font-size: 3rem;
+  }
+
+   .percentage-circle {
+    height: 220px;
+  }
+
+  .circle-percentage-sign {
+    font-size: 3rem;
   }
 
   .section-3-title {
@@ -2633,32 +2662,22 @@ html {
   }
 
   #section-1 {
+    text-align: center;
     height: clamp(15px, 40vh, 90px);
-    width: clamp(270px, 50vh, 450px);
-    font-size: clamp(1.75rem, 2vh, 3rem);
+    width: clamp(270px, 50vh, 400px);
+    font-size: clamp(1.75rem, 2vh, 2.75rem);
   }
 
   #section-2 {
-    height: clamp(250px, 40vh, 600px);
+    height: clamp(250px, 40vh, 280px);
     width: clamp(270px, 50vh, 400px);
     font-size: clamp(1.75rem, 2vh, 3rem);
   }
 
   #section-3 {
     height: clamp(500px, 30vh, 800px);
-    width: clamp(270px, 50vh, 450px);
+    width: clamp(270px, 50vh, 400px);
     font-size: clamp(1.75rem, 2vh, 3rem);
-  }
-  .percentage-circle {
-    height: 220px;
-  }
-
-  .percentage-circle svg {
-    width: 200px !important;
-    height: 200px !important;
-    flex-shrink: 0;
-    display: block;
-    margin-left: 150px;
   }
 
   #button-home {
@@ -2672,6 +2691,14 @@ html {
 
   .minibox-back {
     background-color: white;
+  }
+
+   .percentage-circle svg {
+    width: 200px !important;
+    height: 200px !important;
+    flex-shrink: 0;
+    display: block;
+    margin-left: 150px;
   }
 }
 
